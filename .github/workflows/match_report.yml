@@ -1,0 +1,47 @@
+name: Match Report
+
+on:
+  schedule:
+    # 20:55 UTC = 23:55 по Минску — отчёт на завтра готов до полуночи.
+    # Родной cron GitHub вместо внешнего cron-job.org: тот шлёт
+    # repository_dispatch в один конкретный репозиторий, и после форка
+    # продолжал бить в исходный, из-за чего здесь data/*.json не обновлялись.
+    # Расписание GitHub может задержаться на несколько минут при высокой
+    # нагрузке — на 23:55 это не влияет, запас до полуночи есть.
+    - cron: '55 20 * * *'
+  workflow_dispatch:            # ручной запуск из вкладки Actions
+  repository_dispatch:
+    types: [run-match-report]   # оставлено на случай внешнего триггера
+
+permissions:
+  contents: write   # нужно, чтобы шаг ниже мог закоммитить data/*.json обратно в репо
+
+jobs:
+  send-report:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run report script
+        env:
+          HIGHLIGHTLY_API_KEY: ${{ secrets.HIGHLIGHTLY_API_KEY }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python -u match_report.py
+
+      - name: Commit match data
+        run: |
+          git config user.name "match-report-bot"
+          git config user.email "actions@github.com"
+          git add data/
+          git diff --staged --quiet || git commit -m "Update match data $(date -u +%F)"
+          git push

@@ -1,0 +1,383 @@
+{
+  "_comment": "Веса лиг для скоринга матчей. Читается match_report.py. Порядок диапазонов: сборные > международные клубные > МЕСТНЫЕ топ-лига и кубки > глобальные топ-лиги > вторые дивизионы > остальное. Диапазоны разнесены с большим запасом, чтобы правка одного веса не могла случайно перебросить лигу в соседний диапазон.",
+  "default_league_weight": 50,
+  "local_tiers": {
+    "top_division": 520000,
+    "super_cup": 510000,
+    "cup": 500000,
+    "second_division": 55000
+  },
+  "top5_second_division_weight": 50000,
+  "national_teams": {
+    "1635": {
+      "name": "World Cup",
+      "weight": 2000000
+    },
+    "4188": {
+      "name": "Euro Championship",
+      "weight": 1950000
+    },
+    "8443": {
+      "name": "Copa America",
+      "weight": 1900000
+    },
+    "5039": {
+      "name": "UEFA Nations League",
+      "weight": 1850000
+    },
+    "19506": {
+      "name": "CONCACAF Gold Cup",
+      "weight": 1800000
+    },
+    "28016": {
+      "name": "World Cup - Qualification Europe",
+      "weight": 1800000
+    },
+    "29718": {
+      "name": "World Cup - Qualification South America",
+      "weight": 1800000
+    },
+    "9294": {
+      "name": "Friendlies",
+      "weight": 1700000
+    }
+  },
+  "international_clubs": {
+    "2486": {
+      "name": "UEFA Champions League",
+      "weight": 1000000
+    },
+    "3337": {
+      "name": "UEFA Europa League",
+      "weight": 950000
+    },
+    "722432": {
+      "name": "UEFA Europa Conference League",
+      "weight": 900000
+    },
+    "11847": {
+      "name": "CONMEBOL Libertadores",
+      "weight": 850000
+    },
+    "10145": {
+      "name": "CONMEBOL Sudamericana",
+      "weight": 800000
+    }
+  },
+  "top_divisions": {
+    "33973": {
+      "name": "Premier League — England",
+      "weight": 109900
+    },
+    "119924": {
+      "name": "La Liga — Spain",
+      "weight": 109850
+    },
+    "67162": {
+      "name": "Bundesliga — Germany",
+      "weight": 109800
+    },
+    "115669": {
+      "name": "Serie A — Italy",
+      "weight": 109750
+    },
+    "52695": {
+      "name": "Ligue 1 — France",
+      "weight": 109700
+    },
+    "173537": {
+      "name": "Süper Lig — Turkey",
+      "weight": 109650
+    },
+    "75672": {
+      "name": "Eredivisie — Netherlands",
+      "weight": 109600
+    },
+    "123328": {
+      "name": "Jupiler Pro League — Belgium",
+      "weight": 109550
+    },
+    "80778": {
+      "name": "Primeira Liga — Portugal",
+      "weight": 109500
+    },
+    "200769": {
+      "name": "Premier League — Russia",
+      "weight": 109450
+    },
+    "144603": {
+      "name": "Super League — China",
+      "weight": 109400
+    },
+    "84182": {
+      "name": "J1 League — Japan",
+      "weight": 109350
+    },
+    "160772": {
+      "name": "A-League — Australia",
+      "weight": 109300
+    },
+    "109712": {
+      "name": "Liga Profesional — Argentina",
+      "weight": 109250
+    },
+    "61205": {
+      "name": "Serie A — Brazil",
+      "weight": 109200
+    },
+    "216087": {
+      "name": "Major League Soccer — USA",
+      "weight": 109150
+    },
+    "153113": {
+      "name": "Premiership — Scotland",
+      "weight": 109000
+    },
+    "168431": {
+      "name": "Super League 1 — Greece",
+      "weight": 108950
+    },
+    "99500": {
+      "name": "Premier League — Belarus",
+      "weight": 108900
+    },
+    "284167": {
+      "name": "Premier League — Ukraine",
+      "weight": 108850
+    },
+    "176941": {
+      "name": "Super League — Switzerland",
+      "weight": 108800
+    },
+    "186302": {
+      "name": "Bundesliga — Austria",
+      "weight": 108750
+    },
+    "90990": {
+      "name": "Ekstraklasa — Poland",
+      "weight": 108700
+    },
+    "294379": {
+      "name": "Czech Liga — Czech Republic",
+      "weight": 108650
+    },
+    "283316": {
+      "name": "Super Liga — Slovakia",
+      "weight": 108600
+    },
+    "318207": {
+      "name": "1. SNL — Slovenia",
+      "weight": 108550
+    },
+    "179494": {
+      "name": "HNL — Croatia",
+      "weight": 108500
+    },
+    "244170": {
+      "name": "Super Liga — Serbia",
+      "weight": 108450
+    },
+    "241617": {
+      "name": "Liga I — Romania",
+      "weight": 108400
+    },
+    "147156": {
+      "name": "First League — Bulgaria",
+      "weight": 108350
+    },
+    "96947": {
+      "name": "Allsvenskan — Sweden",
+      "weight": 108300
+    },
+    "140348": {
+      "name": "Úrvalsdeild — Iceland",
+      "weight": 108250
+    },
+    "102053": {
+      "name": "Superliga — Denmark",
+      "weight": 108200
+    },
+    "88437": {
+      "name": "Eliteserien — Norway",
+      "weight": 108150
+    },
+    "208428": {
+      "name": "Veikkausliiga — Finland",
+      "weight": 108100
+    },
+    "231405": {
+      "name": "NB I — Hungary",
+      "weight": 108050
+    },
+    "326717": {
+      "name": "Ligat Ha'al — Israel",
+      "weight": 108000
+    },
+    "308846": {
+      "name": "A Lyga — Lithuania",
+      "weight": 107950
+    },
+    "280763": {
+      "name": "Meistriliiga — Estonia",
+      "weight": 107900
+    },
+    "311399": {
+      "name": "Virsliga — Latvia",
+      "weight": 107850
+    },
+    "302889": {
+      "name": "First League — Montenegro",
+      "weight": 107800
+    },
+    "264594": {
+      "name": "Superliga — Albania",
+      "weight": 107750
+    },
+    "291826": {
+      "name": "Premier League — Armenia",
+      "weight": 107700
+    },
+    "336078": {
+      "name": "Super Liga — Moldova",
+      "weight": 107650
+    },
+    "312250": {
+      "name": "1. Deild — Faroe Islands",
+      "weight": 107600
+    },
+    "279061": {
+      "name": "Erovnuli Liga — Georgia",
+      "weight": 107550
+    },
+    "331823": {
+      "name": "Premier League — Kazakhstan",
+      "weight": 107500
+    },
+    "565848": {
+      "name": "Superliga — Kosovo",
+      "weight": 107450
+    },
+    "138646": {
+      "name": "Primera División — Costa Rica",
+      "weight": 107400
+    },
+    "249276": {
+      "name": "K League 1 — South Korea",
+      "weight": 107350
+    },
+    "172686": {
+      "name": "Ligue 1 — Tunisia",
+      "weight": 107300
+    },
+    "290124": {
+      "name": "V.League 1 — Vietnam",
+      "weight": 107250
+    },
+    "314803": {
+      "name": "Super League — Uzbekistan",
+      "weight": 107200
+    },
+    "247574": {
+      "name": "Persian Gulf Pro League — Iran",
+      "weight": 107150
+    },
+    "486705": {
+      "name": "Vysshaya Liga — Tajikistan",
+      "weight": 107100
+    },
+    "337780": {
+      "name": "Primera Division — Nicaragua",
+      "weight": 107000
+    },
+    "645842": {
+      "name": "Premier Division — Gibraltar",
+      "weight": 106950
+    },
+    "362459": {
+      "name": "Premier League — Syria",
+      "weight": 106900
+    },
+    "271402": {
+      "name": "First Division — Cyprus",
+      "weight": 106850
+    }
+  },
+  "second_divisions": {
+    "34824": {
+      "name": "Championship",
+      "country": "England"
+    },
+    "120775": {
+      "name": "Segunda División",
+      "country": "Spain"
+    },
+    "68013": {
+      "name": "2. Bundesliga",
+      "country": "Germany"
+    },
+    "116520": {
+      "name": "Serie B ",
+      "country": "Italy"
+    },
+    "53546": {
+      "name": "Ligue 2 ",
+      "country": "France"
+    }
+  },
+  "locales": {
+    "global": {
+      "label": "Global🌐🌐",
+      "leagues": {}
+    },
+    "brazil": {
+      "label": "Бразилия🇧🇷🇧🇷🇧🇷",
+      "leagues": {
+        "61205": "top_division",
+        "62056": "second_division",
+        "62907": "cup",
+        "538616": "super_cup"
+      }
+    },
+    "india": {
+      "label": "Индия🇮🇳🇮🇳🇮🇳",
+      "leagues": {
+        "275657": "top_division",
+        "276508": "second_division",
+        "464579": "cup"
+      }
+    },
+    "iran": {
+      "label": "Иран🇮🇷🇮🇷🇮🇷",
+      "leagues": {
+        "247574": "top_division",
+        "248425": "second_division",
+        "422029": "cup",
+        "770939": "super_cup"
+      }
+    },
+    "mexico": {
+      "label": "Мексика🇲🇽🇲🇽🇲🇽",
+      "leagues": {
+        "223746": "top_division",
+        "224597": "second_division",
+        "730091": "super_cup"
+      }
+    },
+    "nigeria": {
+      "label": "Нигерия🇳🇬🇳🇬🇳🇬",
+      "leagues": {
+        "340333": "top_division",
+        "1048365": "cup"
+      }
+    },
+    "turkey": {
+      "label": "Турция🇹🇷🇹🇷🇹🇷",
+      "leagues": {
+        "173537": "top_division",
+        "174388": "second_division",
+        "176090": "cup",
+        "469685": "super_cup"
+      }
+    }
+  }
+}

@@ -1,0 +1,67 @@
+name: Match Report Heartbeat
+
+on:
+  schedule:
+    - cron: '0 1 * * *'   # 01:00 UTC = 04:00 Europe/Minsk — буфер ~4ч после ожидаемого запуска в 00:00 Minsk
+  workflow_dispatch:       # для ручного теста
+
+permissions:
+  contents: write
+
+jobs:
+  check-and-retry:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Проверка наличия сегодняшних данных
+        id: check
+        run: |
+          # Та же логика "завтра", что и в match_report.py: Europe/Minsk "сейчас" + 1 день
+          EXPECTED_DATE=$(TZ="Europe/Minsk" date -d "+1 day" +%F)
+          FILE="data/global_${EXPECTED_DATE}.json"
+          echo "expected_date=$EXPECTED_DATE" >> "$GITHUB_OUTPUT"
+          echo "file=$FILE" >> "$GITHUB_OUTPUT"
+          if [ -f "$FILE" ]; then
+            echo "found=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "found=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Уведомление, если ночной запуск не прошёл
+        if: steps.check.outputs.found == 'false'
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          curl -s -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
+            -d chat_id="${TELEGRAM_CHAT_ID}" \
+            -d text="⚠️ Heartbeat: не найден ${{ steps.check.outputs.file }} — похоже, ночной запуск через cron-job.org не сработал. Запускаю match_report.py как резервный вариант."
+
+      - name: Set up Python
+        if: steps.check.outputs.found == 'false'
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        if: steps.check.outputs.found == 'false'
+        run: pip install -r requirements.txt
+
+      - name: Run report script as fallback
+        if: steps.check.outputs.found == 'false'
+        env:
+          HIGHLIGHTLY_API_KEY: ${{ secrets.HIGHLIGHTLY_API_KEY }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python -u match_report.py
+
+      - name: Commit match data
+        if: steps.check.outputs.found == 'false'
+        run: |
+          git config user.name "match-report-bot"
+          git config user.email "actions@github.com"
+          git add data/
+          git diff --staged --quiet || git commit -m "Heartbeat fallback: update match data $(date -u +%F)"
+          git push

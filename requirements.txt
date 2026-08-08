@@ -1,0 +1,5 @@
+requests
+# match_report.py работает в Europe/Minsk через ZoneInfo. На Windows базы
+# часовых поясов в системе нет, её приносит этот пакет; в GitHub Actions
+# (ubuntu) он не ставится и не нужен.
+tzdata; sys_platform == "win32"

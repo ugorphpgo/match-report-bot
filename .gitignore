@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+
+# Секреты: HIGHLIGHTLY_API_KEY / TELEGRAM_BOT_TOKEN / TELEGRAM_CHAT_ID.
+# В GitHub Actions приходят из secrets, локально — из окружения.
+.env
+.env.*
+
+# IDE
+.idea/
+.vscode/
+
+# OS
+Thumbs.db
+.DS_Store
