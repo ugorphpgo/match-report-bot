@@ -57,19 +57,19 @@
     {
       "league_id": 123328,
       "league_name": "Jupiler Pro League",
-      "home_team_id": 511384,
-      "home_team_name": "Zulte Waregem",
-      "away_team_id": 632226,
-      "away_team_name": "Genk",
+      "home_team_id": 627120,
+      "home_team_name": "Charleroi",
+      "away_team_id": 222044,
+      "away_team_name": "OH Leuven",
       "date": "2026-08-09T14:00:00.000Z"
     },
     {
       "league_id": 123328,
       "league_name": "Jupiler Pro League",
-      "home_team_id": 627120,
-      "home_team_name": "Charleroi",
-      "away_team_id": 222044,
-      "away_team_name": "OH Leuven",
+      "home_team_id": 511384,
+      "home_team_name": "Zulte Waregem",
+      "away_team_id": 632226,
+      "away_team_name": "Genk",
       "date": "2026-08-09T14:00:00.000Z"
     },
     {
@@ -266,10 +266,10 @@
     {
       "league_id": 153113,
       "league_name": "Premiership",
-      "home_team_id": 218640,
-      "home_team_name": "Motherwell",
-      "away_team_id": 1182823,
-      "away_team_name": "Falkirk",
+      "home_team_id": 216938,
+      "home_team_name": "Heart of Midlothian",
+      "away_team_id": 1180270,
+      "away_team_name": "Dundee Utd",
       "date": "2026-08-09T14:00:00.000Z"
     }
   ]
