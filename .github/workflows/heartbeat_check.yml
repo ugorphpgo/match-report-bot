@@ -2,7 +2,7 @@ name: Match Report Heartbeat
 
 on:
   schedule:
-    - cron: '0 1 * * *'   # 01:00 UTC = 04:00 Europe/Minsk — буфер ~4ч после запуска в 23:55 Minsk
+    - cron: '0 1 * * *'   # 01:00 UTC = 04:00 Europe/Minsk — буфер ~4ч после запуска в 00:01 Minsk
   workflow_dispatch:       # для ручного теста
 
 permissions:
@@ -18,11 +18,11 @@ jobs:
       - name: Проверка наличия сегодняшних данных
         id: check
         run: |
-          # Основной запуск идёт в 23:55 Minsk предыдущих суток, и match_report.py
-          # пишет файл на "завтра" от того момента — то есть на сегодняшнюю дату
-          # по Минску. Проверяем именно её: "+1 day" тут давал бы дату, которую
-          # ещё никто не считал, и heartbeat падал бы в ложную тревогу каждый день.
-          EXPECTED_DATE=$(TZ="Europe/Minsk" date +%F)
+          # Та же логика "завтра", что и в match_report.py: Europe/Minsk "сейчас" + 1 день.
+          # Основной запуск идёт в 00:01 Minsk этих же суток, так что к 04:00 файл
+          # на завтрашнюю дату уже должен лежать в data/. Дата тут обязана совпадать
+          # с той, что считает скрипт, иначе heartbeat уходит в ложную тревогу каждый день.
+          EXPECTED_DATE=$(TZ="Europe/Minsk" date -d "+1 day" +%F)
           FILE="data/global_${EXPECTED_DATE}.json"
           echo "expected_date=$EXPECTED_DATE" >> "$GITHUB_OUTPUT"
           echo "file=$FILE" >> "$GITHUB_OUTPUT"
