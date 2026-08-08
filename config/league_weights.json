@@ -37,12 +37,40 @@
       "name": "World Cup - Qualification South America",
       "weight": 1800000
     },
+    "27165": {
+      "name": "World Cup - Qualification CONCACAF",
+      "weight": 1800000
+    },
+    "26314": {
+      "name": "World Cup - Qualification Asia",
+      "weight": 1800000
+    },
+    "25463": {
+      "name": "World Cup - Qualification Africa",
+      "weight": 1800000
+    },
+    "28867": {
+      "name": "World Cup - Qualification Oceania",
+      "weight": 1800000
+    },
+    "32271": {
+      "name": "World Cup - Qualification Intercontinental Play-offs",
+      "weight": 1800000
+    },
+    "456920": {
+      "name": "CONCACAF Nations League",
+      "weight": 1750000
+    },
     "9294": {
       "name": "Friendlies",
       "weight": 1700000
     }
   },
   "international_clubs": {
+    "13549": {
+      "name": "FIFA Club World Cup",
+      "weight": 1050000
+    },
     "2486": {
       "name": "UEFA Champions League",
       "weight": 1000000
@@ -59,9 +87,33 @@
       "name": "CONMEBOL Libertadores",
       "weight": 850000
     },
+    "461175": {
+      "name": "CONMEBOL Recopa",
+      "weight": 820000
+    },
     "10145": {
       "name": "CONMEBOL Sudamericana",
-      "weight": 800000
+      "weight": 105225
+    },
+    "14400": {
+      "name": "CONCACAF Champions League",
+      "weight": 105235
+    },
+    "657756": {
+      "name": "Leagues Cup",
+      "weight": 80000
+    },
+    "753919": {
+      "name": "Campeones Cup",
+      "weight": 75000
+    },
+    "875612": {
+      "name": "Concacaf Central American Cup",
+      "weight": 65000
+    },
+    "729240": {
+      "name": "CONCACAF Caribbean Club Championship",
+      "weight": 60000
     }
   },
   "top_divisions": {
@@ -129,17 +181,45 @@
       "name": "Major League Soccer — USA",
       "weight": 109150
     },
+    "223746": {
+      "name": "Liga MX — Mexico",
+      "weight": 109100
+    },
+    "204173": {
+      "name": "Primera A — Colombia",
+      "weight": 109050
+    },
+    "226299": {
+      "name": "Primera División — Chile",
+      "weight": 109025
+    },
     "153113": {
       "name": "Premiership — Scotland",
       "weight": 109000
+    },
+    "228852": {
+      "name": "Primera División Apertura — Uruguay",
+      "weight": 108975
+    },
+    "230554": {
+      "name": "Primera División Clausura — Uruguay",
+      "weight": 108975
     },
     "168431": {
       "name": "Super League 1 — Greece",
       "weight": 108950
     },
+    "239915": {
+      "name": "Primera División — Peru",
+      "weight": 108925
+    },
     "99500": {
       "name": "Premier League — Belarus",
       "weight": 108900
+    },
+    "206726": {
+      "name": "Liga Pro — Ecuador",
+      "weight": 108875
     },
     "284167": {
       "name": "Premier League — Ukraine",

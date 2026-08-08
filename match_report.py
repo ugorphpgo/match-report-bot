@@ -95,9 +95,14 @@ DEFAULT_LEAGUE_WEIGHT = _CFG["default_league_weight"]
 # MIN_START_HOUR, если бы не эта отдельная логика.
 #
 # Поэтому для перечисленных здесь локалей дополнительно запрашиваем начало
-# суток "послезавтра" (только матчи ИХ лиг, до max_hour по Минску) и
-# добавляем эти матчи в пул ИМЕННО этой локали — на другие локали и на
-# Global это не влияет.
+# суток "послезавтра" (все матчи до max_hour по Минску) и добавляем их в пул
+# ИМЕННО этой локали — на другие локали и на Global это не влияет.
+#
+# Окно берётся целиком, без отбора по лигам: в него попадает не только
+# домашний чемпионат, но и Либертадорес, Судамерикана, кубки КОНКАКАФ и
+# соседние южноамериканские лиги, которые играются ровно в эти часы и по
+# весу стоят выше местного чемпионата. Что из этого реально дойдёт до
+# топ-30, решает скоринг, а не список лиг.
 # ---------------------------------------------------------------------------
 CARRY_OVER_CONFIG = {
     "brazil": {"max_hour": 6},  # матчи бразильских лиг с "послезавтра" до 06:00 по Минску
@@ -180,20 +185,29 @@ def is_after_cutoff(m, min_hour=MIN_START_HOUR):
     return parse_local_dt(m["date"]).hour >= min_hour
 
 
-def fetch_carry_over_matches(day_str, league_ids, max_hour):
-    """Матчи из league_ids на дату day_str, стартующие по Минску РАНЬШЕ max_hour.
-    Используется для "перетёкших" вечерних матчей (см. CARRY_OVER_CONFIG)."""
-    if not league_ids:
-        return []
+def fetch_carry_over_matches(day_str, max_hour):
+    """Все матчи на дату day_str, стартующие по Минску РАНЬШЕ max_hour.
+    Используется для "перетёкших" вечерних матчей (см. CARRY_OVER_CONFIG).
+
+    Раньше здесь стоял дополнительный фильтр по лигам самой локали, и в пул
+    Бразилии попадали только четыре её турнира. Из-за этого перетекали
+    исключительно домашние матчи, а Либертадорес, Судамерикана, кубки
+    КОНКАКАФ и соседние южноамериканские чемпионаты — то есть ровно то, что
+    в это окно и играется, — не попадали никуда, хотя по весу они выше
+    любого местного чемпионата.
+
+    Фильтра по лигам тут больше нет намеренно: окно 00:00-08:00 по Минску —
+    это 21:00-05:00 UTC, то есть вечер в обеих Америках и глухая ночь в
+    Азии с Австралией, так что посторонних турниров в нём почти нет. А те,
+    что есть, отсекает не список лиг, а скоринг: всё, чего нет в весах,
+    получает DEFAULT_LEAGUE_WEIGHT и до топ-30 не доходит.
+    """
     try:
         day_matches = fetch_matches(day_str)
     except Exception as e:
         print(f"DEBUG: carry-over fetch failed for {day_str}: {e}")
         return []
-    return [
-        m for m in day_matches
-        if m["league"]["id"] in league_ids and parse_local_dt(m["date"]).hour < max_hour
-    ]
+    return [m for m in day_matches if parse_local_dt(m["date"]).hour < max_hour]
 
 
 def score_match(m, locale_leagues):
@@ -294,7 +308,9 @@ def build_locale_message(locale_key, cfg, matches, report_date, display_date):
     Локальные сообщения дублировали друг друга почти полностью: у Индии,
     Ирана и Нигерии 29 из 30 матчей совпадали с global, то есть в шести чатах
     лежала одна и та же простыня. Поэтому global по-прежнему отдаёт полный
-    топ-30, а локали — только матчи СВОИХ турниров (LOCALE_CONFIG[...]["leagues"]).
+    топ-30, а локали — матчи СВОИХ турниров (LOCALE_CONFIG[...]["leagues"])
+    плюс "перетёкшие" из окна CARRY_OVER_CONFIG. Вторых в global нет по
+    построению, так что на дублирование они не работают.
 
     На data/*.json это не влияет: там остаётся полный список, потому что
     виджеты в админке должны заполняться целиком для каждой локали.
@@ -309,10 +325,27 @@ def build_locale_message(locale_key, cfg, matches, report_date, display_date):
             f"*Топ матчи (10, следующие по приоритету):*\n{format_list(rest, report_date)}"
         )
 
-    local = [m for m in matches if m["league"]["id"] in cfg["leagues"]]
-    if not local:
+    # Кроме своих турниров показываем ещё и "перетёкшие" матчи — те, что лежат
+    # на следующей календарной дате (см. CARRY_OVER_CONFIG). Для Бразилии и
+    # Мексики в это окно попадают Либертадорес, Судамерикана и кубки КОНКАКАФ:
+    # местному читателю они интереснее собственного второго дивизиона, а
+    # раньше отсекались, потому что турнир не входит в whitelist локали.
+    # С global это не задваивается: carry-over добавляется только в пул этих
+    # локалей, в общий топ-30 такие матчи не попадают вовсе.
+    # Отличаем их по дате, а не по отдельному списку: перетёкший матч по
+    # определению лежит не на report_date, и format_list ниже по той же
+    # причине печатает у него дату явно.
+    def is_carried(m):
+        return parse_local_dt(m["date"]).date() != report_date
+
+    selected = [m for m in matches
+                if m["league"]["id"] in cfg["leagues"] or is_carried(m)]
+    if not selected:
         return f"{header}\n\nМестных матчей на эту дату нет."
-    return f"{header}\n\n*Местные матчи ({len(local)}):*\n{format_list(local, report_date)}"
+
+    carried_count = sum(1 for m in selected if is_carried(m))
+    title = "Местные матчи" if not carried_count else "Местные и перетёкшие матчи"
+    return f"{header}\n\n*{title} ({len(selected)}):*\n{format_list(selected, report_date)}"
 
 
 def match_to_dict(m):
@@ -395,8 +428,7 @@ def main():
 
     carry_over_pools = {}
     for locale_key, carry_cfg in CARRY_OVER_CONFIG.items():
-        league_ids = set(LOCALE_CONFIG[locale_key]["leagues"].keys())
-        carried = fetch_carry_over_matches(after_tomorrow_str, league_ids, carry_cfg["max_hour"])
+        carried = fetch_carry_over_matches(after_tomorrow_str, carry_cfg["max_hour"])
         print(f"DEBUG: carried over {len(carried)} matches for locale '{locale_key}' "
               f"from {after_tomorrow_str} (before {carry_cfg['max_hour']}:00 Minsk)")
         carry_over_pools[locale_key] = carried
