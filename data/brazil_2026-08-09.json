@@ -66,19 +66,19 @@
     {
       "league_id": 75672,
       "league_name": "Eredivisie",
-      "home_team_id": 165027,
-      "home_team_name": "PEC Zwolle",
-      "away_team_id": 165878,
-      "away_team_name": "Ajax",
+      "home_team_id": 172686,
+      "home_team_name": "Groningen",
+      "away_team_id": 176941,
+      "away_team_name": "Utrecht",
       "date": "2026-08-09T12:30:00.000Z"
     },
     {
       "league_id": 75672,
       "league_name": "Eredivisie",
-      "home_team_id": 172686,
-      "home_team_name": "Groningen",
-      "away_team_id": 176941,
-      "away_team_name": "Utrecht",
+      "home_team_id": 165027,
+      "home_team_name": "PEC Zwolle",
+      "away_team_id": 165878,
+      "away_team_name": "Ajax",
       "date": "2026-08-09T12:30:00.000Z"
     },
     {
