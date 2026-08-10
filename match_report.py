@@ -49,6 +49,11 @@ REPO_ROOT = os.path.dirname(os.path.abspath(__file__))
 LEAGUE_WEIGHTS_PATH = os.path.join(REPO_ROOT, "config", "league_weights.json")
 DATA_DIR = os.path.join(REPO_ROOT, "data")
 
+# Сколько дней держим data/*.json, прежде чем удалить. Файлы коммитятся в
+# репозиторий (см. workflow), а нужны только coupon-filler'у на день-два
+# вперёд — без чистки папка растёт без предела на каждый прогон.
+DATA_RETENTION_DAYS = 2
+
 with open(LEAGUE_WEIGHTS_PATH, encoding="utf-8") as _f:
     _CFG = json.load(_f)
 
@@ -372,6 +377,41 @@ def match_to_dict(m):
     }
 
 
+def cleanup_old_data(today):
+    """Удаляет data/{locale}_{YYYY-MM-DD}.json, если с даты в имени файла
+    прошло DATA_RETENTION_DAYS дней или больше (today — дата по Минску).
+
+    Имя файла — это единственный источник даты: mtime тут не подходит,
+    потому что после git clone/checkout время модификации — момент чекаута,
+    а не момент, когда отчёт реально был сгенерирован.
+
+    Удаление — это просто os.remove: пометить его как git-изменение должен
+    следующий git add в workflow (git add <pathspec> подхватывает и удаления
+    файлов внутри этого пути, отдельный git rm не нужен).
+    """
+    if not os.path.isdir(DATA_DIR):
+        return
+
+    removed = 0
+    for name in os.listdir(DATA_DIR):
+        if not name.endswith(".json"):
+            continue
+        date_part = name[:-len(".json")].rsplit("_", 1)[-1]
+        try:
+            file_date = datetime.fromisoformat(date_part).date()
+        except ValueError:
+            print(f"DEBUG: cleanup — не распознал дату в имени файла {name}, пропускаю")
+            continue
+        if (today - file_date).days >= DATA_RETENTION_DAYS:
+            os.remove(os.path.join(DATA_DIR, name))
+            removed += 1
+            print(f"DEBUG: cleanup удалил {name} (дата {file_date}, "
+                  f"{(today - file_date).days} дн. назад)")
+
+    print(f"DEBUG: cleanup — удалено {removed} файлов старше "
+          f"{DATA_RETENTION_DAYS} дн. (today={today})", flush=True)
+
+
 def send_telegram(text):
     started = time.monotonic()
     resp = requests.post(
@@ -397,6 +437,11 @@ def main():
     display_date = tomorrow_date.strftime("%d.%m.%Y")
 
     print(f"DEBUG: minsk_now={minsk_now}, tomorrow_str={tomorrow_str}")
+
+    # Чистим старые data/*.json в начале прогона, а не в конце: так чистка
+    # отрабатывает даже если дальше API упадёт или матчей не найдётся и
+    # функция выйдет раньше через return.
+    cleanup_old_data(minsk_now.date())
 
     try:
         all_matches = fetch_matches(tomorrow_str)
