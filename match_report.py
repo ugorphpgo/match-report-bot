@@ -85,7 +85,17 @@ SECOND_DIVISION_LEAGUE_IDS = {
     for lid, entry in _CFG["second_divisions"].items()
 }
 
-# всё, что не в whitelist — Oberliga, Regionalliga, резервы, молодёжки, женские и т.д.
+# Четыре плоские полосы ("одна цена на группу") для турниров из countryName=World
+# в Highlightly, которые раньше падали в DEFAULT_LEAGUE_WEIGHT: второстепенные
+# сборные турниры, молодёжка (некоторые не женские), женский футбол и
+# второстепенные континентальные клубные кубки. Внутри каждой полосы веса
+# все одинаковые — деления по возрасту/конфедерации внутри группы нет.
+REGIONAL_NATIONAL_TEAM_WEIGHT = _weights("regional_national_teams")
+CLUB_MINOR_WEIGHT = _weights("club_minor")
+YOUTH_WEIGHT = _weights("youth_football")
+WOMEN_WEIGHT = _weights("women_football")
+
+# всё, что не в whitelist — Oberliga, Regionalliga, резервы и т.д.
 DEFAULT_LEAGUE_WEIGHT = _CFG["default_league_weight"]
 
 # ---------------------------------------------------------------------------
@@ -222,29 +232,54 @@ def score_match(m, locale_leagues):
     if league_id in locale_leagues:
         return locale_leagues[league_id]
 
-    # 2. Международные сборные
+    # 2. Международные сборные — крупные турниры
     if league_id in NATIONAL_TEAM_WEIGHT:
         return NATIONAL_TEAM_WEIGHT[league_id]
 
-    # 3. Международные клубные
+    # 3. Международные сборные — второстепенные/региональные (Arab Cup, CECAFA,
+    # Baltic Cup и т.д.). Стоят ниже крупных турниров, но выше вообще любого
+    # клубного/лигового матча — тот же принцип, что и у пункта 2.
+    if league_id in REGIONAL_NATIONAL_TEAM_WEIGHT:
+        return REGIONAL_NATIONAL_TEAM_WEIGHT[league_id]
+
+    # 4. Международные клубные — элита (УЕФА, ФИФА) + Южная Америка/КОНКАКАФ,
+    # перенесённые сюда из отдельного диапазона (см. league_weights.json)
     if league_id in INTERNATIONAL_CLUB_WEIGHT:
         return INTERNATIONAL_CLUB_WEIGHT[league_id]
 
-    # 4. Топ-дивизион любой другой страны (whitelist!)
+    # 5. Топ-дивизион любой другой страны (whitelist!)
     if league_id in TOP_DIVISION_WEIGHT:
         return TOP_DIVISION_WEIGHT[league_id]
 
-    # 5. Второй дивизион топ-5 стран — фиксированный вес выше всех чемпионатов вне топ-20
+    # 6. Второй дивизион топ-5 стран — фиксированный вес выше всех чемпионатов вне топ-20
     if league_id in SECOND_DIVISION_LEAGUE_IDS:
         return SECOND_DIVISION_LEAGUE_IDS[league_id][1]
 
-    # 6. Всё остальное — низкий дефолт, включая Oberliga/Regionalliga/резервы/молодёжки
+    # 7. Второстепенные континентальные/региональные клубные турниры (AFC/CAF
+    # уровня и ниже) — ниже любого домашнего чемпионата из whitelist, но
+    # выше молодёжки/женского футбола/полного дефолта.
+    if league_id in CLUB_MINOR_WEIGHT:
+        return CLUB_MINOR_WEIGHT[league_id]
+
+    # 8. Молодёжка (U17-U23, не женская)
+    if league_id in YOUTH_WEIGHT:
+        return YOUTH_WEIGHT[league_id]
+
+    # 9. Женский футбол — сборные и клубы, любой возраст
+    if league_id in WOMEN_WEIGHT:
+        return WOMEN_WEIGHT[league_id]
+
+    # 10. Всё остальное — низкий дефолт, включая Oberliga/Regionalliga/резервы
     return DEFAULT_LEAGUE_WEIGHT
 
 
 def build_lists(matches, locale_leagues):
+    """Возвращает (top_matches, top_events): первые 10 по приоритету и
+    следующие 20. Раньше было наоборот (топ-20 первыми, следующие 10 —
+    top_matches) — своп сделан по запросу, порядок значений в кортеже
+    теперь совпадает с порядком слов в его имени."""
     scored = sorted(matches, key=lambda m: score_match(m, locale_leagues), reverse=True)
-    return scored[:20], scored[20:30]
+    return scored[:10], scored[10:30]
 
 
 def get_category(m):
@@ -323,11 +358,13 @@ def build_locale_message(locale_key, cfg, matches, report_date, display_date):
     header = f"*{cfg['label']} — {display_date}*"
 
     if not cfg["leagues"]:  # global
-        events, rest = matches[:20], matches[20:30]
+        # matches приходит уже в порядке top_matches + top_events (см. main()),
+        # так что первые 10 — самые приоритетные, следующие 20 — остальные.
+        priority, rest = matches[:10], matches[10:30]
         return (
             f"{header}\n\n"
-            f"*Топ ивенты (20):*\n{format_list(events, report_date)}\n\n"
-            f"*Топ матчи (10, следующие по приоритету):*\n{format_list(rest, report_date)}"
+            f"*Топ матчи (10):*\n{format_list(priority, report_date)}\n\n"
+            f"*Топ ивенты (20, следующие по приоритету):*\n{format_list(rest, report_date)}"
         )
 
     # Кроме своих турниров показываем ещё и "перетёкшие" матчи — те, что лежат
@@ -488,7 +525,7 @@ def main():
     sections = []
     for locale_key, cfg in LOCALE_CONFIG.items():
         pool = all_matches + carry_over_pools.get(locale_key, [])
-        top_events, top_matches = build_lists(pool, cfg["leagues"])
+        top_matches, top_events = build_lists(pool, cfg["leagues"])
 
         # --- сохраняем структурированные данные для coupon-filler ---
         # Здесь по-прежнему полный список: виджеты должны заполняться целиком
@@ -507,7 +544,7 @@ def main():
         print(f"DEBUG: wrote {data_path} ({len(top_events)} top_events, {len(top_matches)} top_matches)",
               flush=True)
 
-        sections.append(build_locale_message(locale_key, cfg, top_events + top_matches,
+        sections.append(build_locale_message(locale_key, cfg, top_matches + top_events,
                                               tomorrow_date, display_date))
 
     # Раньше уходило семь отдельных сообщений подряд. Теперь всё собирается в
