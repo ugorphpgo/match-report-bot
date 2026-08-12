@@ -19,15 +19,15 @@
     },
     "8443": {
       "name": "Copa America",
-      "weight": 1900000
+      "weight": 462000
     },
     "5039": {
       "name": "UEFA Nations League",
-      "weight": 1850000
+      "weight": 457000
     },
     "19506": {
       "name": "CONCACAF Gold Cup",
-      "weight": 1800000
+      "weight": 459000
     },
     "28016": {
       "name": "World Cup - Qualification Europe",
@@ -59,7 +59,7 @@
     },
     "456920": {
       "name": "CONCACAF Nations League",
-      "weight": 1750000
+      "weight": 456000
     },
     "9294": {
       "name": "Friendlies",
@@ -67,7 +67,7 @@
     },
     "6741": {
       "name": "Asian Cup",
-      "weight": 1800000
+      "weight": 458000
     },
     "5890": {
       "name": "Africa Cup of Nations",
@@ -75,7 +75,7 @@
     },
     "686690": {
       "name": "OFC Nations Cup",
-      "weight": 1800000
+      "weight": 454000
     },
     "817744": {
       "name": "Euro Championship - Qualification",
@@ -83,23 +83,23 @@
     },
     "31420": {
       "name": "Africa Cup of Nations - Qualification",
-      "weight": 1800000
+      "weight": 451000
     },
     "30569": {
       "name": "Asian Cup - Qualification",
-      "weight": 1800000
+      "weight": 450000
     },
     "730942": {
       "name": "CONCACAF Gold Cup - Qualification",
-      "weight": 1800000
+      "weight": 449000
     },
     "777747": {
       "name": "UEFA-CONMEBOL Finalissima",
-      "weight": 1750000
+      "weight": 453000
     },
     "409264": {
       "name": "Olympics Men",
-      "weight": 1720000
+      "weight": 452000
     }
   },
   "international_clubs": {
@@ -447,103 +447,103 @@
   "regional_national_teams": {
     "21208": {
       "name": "AFF Championship",
-      "weight": 1690000
+      "weight": 430000
     },
     "16953": {
       "name": "African Nations Championship",
-      "weight": 1690000
+      "weight": 430000
     },
     "990497": {
       "name": "African Nations Championship - Qualification",
-      "weight": 1690000
+      "weight": 430000
     },
     "913056": {
       "name": "All Africa Games",
-      "weight": 1690000
+      "weight": 430000
     },
     "732644": {
       "name": "Arab Cup",
-      "weight": 1690000
+      "weight": 430000
     },
     "684137": {
       "name": "Asian Games",
-      "weight": 1690000
+      "weight": 430000
     },
     "723283": {
       "name": "Baltic Cup",
-      "weight": 1690000
+      "weight": 430000
     },
     "865400": {
       "name": "CAC Games",
-      "weight": 1690000
+      "weight": 430000
     },
     "858592": {
       "name": "CAFA Nations Cup",
-      "weight": 1690000
+      "weight": 430000
     },
     "456069": {
       "name": "CECAFA Senior Challenge Cup",
-      "weight": 1690000
+      "weight": 430000
     },
     "1027941": {
       "name": "CONCACAF Series",
-      "weight": 1690000
+      "weight": 430000
     },
     "1053471": {
       "name": "Central American and Caribbean Games",
-      "weight": 1690000
+      "weight": 430000
     },
     "20357": {
       "name": "EAFF E-1 Football Championship",
-      "weight": 1690000
+      "weight": 430000
     },
     "995603": {
       "name": "EAFF E-1 Football Championship - Qualification",
-      "weight": 1690000
+      "weight": 430000
     },
     "22059": {
       "name": "Gulf Cup of Nations",
-      "weight": 1690000
+      "weight": 430000
     },
     "801575": {
       "name": "Islamic Solidarity Games",
-      "weight": 1690000
+      "weight": 430000
     },
     "884122": {
       "name": "King's Cup",
-      "weight": 1690000
+      "weight": 430000
     },
     "1033047": {
       "name": "Kings World Cup Nations",
-      "weight": 1690000
+      "weight": 430000
     },
     "780300": {
       "name": "Kirin Cup",
-      "weight": 1690000
+      "weight": 430000
     },
     "1040706": {
       "name": "FIFA Series",
-      "weight": 1690000
+      "weight": 430000
     },
     "24612": {
       "name": "SAFF Championship",
-      "weight": 1690000
+      "weight": 430000
     },
     "776045": {
       "name": "Southeast Asian Games",
-      "weight": 1690000
+      "weight": 430000
     },
     "656054": {
       "name": "Pacific Games",
-      "weight": 1690000
+      "weight": 430000
     },
     "890079": {
       "name": "Pan American Games",
-      "weight": 1690000
+      "weight": 430000
     },
     "782853": {
       "name": "Mediterranean Games",
-      "weight": 1690000
+      "weight": 430000
     }
   },
   "club_minor": {
