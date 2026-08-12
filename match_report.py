@@ -273,13 +273,27 @@ def score_match(m, locale_leagues):
     return DEFAULT_LEAGUE_WEIGHT
 
 
-def build_lists(matches, locale_leagues):
-    """Возвращает (top_matches, top_events): первые 10 по приоритету и
-    следующие 20. Раньше было наоборот (топ-20 первыми, следующие 10 —
-    top_matches) — своп сделан по запросу, порядок значений в кортеже
-    теперь совпадает с порядком слов в его имени."""
-    scored = sorted(matches, key=lambda m: score_match(m, locale_leagues), reverse=True)
-    return scored[:10], scored[10:30]
+def rank_matches(matches, locale_leagues):
+    """Топ-30 матчей в порядке убывания приоритета."""
+    return sorted(matches, key=lambda m: score_match(m, locale_leagues), reverse=True)[:30]
+
+
+def split_widgets(ranked):
+    """Делит топ-30 на две пачки под виджеты админки: (top_matches, top_events).
+
+    Раскладка намеренно неоднородная: места 1-10 и 21-30 по приоритету идут
+    в top_events, а места 11-20 — в top_matches. То есть top_events получает
+    и самые сильные матчи, и хвост, а top_matches — середину.
+
+    Правило живёт только здесь: и data/*.json, и текст для телеграма берут
+    раскладку из этой функции. Если развести их по разным местам, они
+    разъедутся при следующей правке — так уже было, когда телеграм резал
+    список своими срезами параллельно с build_lists.
+
+    ranked короче 30 не ломает: срезы просто отдадут меньше, суммарно все
+    матчи всё равно распределятся без потерь.
+    """
+    return ranked[10:20], ranked[:10] + ranked[20:30]
 
 
 def get_category(m):
@@ -358,13 +372,18 @@ def build_locale_message(locale_key, cfg, matches, report_date, display_date):
     header = f"*{cfg['label']} — {display_date}*"
 
     if not cfg["leagues"]:  # global
-        # matches приходит уже в порядке top_matches + top_events (см. main()),
-        # так что первые 10 — самые приоритетные, следующие 20 — остальные.
-        priority, rest = matches[:10], matches[10:30]
+        # matches приходит в порядке убывания приоритета (см. main()), а на
+        # блоки его режет та же split_widgets, что раскладывает data/*.json —
+        # чтобы отчёт в телеграме показывал ровно то же, что уйдёт в виджеты.
+        # Состав блоков неоднородный, поэтому места указаны прямо в заголовке:
+        # иначе непонятно, почему в "ивентах" и лидеры, и хвост разом.
+        block_matches, block_events = split_widgets(matches)
         return (
             f"{header}\n\n"
-            f"*Топ матчи (10):*\n{format_list(priority, report_date)}\n\n"
-            f"*Топ ивенты (20, следующие по приоритету):*\n{format_list(rest, report_date)}"
+            f"*Топ ивенты (20 — места 1-10 и 21-30):*\n"
+            f"{format_list(block_events, report_date)}\n\n"
+            f"*Топ матчи (10 — места 11-20):*\n"
+            f"{format_list(block_matches, report_date)}"
         )
 
     # Кроме своих турниров показываем ещё и "перетёкшие" матчи — те, что лежат
@@ -525,7 +544,8 @@ def main():
     sections = []
     for locale_key, cfg in LOCALE_CONFIG.items():
         pool = all_matches + carry_over_pools.get(locale_key, [])
-        top_matches, top_events = build_lists(pool, cfg["leagues"])
+        ranked = rank_matches(pool, cfg["leagues"])
+        top_matches, top_events = split_widgets(ranked)
 
         # --- сохраняем структурированные данные для coupon-filler ---
         # Здесь по-прежнему полный список: виджеты должны заполняться целиком
@@ -544,7 +564,7 @@ def main():
         print(f"DEBUG: wrote {data_path} ({len(top_events)} top_events, {len(top_matches)} top_matches)",
               flush=True)
 
-        sections.append(build_locale_message(locale_key, cfg, top_matches + top_events,
+        sections.append(build_locale_message(locale_key, cfg, ranked,
                                               tomorrow_date, display_date))
 
     # Раньше уходило семь отдельных сообщений подряд. Теперь всё собирается в
