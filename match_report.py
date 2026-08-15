@@ -275,7 +275,7 @@ def score_match(m, locale_leagues):
 
 def rank_matches(matches, locale_leagues):
     """Топ-30 матчей в порядке убывания приоритета."""
-    return sorted(matches, key=lambda m: score_match(m, locale_leagues), reverse=True)[:30]
+    return sorted(matches, key=lambda m: score_match(m, locale_leagues), reverse=True)[:22]
 
 
 def split_widgets(ranked):
@@ -293,7 +293,7 @@ def split_widgets(ranked):
     ranked короче 30 не ломает: срезы просто отдадут меньше, суммарно все
     матчи всё равно распределятся без потерь.
     """
-    return ranked[10:20], ranked[:10] + ranked[20:30]
+    return ranked[12:22], ranked[:12] 
 
 
 def get_category(m):
@@ -380,9 +380,9 @@ def build_locale_message(locale_key, cfg, matches, report_date, display_date):
         block_matches, block_events = split_widgets(matches)
         return (
             f"{header}\n\n"
-            f"*Топ ивенты (20 — места 1-10 и 21-30):*\n"
+            f"*Топ ивенты :*\n"
             f"{format_list(block_events, report_date)}\n\n"
-            f"*Топ матчи (10 — места 11-20):*\n"
+            f"*Топ матчи :*\n"
             f"{format_list(block_matches, report_date)}"
         )
 
