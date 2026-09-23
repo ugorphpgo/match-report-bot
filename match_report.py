@@ -74,7 +74,16 @@ def priority_tables(entries):
     return priorities, groups
 
 
+def excluded_leagues(entries):
+    """Исключённые турниры: {id: причина}. Их матчи не попадают в список ни
+    одной локали — формат не линкуется с админкой (не 11 на 11, изменённые
+    правила вроде Kings League). Не приоритет 0: тот в бедный день всё равно
+    добрал бы такие матчи в хвост списка."""
+    return {int(lid): e["excluded"] for lid, e in entries.items() if e.get("excluded")}
+
+
 PRIORITIES, GROUPS = priority_tables(_CFG["priorities"])
+EXCLUDED = excluded_leagues(_CFG["priorities"])
 
 # Всё, чего нет в таблице, — Oberliga, Regionalliga, резервы и т.д.
 DEFAULT_PRIORITY = _CFG["default_priority"]
@@ -236,8 +245,11 @@ def local_leagues(cfg):
 
 
 def rank_matches(matches, overrides):
-    """Топ-30 матчей в порядке убывания приоритета."""
-    return sorted(matches, key=lambda m: score_match(m, overrides), reverse=True)[:22]
+    """Топ-30 матчей в порядке убывания приоритета. Исключённые турниры
+    отсекаются здесь — одно место на ежедневный отчёт, --lists-only и
+    донабор «перетёкших», и переопределение локали их не возвращает."""
+    allowed = [m for m in matches if m["league"]["id"] not in EXCLUDED]
+    return sorted(allowed, key=lambda m: score_match(m, overrides), reverse=True)[:22]
 
 
 def split_widgets(ranked):

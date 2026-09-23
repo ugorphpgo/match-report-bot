@@ -103,6 +103,35 @@ class ResetEntry(unittest.TestCase):
         self.assertEqual(groups[40], "national_teams")
 
 
+class Excluded(unittest.TestCase):
+    """Исключённый турнир (не 11 на 11, изменённые правила) не попадает в
+    список никогда — даже в бедный день, когда 22 места не набираются."""
+
+    KINGS = 77
+
+    def setUp(self):
+        for name, value in (("PRIORITIES", {**PRIORITIES, self.KINGS: 430}),
+                            ("GROUPS", GROUPS), ("DEFAULT_PRIORITY", 1),
+                            ("EXCLUDED", {self.KINGS: "формат Kings League"})):
+            p = patch.object(match_report, name, value)
+            p.start()
+            self.addCleanup(p.stop)
+
+    def test_excluded_never_ranked_even_on_thin_day(self):
+        ranked = match_report.rank_matches([match(self.KINGS), match(EPL)], {})
+        self.assertEqual([m["league"]["id"] for m in ranked], [EPL])
+
+    def test_locale_override_does_not_bring_it_back(self):
+        ranked = match_report.rank_matches([match(self.KINGS)], {self.KINGS: 900})
+        self.assertEqual(ranked, [])
+
+    def test_excluded_parsed_from_config_without_priority(self):
+        entries = {"77": {"name": "Kings Cup", "excluded": "7 на 7"},
+                   "20": {"name": "Premier League", "priority": 480}}
+        self.assertEqual(match_report.excluded_leagues(entries), {77: "7 на 7"})
+        self.assertEqual(match_report.priority_tables(entries)[0], {20: 480})
+
+
 class ConfigShape(unittest.TestCase):
     """Настоящий config/league_weights.json читается и непротиворечив."""
 
@@ -114,6 +143,14 @@ class ConfigShape(unittest.TestCase):
                 self.assertIsInstance(priority, int, key)
         for league_id, priority in match_report.PRIORITIES.items():
             self.assertIsInstance(priority, int, league_id)
+
+    def test_excluded_has_no_priority_anywhere(self):
+        # Приоритет исключённого турнира — мёртвое число: сапорт поднял бы его
+        # во вкладке и ждал бы эффекта, которого не будет.
+        for league_id in match_report.EXCLUDED:
+            self.assertNotIn(league_id, match_report.PRIORITIES)
+            for key, cfg in match_report.LOCALE_CONFIG.items():
+                self.assertNotIn(league_id, cfg["overrides"], key)
 
 
 if __name__ == "__main__":

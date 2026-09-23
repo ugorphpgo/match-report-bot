@@ -637,8 +637,8 @@
     },
     "1033047": {
       "name": "Kings World Cup Nations",
-      "priority": 430,
-      "group": "regional_national_teams"
+      "group": "regional_national_teams",
+      "excluded": "формат Kings League (7 на 7, изменённые правила) — не линкуется с админкой"
     },
     "780300": {
       "name": "Kirin Cup",
@@ -1174,6 +1174,10 @@
       "name": "Liga Women",
       "priority": 15,
       "group": "women_football"
+    },
+    "1026239": {
+      "name": "Kings Cup — Brazil",
+      "excluded": "формат Kings League (7 на 7, изменённые правила) — не линкуется с админкой"
     }
   },
   "locales": {
