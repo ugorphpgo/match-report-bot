@@ -41,12 +41,13 @@ LOCAL_TZ_NAME = "Europe/Minsk"
 # заходит в это время. Порог можно менять одной строкой.
 MIN_START_HOUR = 7
 
-# --- Веса лиг ---
-# Раньше три больших словаря с ~77 лигами лежали прямо здесь. Вынесены в
-# config/league_weights.json: править вес лиги теперь можно, не трогая код,
-# а названия лиг стали данными (поле "name"), а не комментариями рядом с id.
-# Структуры ниже собираются из конфига ровно в том же виде, в каком их
-# ожидает остальной код этого файла.
+# --- Приоритеты турниров ---
+# Одна таблица в config/league_weights.json: общий приоритет турнира для всех
+# локалей плюс переопределения отдельной локали. Правится вкладкой
+# «Приоритеты» заполнялки (coupon-filler), которая сама коммитит и пушит, —
+# поэтому здесь нет разделов «сборные / еврокубки / топ-дивизионы»: редактору
+# пришлось бы угадывать, в какой из них класть новый турнир. Разделы ни разу
+# не пересекались, так что свёртка в одну таблицу отбор не изменила.
 REPO_ROOT = os.path.dirname(os.path.abspath(__file__))
 LEAGUE_WEIGHTS_PATH = os.path.join(REPO_ROOT, "config", "league_weights.json")
 DATA_DIR = os.path.join(REPO_ROOT, "data")
@@ -59,46 +60,33 @@ DATA_RETENTION_DAYS = 2
 with open(LEAGUE_WEIGHTS_PATH, encoding="utf-8") as _f:
     _CFG = json.load(_f)
 
-_TIERS = _CFG["local_tiers"]
+def priority_tables(entries):
+    """(приоритеты, группы) из таблицы priorities конфига.
+
+    Запись без числа — турнир, сброшенный во вкладке к умолчанию: в
+    приоритеты он не идёт, а group у него остаётся. group — прежний раздел
+    турнира; на отбор не влияет, только на подпись категории в телеграме
+    (get_category): сборные и еврокубки подписываются International, а не
+    страной из ответа Highlightly.
+    """
+    priorities = {int(lid): e["priority"] for lid, e in entries.items() if "priority" in e}
+    groups = {int(lid): e.get("group") for lid, e in entries.items()}
+    return priorities, groups
+
+
+PRIORITIES, GROUPS = priority_tables(_CFG["priorities"])
+
+# Всё, чего нет в таблице, — Oberliga, Regionalliga, резервы и т.д.
+DEFAULT_PRIORITY = _CFG["default_priority"]
 
 LOCALE_CONFIG = {
     key: {
         "label": conf["label"],
-        "leagues": {int(lid): _TIERS[tier] for lid, tier in conf["leagues"].items()},
+        "overrides": {int(lid): priority for lid, priority in conf["overrides"].items()},
     }
     for key, conf in _CFG["locales"].items()
 }
 
-
-def _weights(section):
-    return {int(lid): entry["weight"] for lid, entry in _CFG[section].items()}
-
-
-NATIONAL_TEAM_WEIGHT = _weights("national_teams")
-INTERNATIONAL_CLUB_WEIGHT = _weights("international_clubs")
-TOP_DIVISION_WEIGHT = _weights("top_divisions")
-
-# Вторые дивизионы топ-5 стран: фиксированный вес выше любого топ-чемпионата
-# вне топ-20. Значение одно на всех, поэтому в конфиге у них хранится только
-# страна, а вес берётся отсюда.
-TOP5_SECOND_DIVISION_WEIGHT = _CFG["top5_second_division_weight"]
-SECOND_DIVISION_LEAGUE_IDS = {
-    int(lid): (entry["country"], TOP5_SECOND_DIVISION_WEIGHT)
-    for lid, entry in _CFG["second_divisions"].items()
-}
-
-# Четыре плоские полосы ("одна цена на группу") для турниров из countryName=World
-# в Highlightly, которые раньше падали в DEFAULT_LEAGUE_WEIGHT: второстепенные
-# сборные турниры, молодёжка (некоторые не женские), женский футбол и
-# второстепенные континентальные клубные кубки. Внутри каждой полосы веса
-# все одинаковые — деления по возрасту/конфедерации внутри группы нет.
-REGIONAL_NATIONAL_TEAM_WEIGHT = _weights("regional_national_teams")
-CLUB_MINOR_WEIGHT = _weights("club_minor")
-YOUTH_WEIGHT = _weights("youth_football")
-WOMEN_WEIGHT = _weights("women_football")
-
-# всё, что не в whitelist — Oberliga, Regionalliga, резервы и т.д.
-DEFAULT_LEAGUE_WEIGHT = _CFG["default_league_weight"]
 
 # ---------------------------------------------------------------------------
 # ДОНАБОР "ПЕРЕТЁКШИХ" МАТЧЕЙ
@@ -217,7 +205,7 @@ def fetch_carry_over_matches(day_str, max_hour):
     это 21:00-05:00 UTC, то есть вечер в обеих Америках и глухая ночь в
     Азии с Австралией, так что посторонних турниров в нём почти нет. А те,
     что есть, отсекает не список лиг, а скоринг: всё, чего нет в весах,
-    получает DEFAULT_LEAGUE_WEIGHT и до топ-30 не доходит.
+    получает DEFAULT_PRIORITY и до топ-30 не доходит.
     """
     try:
         day_matches = fetch_matches(day_str)
@@ -227,57 +215,29 @@ def fetch_carry_over_matches(day_str, max_hour):
     return [m for m in day_matches if parse_local_dt(m["date"]).hour < max_hour]
 
 
-def score_match(m, locale_leagues):
+def score_match(m, overrides):
+    """Приоритет матча для локали: её переопределение, иначе общий приоритет
+    турнира, иначе DEFAULT_PRIORITY."""
     league_id = m["league"]["id"]
-
-    # 1. Whitelist локали — только явно перечисленные турниры
-    if league_id in locale_leagues:
-        return locale_leagues[league_id]
-
-    # 2. Международные сборные — крупные турниры
-    if league_id in NATIONAL_TEAM_WEIGHT:
-        return NATIONAL_TEAM_WEIGHT[league_id]
-
-    # 3. Международные сборные — второстепенные/региональные (Arab Cup, CECAFA,
-    # Baltic Cup и т.д.). Стоят ниже крупных турниров, но выше вообще любого
-    # клубного/лигового матча — тот же принцип, что и у пункта 2.
-    if league_id in REGIONAL_NATIONAL_TEAM_WEIGHT:
-        return REGIONAL_NATIONAL_TEAM_WEIGHT[league_id]
-
-    # 4. Международные клубные — элита (УЕФА, ФИФА) + Южная Америка/КОНКАКАФ,
-    # перенесённые сюда из отдельного диапазона (см. league_weights.json)
-    if league_id in INTERNATIONAL_CLUB_WEIGHT:
-        return INTERNATIONAL_CLUB_WEIGHT[league_id]
-
-    # 5. Топ-дивизион любой другой страны (whitelist!)
-    if league_id in TOP_DIVISION_WEIGHT:
-        return TOP_DIVISION_WEIGHT[league_id]
-
-    # 6. Второй дивизион топ-5 стран — фиксированный вес выше всех чемпионатов вне топ-20
-    if league_id in SECOND_DIVISION_LEAGUE_IDS:
-        return SECOND_DIVISION_LEAGUE_IDS[league_id][1]
-
-    # 7. Второстепенные континентальные/региональные клубные турниры (AFC/CAF
-    # уровня и ниже) — ниже любого домашнего чемпионата из whitelist, но
-    # выше молодёжки/женского футбола/полного дефолта.
-    if league_id in CLUB_MINOR_WEIGHT:
-        return CLUB_MINOR_WEIGHT[league_id]
-
-    # 8. Молодёжка (U17-U23, не женская)
-    if league_id in YOUTH_WEIGHT:
-        return YOUTH_WEIGHT[league_id]
-
-    # 9. Женский футбол — сборные и клубы, любой возраст
-    if league_id in WOMEN_WEIGHT:
-        return WOMEN_WEIGHT[league_id]
-
-    # 10. Всё остальное — низкий дефолт, включая Oberliga/Regionalliga/резервы
-    return DEFAULT_LEAGUE_WEIGHT
+    if league_id in overrides:
+        return overrides[league_id]
+    return PRIORITIES.get(league_id, DEFAULT_PRIORITY)
 
 
-def rank_matches(matches, locale_leagues):
+def local_leagues(cfg):
+    """Местные турниры локали — те, что она подняла выше общего приоритета.
+
+    Раньше это был отдельный список местных лиг с ярусами; теперь он стал
+    переопределениями. Но не всякое переопределение — местный турнир: опущенная
+    для Ирана Лига чемпионов в «Местные матчи» телеграма попадать не должна.
+    """
+    return {league_id for league_id, priority in cfg["overrides"].items()
+            if priority > PRIORITIES.get(league_id, DEFAULT_PRIORITY)}
+
+
+def rank_matches(matches, overrides):
     """Топ-30 матчей в порядке убывания приоритета."""
-    return sorted(matches, key=lambda m: score_match(m, locale_leagues), reverse=True)[:22]
+    return sorted(matches, key=lambda m: score_match(m, overrides), reverse=True)[:22]
 
 
 def split_widgets(ranked):
@@ -302,9 +262,9 @@ def get_category(m):
     league_id = m["league"]["id"]
     country = m.get("country", {}).get("name", "")
 
-    if league_id in NATIONAL_TEAM_WEIGHT:
+    if GROUPS.get(league_id) == "national_teams":
         return "International"
-    if league_id in INTERNATIONAL_CLUB_WEIGHT:
+    if GROUPS.get(league_id) == "international_clubs":
         return "International Clubs"
     return country
 
@@ -364,7 +324,7 @@ def build_locale_message(locale_key, cfg, matches, report_date, display_date):
     Локальные сообщения дублировали друг друга почти полностью: у Индии,
     Ирана и Нигерии 29 из 30 матчей совпадали с global, то есть в шести чатах
     лежала одна и та же простыня. Поэтому global по-прежнему отдаёт полный
-    топ-30, а локали — матчи СВОИХ турниров (LOCALE_CONFIG[...]["leagues"])
+    топ-30, а локали — матчи СВОИХ турниров (local_leagues)
     плюс "перетёкшие" из окна CARRY_OVER_CONFIG. Вторых в global нет по
     построению, так что на дублирование они не работают.
 
@@ -373,7 +333,9 @@ def build_locale_message(locale_key, cfg, matches, report_date, display_date):
     """
     header = f"*{cfg['label']} — {display_date}*"
 
-    if not cfg["leagues"]:  # global
+    # Global — по ключу, а не по пустым переопределениям: их можно завести и
+    # ему, и тогда общий топ превратился бы в «местные матчи».
+    if locale_key == "global":
         # matches приходит в порядке убывания приоритета (см. main()), а на
         # блоки его режет та же split_widgets, что раскладывает data/*.json —
         # чтобы отчёт в телеграме показывал ровно то же, что уйдёт в виджеты.
@@ -401,8 +363,9 @@ def build_locale_message(locale_key, cfg, matches, report_date, display_date):
     def is_carried(m):
         return parse_local_dt(m["date"]).date() != report_date
 
+    local = local_leagues(cfg)
     selected = [m for m in matches
-                if m["league"]["id"] in cfg["leagues"] or is_carried(m)]
+                if m["league"]["id"] in local or is_carried(m)]
     if not selected:
         return f"{header}\n\nМестных матчей на эту дату нет."
 
@@ -515,7 +478,7 @@ def write_locale_lists(out_dir, locale_key, cfg, day_str, matches, carry_over_po
     os.makedirs(out_dir, exist_ok=True)
 
     pool = matches + carry_over_pools.get(locale_key, [])
-    ranked = rank_matches(pool, cfg["leagues"])
+    ranked = rank_matches(pool, cfg["overrides"])
     top_matches, top_events = split_widgets(ranked)
 
     # Здесь полный список: виджеты должны заполняться целиком для каждой

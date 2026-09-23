@@ -1,990 +1,1234 @@
 {
-  "_comment": "Веса лиг для скоринга матчей. Читается match_report.py. Порядок диапазонов: сборные-major > международные клубные-элита > МЕСТНЫЕ топ-лига и кубки > Tier-3 (топ-5 Европы > Либертадорес > Аргентина/Бразилия > Судамерикана/Recopa > КОНКАКАФ-клубы/MLS/LigaMX > остальные лиги мира) > 2-й дивизион топ-5 > club_minor > youth_football > women_football > остальное (дефолт). Полностью перенумеровано — старая шкала top_divisions (шаг 50) была насыщена и физически не вмещала перестановку Европа/Южная Америка + ~150 новых турниров из countryName=World. Разрывы между смысловыми блоками ≥15000, шаг внутри кластеров ≥3000 — задел на будущие точечные правки.",
-  "default_league_weight": 50,
-  "local_tiers": {
-    "top_division": 520000,
-    "super_cup": 510000,
-    "cup": 500000,
-    "second_division": 55000
-  },
-  "top5_second_division_weight": 50000,
-  "national_teams": {
+  "_comment": "Приоритеты турниров для отбора матчей. Читается match_report.py, правится вкладкой «Приоритеты» заполнялки (coupon-filler) — она же коммитит и пушит. priorities — общий приоритет турнира для всех локалей; locales.*.overrides — переопределение для одной локали (ей одной). Турнир без записи получает default_priority. Порядок сравнения: переопределение локали > общий > по умолчанию. group — прежний раздел файла; нужен только подписи категории в Telegram (national_teams → International, international_clubs → International Clubs) и редактором не меняется. ranges — именованные пороги для подсказки в редакторе, на отбор не влияют. Числа в тысячах прежней шкалы: разрывы между смысловыми блоками ≥15, шаг внутри кластеров ≥3 — задел на точечные правки.",
+  "default_priority": 1,
+  "ranges": [
+    {
+      "from": 1100,
+      "name": "крупные турниры сборных"
+    },
+    {
+      "from": 800,
+      "name": "элита международных клубных"
+    },
+    {
+      "from": 500,
+      "name": "местные: топ-лига и кубки"
+    },
+    {
+      "from": 100,
+      "name": "лиги мира и прочие международные"
+    },
+    {
+      "from": 50,
+      "name": "вторые дивизионы"
+    },
+    {
+      "from": 45,
+      "name": "малые клубные турниры"
+    },
+    {
+      "from": 30,
+      "name": "юношеский футбол"
+    },
+    {
+      "from": 15,
+      "name": "женский футбол"
+    },
+    {
+      "from": 0,
+      "name": "прочее"
+    }
+  ],
+  "priorities": {
     "1635": {
       "name": "World Cup",
-      "weight": 2000000
+      "priority": 2000,
+      "group": "national_teams"
     },
     "4188": {
       "name": "Euro Championship",
-      "weight": 1950000
+      "priority": 1950,
+      "group": "national_teams"
     },
     "8443": {
       "name": "Copa America",
-      "weight": 462000
+      "priority": 462,
+      "group": "national_teams"
     },
     "5039": {
       "name": "UEFA Nations League",
-      "weight": 1900000
+      "priority": 1900,
+      "group": "national_teams"
     },
     "19506": {
       "name": "CONCACAF Gold Cup",
-      "weight": 459000
+      "priority": 459,
+      "group": "national_teams"
     },
     "28016": {
       "name": "World Cup - Qualification Europe",
-      "weight": 1800000
+      "priority": 1800,
+      "group": "national_teams"
     },
     "29718": {
       "name": "World Cup - Qualification South America",
-      "weight": 1800000
+      "priority": 1800,
+      "group": "national_teams"
     },
     "27165": {
       "name": "World Cup - Qualification CONCACAF",
-      "weight": 1800000
+      "priority": 1800,
+      "group": "national_teams"
     },
     "26314": {
       "name": "World Cup - Qualification Asia",
-      "weight": 1800000
+      "priority": 1800,
+      "group": "national_teams"
     },
     "25463": {
       "name": "World Cup - Qualification Africa",
-      "weight": 1800000
+      "priority": 1800,
+      "group": "national_teams"
     },
     "28867": {
       "name": "World Cup - Qualification Oceania",
-      "weight": 1800000
+      "priority": 1800,
+      "group": "national_teams"
     },
     "32271": {
       "name": "World Cup - Qualification Intercontinental Play-offs",
-      "weight": 1800000
+      "priority": 1800,
+      "group": "national_teams"
     },
     "456920": {
       "name": "CONCACAF Nations League",
-      "weight": 456000
+      "priority": 456,
+      "group": "national_teams"
     },
     "9294": {
       "name": "Friendlies",
-      "weight": 455000
+      "priority": 455,
+      "group": "national_teams"
     },
     "6741": {
       "name": "Asian Cup",
-      "weight": 458000
+      "priority": 458,
+      "group": "national_teams"
     },
     "5890": {
       "name": "Africa Cup of Nations",
-      "weight": 461000
+      "priority": 461,
+      "group": "national_teams"
     },
     "686690": {
       "name": "OFC Nations Cup",
-      "weight": 154000
+      "priority": 154,
+      "group": "national_teams"
     },
     "817744": {
       "name": "Euro Championship - Qualification",
-      "weight": 1800000
+      "priority": 1800,
+      "group": "national_teams"
     },
     "31420": {
       "name": "Africa Cup of Nations - Qualification",
-      "weight": 451000
+      "priority": 451,
+      "group": "national_teams"
     },
     "30569": {
       "name": "Asian Cup - Qualification",
-      "weight": 450000
+      "priority": 450,
+      "group": "national_teams"
     },
     "730942": {
       "name": "CONCACAF Gold Cup - Qualification",
-      "weight": 449000
+      "priority": 449,
+      "group": "national_teams"
     },
     "777747": {
       "name": "UEFA-CONMEBOL Finalissima",
-      "weight": 453000
+      "priority": 453,
+      "group": "national_teams"
     },
     "409264": {
       "name": "Olympics Men",
-      "weight": 452000
-    }
-  },
-  "international_clubs": {
+      "priority": 452,
+      "group": "national_teams"
+    },
     "13549": {
       "name": "FIFA Club World Cup",
-      "weight": 1050000
+      "priority": 1050,
+      "group": "international_clubs"
     },
     "2486": {
       "name": "UEFA Champions League",
-      "weight": 1000000
+      "priority": 1000,
+      "group": "international_clubs"
     },
     "3337": {
       "name": "UEFA Europa League",
-      "weight": 950000
+      "priority": 950,
+      "group": "international_clubs"
     },
     "722432": {
       "name": "UEFA Europa Conference League",
-      "weight": 900000
+      "priority": 900,
+      "group": "international_clubs"
     },
     "452665": {
       "name": "UEFA Super Cup",
-      "weight": 870000
+      "priority": 870,
+      "group": "international_clubs"
     },
     "994752": {
       "name": "FIFA Intercontinental Cup",
-      "weight": 850000
+      "priority": 850,
+      "group": "international_clubs"
     },
     "11847": {
       "name": "CONMEBOL Libertadores",
-      "weight": 440000
+      "priority": 440,
+      "group": "international_clubs"
     },
     "10145": {
       "name": "CONMEBOL Sudamericana",
-      "weight": 400000
+      "priority": 400,
+      "group": "international_clubs"
     },
     "461175": {
       "name": "CONMEBOL Recopa",
-      "weight": 395000
+      "priority": 395,
+      "group": "international_clubs"
     },
     "872208": {
       "name": "UEFA-CONMEBOL Club Challenge",
-      "weight": 390000
+      "priority": 390,
+      "group": "international_clubs"
     },
     "14400": {
       "name": "CONCACAF Champions League",
-      "weight": 375000
+      "priority": 375,
+      "group": "international_clubs"
     },
     "657756": {
       "name": "Leagues Cup",
-      "weight": 360000
+      "priority": 360,
+      "group": "international_clubs"
     },
     "753919": {
       "name": "Campeones Cup",
-      "weight": 355000
-    }
-  },
-  "top_divisions": {
+      "priority": 355,
+      "group": "international_clubs"
+    },
     "33973": {
       "name": "Premier League — England",
-      "weight": 480000
+      "priority": 480,
+      "group": "top_divisions"
     },
     "119924": {
       "name": "La Liga — Spain",
-      "weight": 475000
+      "priority": 475,
+      "group": "top_divisions"
     },
     "67162": {
       "name": "Bundesliga — Germany",
-      "weight": 470000
+      "priority": 470,
+      "group": "top_divisions"
     },
     "115669": {
       "name": "Serie A — Italy",
-      "weight": 465000
+      "priority": 465,
+      "group": "top_divisions"
     },
     "52695": {
       "name": "Ligue 1 — France",
-      "weight": 460000
+      "priority": 460,
+      "group": "top_divisions"
     },
     "109712": {
       "name": "Liga Profesional — Argentina",
-      "weight": 420000
+      "priority": 420,
+      "group": "top_divisions"
     },
     "61205": {
       "name": "Serie A — Brazil",
-      "weight": 415000
+      "priority": 415,
+      "group": "top_divisions"
     },
     "216087": {
       "name": "Major League Soccer — USA",
-      "weight": 370000
+      "priority": 370,
+      "group": "top_divisions"
     },
     "223746": {
       "name": "Liga MX — Mexico",
-      "weight": 365000
+      "priority": 365,
+      "group": "top_divisions"
     },
     "173537": {
       "name": "Süper Lig — Turkey",
-      "weight": 340000
+      "priority": 340,
+      "group": "top_divisions"
     },
     "75672": {
       "name": "Eredivisie — Netherlands",
-      "weight": 335000
+      "priority": 335,
+      "group": "top_divisions"
     },
     "123328": {
       "name": "Jupiler Pro League — Belgium",
-      "weight": 330000
+      "priority": 330,
+      "group": "top_divisions"
     },
     "80778": {
       "name": "Primeira Liga — Portugal",
-      "weight": 325000
+      "priority": 325,
+      "group": "top_divisions"
     },
     "200769": {
       "name": "Premier League — Russia",
-      "weight": 320000
+      "priority": 320,
+      "group": "top_divisions"
     },
     "144603": {
       "name": "Super League — China",
-      "weight": 305000
+      "priority": 305,
+      "group": "top_divisions"
     },
     "84182": {
       "name": "J1 League — Japan",
-      "weight": 300000
+      "priority": 300,
+      "group": "top_divisions"
     },
     "160772": {
       "name": "A-League — Australia",
-      "weight": 295000
+      "priority": 295,
+      "group": "top_divisions"
     },
     "153113": {
       "name": "Premiership — Scotland",
-      "weight": 280000
+      "priority": 280,
+      "group": "top_divisions"
     },
     "168431": {
       "name": "Super League 1 — Greece",
-      "weight": 277000
+      "priority": 277,
+      "group": "top_divisions"
     },
     "99500": {
       "name": "Premier League — Belarus",
-      "weight": 274000
+      "priority": 274,
+      "group": "top_divisions"
     },
     "284167": {
       "name": "Premier League — Ukraine",
-      "weight": 271000
+      "priority": 271,
+      "group": "top_divisions"
     },
     "176941": {
       "name": "Super League — Switzerland",
-      "weight": 268000
+      "priority": 268,
+      "group": "top_divisions"
     },
     "186302": {
       "name": "Bundesliga — Austria",
-      "weight": 265000
+      "priority": 265,
+      "group": "top_divisions"
     },
     "90990": {
       "name": "Ekstraklasa — Poland",
-      "weight": 262000
+      "priority": 262,
+      "group": "top_divisions"
     },
     "294379": {
       "name": "Czech Liga — Czech Republic",
-      "weight": 259000
+      "priority": 259,
+      "group": "top_divisions"
     },
     "283316": {
       "name": "Super Liga — Slovakia",
-      "weight": 256000
+      "priority": 256,
+      "group": "top_divisions"
     },
     "318207": {
       "name": "1. SNL — Slovenia",
-      "weight": 253000
+      "priority": 253,
+      "group": "top_divisions"
     },
     "179494": {
       "name": "HNL — Croatia",
-      "weight": 250000
+      "priority": 250,
+      "group": "top_divisions"
     },
     "244170": {
       "name": "Super Liga — Serbia",
-      "weight": 247000
+      "priority": 247,
+      "group": "top_divisions"
     },
     "241617": {
       "name": "Liga I — Romania",
-      "weight": 244000
+      "priority": 244,
+      "group": "top_divisions"
     },
     "147156": {
       "name": "First League — Bulgaria",
-      "weight": 230000
+      "priority": 230,
+      "group": "top_divisions"
     },
     "204173": {
       "name": "Primera A — Colombia",
-      "weight": 227000
+      "priority": 227,
+      "group": "top_divisions"
     },
     "96947": {
       "name": "Allsvenskan — Sweden",
-      "weight": 224000
+      "priority": 224,
+      "group": "top_divisions"
     },
     "226299": {
       "name": "Primera División — Chile",
-      "weight": 221000
+      "priority": 221,
+      "group": "top_divisions"
     },
     "140348": {
       "name": "Úrvalsdeild — Iceland",
-      "weight": 218000
+      "priority": 218,
+      "group": "top_divisions"
     },
     "228852": {
       "name": "Primera División Apertura — Uruguay",
-      "weight": 215000
+      "priority": 215,
+      "group": "top_divisions"
     },
     "230554": {
       "name": "Primera División Clausura — Uruguay",
-      "weight": 215000
+      "priority": 215,
+      "group": "top_divisions"
     },
     "102053": {
       "name": "Superliga — Denmark",
-      "weight": 212000
+      "priority": 212,
+      "group": "top_divisions"
     },
     "88437": {
       "name": "Eliteserien — Norway",
-      "weight": 209000
+      "priority": 209,
+      "group": "top_divisions"
     },
     "239915": {
       "name": "Primera División — Peru",
-      "weight": 206000
+      "priority": 206,
+      "group": "top_divisions"
     },
     "208428": {
       "name": "Veikkausliiga — Finland",
-      "weight": 203000
+      "priority": 203,
+      "group": "top_divisions"
     },
     "206726": {
       "name": "Liga Pro — Ecuador",
-      "weight": 200000
+      "priority": 200,
+      "group": "top_divisions"
     },
     "231405": {
       "name": "NB I — Hungary",
-      "weight": 197000
+      "priority": 197,
+      "group": "top_divisions"
     },
     "326717": {
       "name": "Ligat Ha'al — Israel",
-      "weight": 180000
+      "priority": 180,
+      "group": "top_divisions"
     },
     "308846": {
       "name": "A Lyga — Lithuania",
-      "weight": 177000
+      "priority": 177,
+      "group": "top_divisions"
     },
     "280763": {
       "name": "Meistriliiga — Estonia",
-      "weight": 174000
+      "priority": 174,
+      "group": "top_divisions"
     },
     "311399": {
       "name": "Virsliga — Latvia",
-      "weight": 171000
+      "priority": 171,
+      "group": "top_divisions"
     },
     "302889": {
       "name": "First League — Montenegro",
-      "weight": 168000
+      "priority": 168,
+      "group": "top_divisions"
     },
     "264594": {
       "name": "Superliga — Albania",
-      "weight": 165000
+      "priority": 165,
+      "group": "top_divisions"
     },
     "291826": {
       "name": "Premier League — Armenia",
-      "weight": 162000
+      "priority": 162,
+      "group": "top_divisions"
     },
     "336078": {
       "name": "Super Liga — Moldova",
-      "weight": 159000
+      "priority": 159,
+      "group": "top_divisions"
     },
     "312250": {
       "name": "1. Deild — Faroe Islands",
-      "weight": 156000
+      "priority": 156,
+      "group": "top_divisions"
     },
     "279061": {
       "name": "Erovnuli Liga — Georgia",
-      "weight": 153000
+      "priority": 153,
+      "group": "top_divisions"
     },
     "331823": {
       "name": "Premier League — Kazakhstan",
-      "weight": 150000
+      "priority": 150,
+      "group": "top_divisions"
     },
     "565848": {
       "name": "Superliga — Kosovo",
-      "weight": 147000
+      "priority": 147,
+      "group": "top_divisions"
     },
     "138646": {
       "name": "Primera División — Costa Rica",
-      "weight": 144000
+      "priority": 144,
+      "group": "top_divisions"
     },
     "249276": {
       "name": "K League 1 — South Korea",
-      "weight": 141000
+      "priority": 141,
+      "group": "top_divisions"
     },
     "172686": {
       "name": "Ligue 1 — Tunisia",
-      "weight": 138000
+      "priority": 138,
+      "group": "top_divisions"
     },
     "290124": {
       "name": "V.League 1 — Vietnam",
-      "weight": 135000
+      "priority": 135,
+      "group": "top_divisions"
     },
     "314803": {
       "name": "Super League — Uzbekistan",
-      "weight": 132000
+      "priority": 132,
+      "group": "top_divisions"
     },
     "247574": {
       "name": "Persian Gulf Pro League — Iran",
-      "weight": 129000
+      "priority": 129,
+      "group": "top_divisions"
     },
     "486705": {
       "name": "Vysshaya Liga — Tajikistan",
-      "weight": 126000
+      "priority": 126,
+      "group": "top_divisions"
     },
     "337780": {
       "name": "Primera Division — Nicaragua",
-      "weight": 123000
+      "priority": 123,
+      "group": "top_divisions"
     },
     "645842": {
       "name": "Premier Division — Gibraltar",
-      "weight": 120000
+      "priority": 120,
+      "group": "top_divisions"
     },
     "362459": {
       "name": "Premier League — Syria",
-      "weight": 117000
+      "priority": 117,
+      "group": "top_divisions"
     },
     "271402": {
       "name": "First Division — Cyprus",
-      "weight": 114000
-    }
-  },
-  "second_divisions": {
-    "34824": {
-      "name": "Championship",
-      "country": "England"
+      "priority": 114,
+      "group": "top_divisions"
     },
-    "120775": {
-      "name": "Segunda División",
-      "country": "Spain"
-    },
-    "68013": {
-      "name": "2. Bundesliga",
-      "country": "Germany"
-    },
-    "116520": {
-      "name": "Serie B ",
-      "country": "Italy"
-    },
-    "53546": {
-      "name": "Ligue 2 ",
-      "country": "France"
-    }
-  },
-  "regional_national_teams": {
     "21208": {
       "name": "AFF Championship",
-      "weight": 430000
+      "priority": 430,
+      "group": "regional_national_teams"
     },
     "16953": {
       "name": "African Nations Championship",
-      "weight": 430000
+      "priority": 430,
+      "group": "regional_national_teams"
     },
     "990497": {
       "name": "African Nations Championship - Qualification",
-      "weight": 430000
+      "priority": 430,
+      "group": "regional_national_teams"
     },
     "913056": {
       "name": "All Africa Games",
-      "weight": 430000
+      "priority": 430,
+      "group": "regional_national_teams"
     },
     "732644": {
       "name": "Arab Cup",
-      "weight": 430000
+      "priority": 430,
+      "group": "regional_national_teams"
     },
     "684137": {
       "name": "Asian Games",
-      "weight": 430000
+      "priority": 430,
+      "group": "regional_national_teams"
     },
     "723283": {
       "name": "Baltic Cup",
-      "weight": 430000
+      "priority": 430,
+      "group": "regional_national_teams"
     },
     "865400": {
       "name": "CAC Games",
-      "weight": 430000
+      "priority": 430,
+      "group": "regional_national_teams"
     },
     "858592": {
       "name": "CAFA Nations Cup",
-      "weight": 430000
+      "priority": 430,
+      "group": "regional_national_teams"
     },
     "456069": {
       "name": "CECAFA Senior Challenge Cup",
-      "weight": 430000
+      "priority": 430,
+      "group": "regional_national_teams"
     },
     "1027941": {
       "name": "CONCACAF Series",
-      "weight": 430000
+      "priority": 430,
+      "group": "regional_national_teams"
     },
     "1053471": {
       "name": "Central American and Caribbean Games",
-      "weight": 430000
+      "priority": 430,
+      "group": "regional_national_teams"
     },
     "20357": {
       "name": "EAFF E-1 Football Championship",
-      "weight": 430000
+      "priority": 430,
+      "group": "regional_national_teams"
     },
     "995603": {
       "name": "EAFF E-1 Football Championship - Qualification",
-      "weight": 430000
+      "priority": 430,
+      "group": "regional_national_teams"
     },
     "22059": {
       "name": "Gulf Cup of Nations",
-      "weight": 430000
+      "priority": 430,
+      "group": "regional_national_teams"
     },
     "801575": {
       "name": "Islamic Solidarity Games",
-      "weight": 430000
+      "priority": 430,
+      "group": "regional_national_teams"
     },
     "884122": {
       "name": "King's Cup",
-      "weight": 430000
+      "priority": 430,
+      "group": "regional_national_teams"
     },
     "1033047": {
       "name": "Kings World Cup Nations",
-      "weight": 430000
+      "priority": 430,
+      "group": "regional_national_teams"
     },
     "780300": {
       "name": "Kirin Cup",
-      "weight": 430000
+      "priority": 430,
+      "group": "regional_national_teams"
     },
     "1040706": {
       "name": "FIFA Series",
-      "weight": 430000
+      "priority": 430,
+      "group": "regional_national_teams"
     },
     "24612": {
       "name": "SAFF Championship",
-      "weight": 430000
+      "priority": 430,
+      "group": "regional_national_teams"
     },
     "776045": {
       "name": "Southeast Asian Games",
-      "weight": 430000
+      "priority": 430,
+      "group": "regional_national_teams"
     },
     "656054": {
       "name": "Pacific Games",
-      "weight": 430000
+      "priority": 430,
+      "group": "regional_national_teams"
     },
     "890079": {
       "name": "Pan American Games",
-      "weight": 430000
+      "priority": 430,
+      "group": "regional_national_teams"
     },
     "782853": {
       "name": "Mediterranean Games",
-      "weight": 430000
-    }
-  },
-  "club_minor": {
+      "priority": 430,
+      "group": "regional_national_teams"
+    },
+    "34824": {
+      "name": "Championship — England",
+      "priority": 50,
+      "group": "second_divisions"
+    },
+    "120775": {
+      "name": "Segunda División — Spain",
+      "priority": 50,
+      "group": "second_divisions"
+    },
+    "68013": {
+      "name": "2. Bundesliga — Germany",
+      "priority": 50,
+      "group": "second_divisions"
+    },
+    "116520": {
+      "name": "Serie B — Italy",
+      "priority": 50,
+      "group": "second_divisions"
+    },
+    "53546": {
+      "name": "Ligue 2 — France",
+      "priority": 50,
+      "group": "second_divisions"
+    },
     "875612": {
       "name": "Concacaf Central American Cup",
-      "weight": 45000
+      "priority": 45,
+      "group": "club_minor"
     },
     "729240": {
       "name": "CONCACAF Caribbean Club Championship",
-      "weight": 45000
+      "priority": 45,
+      "group": "club_minor"
     },
     "455218": {
       "name": "CONCACAF Caribbean Club Shield",
-      "weight": 45000
+      "priority": 45,
+      "group": "club_minor"
     },
     "653501": {
       "name": "CONCACAF League",
-      "weight": 45000
+      "priority": 45,
+      "group": "club_minor"
     },
     "964116": {
       "name": "AFC Challenge League",
-      "weight": 45000
+      "priority": 45,
+      "group": "club_minor"
     },
     "15251": {
       "name": "AFC Champions League",
-      "weight": 45000
+      "priority": 45,
+      "group": "club_minor"
     },
     "16102": {
       "name": "AFC Cup",
-      "weight": 45000
+      "priority": 45,
+      "group": "club_minor"
     },
     "989646": {
       "name": "AGCFF Gulf Champions League",
-      "weight": 45000
+      "priority": 45,
+      "group": "club_minor"
     },
     "961563": {
       "name": "ASEAN Club Championship",
-      "weight": 45000
+      "priority": 45,
+      "group": "club_minor"
     },
     "888377": {
       "name": "African Football League",
-      "weight": 45000
+      "priority": 45,
+      "group": "club_minor"
     },
     "10996": {
       "name": "CAF Champions League",
-      "weight": 45000
+      "priority": 45,
+      "group": "club_minor"
     },
     "17804": {
       "name": "CAF Confederation Cup",
-      "weight": 45000
+      "priority": 45,
+      "group": "club_minor"
     },
     "454367": {
       "name": "CAF Super Cup",
-      "weight": 45000
+      "priority": 45,
+      "group": "club_minor"
     },
     "740303": {
       "name": "CECAFA Club Cup",
-      "weight": 45000
+      "priority": 45,
+      "group": "club_minor"
     },
     "654352": {
       "name": "Arab Club Champions Cup",
-      "weight": 45000
+      "priority": 45,
+      "group": "club_minor"
     },
     "1010070": {
       "name": "FIFA Club World Cup - Play-In",
-      "weight": 45000
+      "priority": 45,
+      "group": "club_minor"
     },
     "568401": {
       "name": "Friendlies Clubs",
-      "weight": 45000
+      "priority": 45,
+      "group": "club_minor"
     },
     "798171": {
       "name": "Emirates Cup",
-      "weight": 45000
+      "priority": 45,
+      "group": "club_minor"
     },
     "766684": {
       "name": "Tipsport Malta Cup",
-      "weight": 45000
-    }
-  },
-  "youth_football": {
+      "priority": 45,
+      "group": "club_minor"
+    },
     "861996": {
       "name": "AFC U17 Asian Cup",
-      "weight": 30000
+      "priority": 30,
+      "group": "youth_football"
     },
     "988795": {
       "name": "AFC U17 Asian Cup - Qualification",
-      "weight": 30000
+      "priority": 30,
+      "group": "youth_football"
     },
     "821999": {
       "name": "AFC U20 Asian Cup",
-      "weight": 30000
+      "priority": 30,
+      "group": "youth_football"
     },
     "981987": {
       "name": "AFC U20 Asian Cup - Qualification",
-      "weight": 30000
+      "priority": 30,
+      "group": "youth_football"
     },
     "453516": {
       "name": "AFC U23 Asian Cup",
-      "weight": 30000
+      "priority": 30,
+      "group": "youth_football"
     },
     "810936": {
       "name": "AFC U23 Asian Cup - Qualification",
-      "weight": 30000
+      "priority": 30,
+      "group": "youth_football"
     },
     "790512": {
       "name": "AFF U19 Championship",
-      "weight": 30000
+      "priority": 30,
+      "group": "youth_football"
     },
     "773492": {
       "name": "AFF U23 Championship",
-      "weight": 30000
+      "priority": 30,
+      "group": "youth_football"
     },
     "458622": {
       "name": "Africa Cup of Nations U20",
-      "weight": 30000
+      "priority": 30,
+      "group": "youth_football"
     },
     "811787": {
       "name": "Africa U23 Cup of Nations - Qualification",
-      "weight": 30000
+      "priority": 30,
+      "group": "youth_football"
     },
     "795618": {
       "name": "Arab Championship - U20",
-      "weight": 30000
+      "priority": 30,
+      "group": "youth_football"
     },
     "1028792": {
       "name": "Arabian Gulf Cup U23",
-      "weight": 30000
+      "priority": 30,
+      "group": "youth_football"
     },
     "828807": {
       "name": "CAF Cup of Nations - U17",
-      "weight": 30000
+      "priority": 30,
+      "group": "youth_football"
     },
     "864549": {
       "name": "CAF U23 Cup of Nations",
-      "weight": 30000
+      "priority": 30,
+      "group": "youth_football"
     },
     "987093": {
       "name": "CECAFA U20 Championship",
-      "weight": 30000
+      "priority": 30,
+      "group": "youth_football"
     },
     "656905": {
       "name": "COSAFA U20 Championship",
-      "weight": 30000
+      "priority": 30,
+      "group": "youth_football"
     },
     "800724": {
       "name": "COTIF Tournament",
-      "weight": 30000
+      "priority": 30,
+      "group": "youth_football"
     },
     "902844": {
       "name": "CONMEBOL - Pre-Olympic Tournament",
-      "weight": 30000
+      "priority": 30,
+      "group": "youth_football"
     },
     "826254": {
       "name": "CONMEBOL - U17",
-      "weight": 30000
+      "priority": 30,
+      "group": "youth_football"
     },
     "460324": {
       "name": "CONMEBOL Libertadores U20",
-      "weight": 30000
+      "priority": 30,
+      "group": "youth_football"
     },
     "12698": {
       "name": "UEFA Youth League",
-      "weight": 30000
+      "priority": 30,
+      "group": "youth_football"
     },
     "33122": {
       "name": "UEFA U21 Championship",
-      "weight": 30000
+      "priority": 30,
+      "group": "youth_football"
     },
     "724134": {
       "name": "UEFA U21 Championship - Qualification",
-      "weight": 30000
+      "priority": 30,
+      "group": "youth_football"
     },
     "420327": {
       "name": "UEFA U19 Championship",
-      "weight": 30000
+      "priority": 30,
+      "group": "youth_football"
     },
     "760727": {
       "name": "UEFA U19 Championship - Qualification",
-      "weight": 30000
+      "priority": 30,
+      "group": "youth_football"
     },
     "784555": {
       "name": "UEFA U17 Championship",
-      "weight": 30000
+      "priority": 30,
+      "group": "youth_football"
     },
     "754770": {
       "name": "UEFA U17 Championship - Qualification",
-      "weight": 30000
+      "priority": 30,
+      "group": "youth_football"
     },
     "417774": {
       "name": "World Cup - U20",
-      "weight": 30000
+      "priority": 30,
+      "group": "youth_football"
     },
     "500321": {
       "name": "World Cup - U17",
-      "weight": 30000
+      "priority": 30,
+      "group": "youth_football"
     },
     "658607": {
       "name": "Sudamericano U20",
-      "weight": 30000
+      "priority": 30,
+      "group": "youth_football"
     },
     "820297": {
       "name": "CONCACAF U17",
-      "weight": 30000
+      "priority": 30,
+      "group": "youth_football"
     },
     "457771": {
       "name": "CONCACAF U20",
-      "weight": 30000
+      "priority": 30,
+      "group": "youth_football"
     },
     "907950": {
       "name": "CONCACAF U20 - Qualification",
-      "weight": 30000
+      "priority": 30,
+      "group": "youth_football"
     },
     "1052620": {
       "name": "Como Cup",
-      "weight": 30000
+      "priority": 30,
+      "group": "youth_football"
     },
     "775194": {
       "name": "Youth Viareggio Cup",
-      "weight": 30000
+      "priority": 30,
+      "group": "youth_football"
     },
     "758174": {
       "name": "U20 Elite League",
-      "weight": 30000
+      "priority": 30,
+      "group": "youth_football"
     },
     "917311": {
       "name": "WAFF Championship U23",
-      "weight": 30000
-    }
-  },
-  "women_football": {
+      "priority": 30,
+      "group": "youth_football"
+    },
     "937735": {
       "name": "AFC U17 Asian Cup - Women",
-      "weight": 15000
+      "priority": 15,
+      "group": "women_football"
     },
     "911354": {
       "name": "AFC U20 Asian Cup - Women",
-      "weight": 15000
+      "priority": 15,
+      "group": "women_football"
     },
     "970924": {
       "name": "AFC Women's Champions League",
-      "weight": 15000
+      "priority": 15,
+      "group": "women_football"
     },
     "785406": {
       "name": "Africa Cup of Nations - Women",
-      "weight": 15000
+      "priority": 15,
+      "group": "women_football"
     },
     "862847": {
       "name": "All-Island Cup - Women",
-      "weight": 15000
+      "priority": 15,
+      "group": "women_football"
     },
     "1012623": {
       "name": "Asean Championship Women",
-      "weight": 15000
+      "priority": 15,
+      "group": "women_football"
     },
     "764131": {
       "name": "Asian Cup Women",
-      "weight": 15000
+      "priority": 15,
+      "group": "women_football"
     },
     "761578": {
       "name": "Asian Cup Women - Qualification",
-      "weight": 15000
+      "priority": 15,
+      "group": "women_football"
     },
     "991348": {
       "name": "CAF Women's Champions League",
-      "weight": 15000
+      "priority": 15,
+      "group": "women_football"
     },
     "900291": {
       "name": "CONCACAF Gold Cup - Women",
-      "weight": 15000
+      "priority": 15,
+      "group": "women_football"
     },
     "967520": {
       "name": "CONCACAF W Champions Cup",
-      "weight": 15000
+      "priority": 15,
+      "group": "women_football"
     },
     "890930": {
       "name": "CONCACAF W Gold Cup Qualification",
-      "weight": 15000
+      "priority": 15,
+      "group": "women_football"
     },
     "776896": {
       "name": "CONCACAF Women U17",
-      "weight": 15000
+      "priority": 15,
+      "group": "women_football"
     },
     "852635": {
       "name": "CONCACAF Women U20",
-      "weight": 15000
+      "priority": 15,
+      "group": "women_football"
     },
     "808383": {
       "name": "CONMEBOL Libertadores Femenina",
-      "weight": 15000
+      "priority": 15,
+      "group": "women_football"
     },
     "1027090": {
       "name": "CONMEBOL Nations League Women",
-      "weight": 15000
+      "priority": 15,
+      "group": "women_football"
     },
     "920715": {
       "name": "CONMEBOL Sub-17 Femenino",
-      "weight": 15000
+      "priority": 15,
+      "group": "women_football"
     },
     "924119": {
       "name": "CONMEBOL U20 Femenino",
-      "weight": 15000
+      "priority": 15,
+      "group": "women_football"
     },
     "1011772": {
       "name": "EAFF E-1 Football Championship - Women",
-      "weight": 15000
+      "priority": 15,
+      "group": "women_football"
     },
     "788810": {
       "name": "Copa America Femenina",
-      "weight": 15000
+      "priority": 15,
+      "group": "women_football"
     },
     "633077": {
       "name": "UEFA Women's Euro",
-      "weight": 15000
+      "priority": 15,
+      "group": "women_football"
     },
     "922417": {
       "name": "UEFA Women's Euro Qualification",
-      "weight": 15000
+      "priority": 15,
+      "group": "women_football"
     },
     "1014325": {
       "name": "UEFA Women's Champions League",
-      "weight": 15000
+      "priority": 15,
+      "group": "women_football"
     },
     "447559": {
       "name": "UEFA Champions League Women",
-      "weight": 15000
+      "priority": 15,
+      "group": "women_football"
     },
     "885824": {
       "name": "UEFA Nations League - Women",
-      "weight": 15000
+      "priority": 15,
+      "group": "women_football"
     },
     "782002": {
       "name": "UEFA U19 Championship - Women",
-      "weight": 15000
+      "priority": 15,
+      "group": "women_football"
     },
     "938586": {
       "name": "UEFA U17 Championship - Women",
-      "weight": 15000
+      "priority": 15,
+      "group": "women_football"
     },
     "7592": {
       "name": "World Cup - Women",
-      "weight": 15000
+      "priority": 15,
+      "group": "women_football"
     },
     "809234": {
       "name": "World Cup - U17 - Women",
-      "weight": 15000
+      "priority": 15,
+      "group": "women_football"
     },
     "783704": {
       "name": "World Cup - U20 - Women",
-      "weight": 15000
+      "priority": 15,
+      "group": "women_football"
     },
     "749664": {
       "name": "World Cup - Women - Qualification Europe",
-      "weight": 15000
+      "priority": 15,
+      "group": "women_football"
     },
     "789661": {
       "name": "World Cup - Women - Qualification Concacaf",
-      "weight": 15000
+      "priority": 15,
+      "group": "women_football"
     },
     "567550": {
       "name": "Friendlies Women",
-      "weight": 15000
+      "priority": 15,
+      "group": "women_football"
     },
     "770088": {
       "name": "SheBelieves Cup",
-      "weight": 15000
+      "priority": 15,
+      "group": "women_football"
     },
     "768386": {
       "name": "Algarve Cup",
-      "weight": 15000
+      "priority": 15,
+      "group": "women_football"
     },
     "804979": {
       "name": "International Champions Cup - Women",
-      "weight": 15000
+      "priority": 15,
+      "group": "women_football"
     },
     "1036451": {
       "name": "Fifa Women Champions Cup",
-      "weight": 15000
+      "priority": 15,
+      "group": "women_football"
     },
     "573507": {
       "name": "Liga MX Femenil",
-      "weight": 15000
+      "priority": 15,
+      "group": "women_football"
     },
     "1046663": {
       "name": "Liga Women",
-      "weight": 15000
+      "priority": 15,
+      "group": "women_football"
     }
   },
   "locales": {
     "global": {
       "label": "Global🌐🌐",
-      "leagues": {}
+      "overrides": {}
     },
     "brazil": {
       "label": "Бразилия🇧🇷🇧🇷🇧🇷",
-      "leagues": {
-        "61205": "top_division",
-        "62056": "second_division",
-        "62907": "cup",
-        "538616": "super_cup"
+      "overrides": {
+        "61205": 520,
+        "62056": 55,
+        "62907": 500,
+        "538616": 510
       }
     },
     "india": {
       "label": "Индия🇮🇳🇮🇳🇮🇳",
-      "leagues": {
-        "275657": "top_division",
-        "276508": "second_division",
-        "464579": "cup"
+      "overrides": {
+        "275657": 520,
+        "276508": 55,
+        "464579": 500
       }
     },
     "iran": {
       "label": "Иран🇮🇷🇮🇷🇮🇷",
-      "leagues": {
-        "247574": "top_division",
-        "248425": "second_division",
-        "422029": "cup",
-        "770939": "super_cup"
+      "overrides": {
+        "247574": 520,
+        "248425": 55,
+        "422029": 500,
+        "770939": 510
       }
     },
     "mexico": {
       "label": "Мексика🇲🇽🇲🇽🇲🇽",
-      "leagues": {
-        "223746": "top_division",
-        "224597": "second_division",
-        "730091": "super_cup"
+      "overrides": {
+        "223746": 520,
+        "224597": 55,
+        "730091": 510
       }
     },
     "nigeria": {
       "label": "Нигерия🇳🇬🇳🇬🇳🇬",
-      "leagues": {
-        "340333": "top_division",
-        "1048365": "cup"
+      "overrides": {
+        "340333": 520,
+        "1048365": 500
       }
     },
     "turkey": {
       "label": "Турция🇹🇷🇹🇷🇹🇷",
-      "leagues": {
-        "173537": "top_division",
-        "174388": "second_division",
-        "176090": "cup",
-        "469685": "super_cup"
+      "overrides": {
+        "173537": 520,
+        "174388": 55,
+        "176090": 500,
+        "469685": 510
       }
     }
   }
