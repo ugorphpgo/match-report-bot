@@ -1,5 +1,7 @@
+import argparse
 import os
 import json
+import sys
 import time
 import requests
 from zoneinfo import ZoneInfo
@@ -486,7 +488,126 @@ def send_telegram(text):
         raise RuntimeError(f"Telegram вернул {resp.status_code}: {resp.text}")
 
 
-def main():
+def fetch_carry_over_pools(day_date):
+    """Донабор "перетёкших" матчей (см. CARRY_OVER_CONFIG) для дня day_date:
+    ранние по Минску матчи следующих суток, по локалям."""
+    next_day_str = (day_date + timedelta(days=1)).isoformat()
+    pools = {}
+    for locale_key, carry_cfg in CARRY_OVER_CONFIG.items():
+        carried = fetch_carry_over_matches(next_day_str, carry_cfg["max_hour"])
+        print(f"DEBUG: carried over {len(carried)} matches for locale '{locale_key}' "
+              f"from {next_day_str} (before {carry_cfg['max_hour']}:00 Minsk)")
+        pools[locale_key] = carried
+    return pools
+
+
+def write_locale_lists(out_dir, locale_key, cfg, day_str, matches, carry_over_pools):
+    """Ранжирует матчи локали и пишет {out_dir}/{локаль}_{дата}.json —
+    вход для coupon-filler. Возвращает ранжированный список: он же нужен
+    тексту для телеграма.
+
+    Одна функция на ежедневный отчёт и на --lists-only: отбор, который
+    coupon-filler добывает на произвольную дату, обязан совпадать с тем, что
+    бот публикует на завтра, иначе купон разойдётся с отчётом в чате.
+    """
+    # Папку создаём заранее: в свежем чекауте data/ может не быть, и
+    # open(..., "w") упал бы на первом запуске.
+    os.makedirs(out_dir, exist_ok=True)
+
+    pool = matches + carry_over_pools.get(locale_key, [])
+    ranked = rank_matches(pool, cfg["leagues"])
+    top_matches, top_events = split_widgets(ranked)
+
+    # Здесь полный список: виджеты должны заполняться целиком для каждой
+    # локали, урезается только то, что уходит в телеграм.
+    data_path = os.path.join(out_dir, f"{locale_key}_{day_str}.json")
+    with open(data_path, "w", encoding="utf-8") as f:
+        json.dump(
+            {
+                "top_events": [match_to_dict(m) for m in top_events],
+                "top_matches": [match_to_dict(m) for m in top_matches],
+            },
+            f,
+            ensure_ascii=False,
+            indent=2,
+        )
+    print(f"DEBUG: wrote {data_path} ({len(top_events)} top_events, {len(top_matches)} top_matches)",
+          flush=True)
+    return ranked
+
+
+# Код выхода --lists-only, когда хотя бы на одну дату матчей нет: файлы на
+# неё не пишутся. Отдельный от ошибки, чтобы вызывающий мог сказать «матчей
+# нет», а не «добыча упала» — это разные вещи, и чинятся они по-разному.
+EXIT_NO_MATCHES = 3
+
+
+def write_lists(day_str, out_dir):
+    """Отбор на одну дату без отчёта: только {локаль}_{дата}.json в out_dir.
+
+    Ни телеграма, ни чистки data/: этот режим зовёт coupon-filler, чтобы
+    добыть списки на дату, которую бот не публикует, и ежедневный отчёт тут
+    ни при чём. Возвращает False, если на дату матчей нет — тогда файлов нет
+    вовсе: пустой список заполнялка приняла бы за готовый.
+    """
+    day_date = datetime.fromisoformat(day_str).date()
+    matches = [m for m in fetch_matches(day_str) if is_after_cutoff(m)]
+    if not matches:
+        print(f"=== на {day_str} матчей нет (или все раньше {MIN_START_HOUR}:00 "
+              f"по Минску) — списки не записаны ===", flush=True)
+        return False
+
+    carry_over_pools = fetch_carry_over_pools(day_date)
+    for locale_key, cfg in LOCALE_CONFIG.items():
+        write_locale_lists(out_dir, locale_key, cfg, day_str, matches, carry_over_pools)
+    return True
+
+
+def lists_only(start, end, out_dir):
+    """--lists-only на отрезок дат включительно. Возвращает код выхода:
+    EXIT_NO_MATCHES, если хоть на одну дату матчей не нашлось — остальные
+    даты при этом всё равно записаны."""
+    first = datetime.fromisoformat(start).date()
+    last = datetime.fromisoformat(end or start).date()
+    if last < first:
+        raise SystemExit(f"--end {last} раньше --start {first}")
+
+    all_written = True
+    day = first
+    while day <= last:
+        all_written = write_lists(day.isoformat(), out_dir) and all_written
+        day += timedelta(days=1)
+    return 0 if all_written else EXIT_NO_MATCHES
+
+
+def parse_args(argv):
+    parser = argparse.ArgumentParser(
+        description="Ежедневный отчёт на завтра; с --lists-only — только списки "
+                    "для coupon-filler на выбранные даты.")
+    parser.add_argument("--lists-only", action="store_true",
+                        help="только {локаль}_{дата}.json, без телеграма и без чистки data/")
+    # Абсолютные даты, а не смещения от сегодня: вызывающий посчитал дату у
+    # себя, и если между этим и запуском прошла полночь, «+1» указал бы уже
+    # на другой день.
+    parser.add_argument("--start", metavar="ГГГГ-ММ-ДД", help="первая дата (с --lists-only)")
+    parser.add_argument("--end", metavar="ГГГГ-ММ-ДД",
+                        help="последняя дата включительно (по умолчанию = --start)")
+    parser.add_argument("--out", default=DATA_DIR,
+                        help="куда писать списки (по умолчанию data/ рядом со скриптом)")
+    args = parser.parse_args(argv)
+    if args.lists_only and not args.start:
+        parser.error("--lists-only требует --start")
+    return args
+
+
+def main(argv=None):
+    args = parse_args(argv)
+    if args.lists_only:
+        sys.exit(lists_only(args.start, args.end, args.out))
+    daily_report()
+
+
+def daily_report():
     minsk_now = datetime.now(LOCAL_TZ)
     tomorrow_date = (minsk_now + timedelta(days=1)).date()
     tomorrow_str = tomorrow_date.isoformat()
@@ -523,47 +644,12 @@ def main():
         )
         return
 
-    # --- Донабор "перетёкших" матчей (см. CARRY_OVER_CONFIG) ---
-    after_tomorrow_date = tomorrow_date + timedelta(days=1)
-    after_tomorrow_str = after_tomorrow_date.isoformat()
-
-    carry_over_pools = {}
-    for locale_key, carry_cfg in CARRY_OVER_CONFIG.items():
-        carried = fetch_carry_over_matches(after_tomorrow_str, carry_cfg["max_hour"])
-        print(f"DEBUG: carried over {len(carried)} matches for locale '{locale_key}' "
-              f"from {after_tomorrow_str} (before {carry_cfg['max_hour']}:00 Minsk)")
-        carry_over_pools[locale_key] = carried
-
-    # data/*.json — вход для coupon-filler. Создаём папку заранее,
-    # чтобы open(..., "w") не падал на первом запуске (папки data/ ещё нет
-    # в свежем чекауте, если туда раньше ничего не коммитили). Путь считается
-    # от файла скрипта, а не от текущей директории: иначе запуск не из корня
-    # репозитория пишет данные мимо того места, где их ищет run_fill.py.
-    os.makedirs(DATA_DIR, exist_ok=True)
+    carry_over_pools = fetch_carry_over_pools(tomorrow_date)
 
     sections = []
     for locale_key, cfg in LOCALE_CONFIG.items():
-        pool = all_matches + carry_over_pools.get(locale_key, [])
-        ranked = rank_matches(pool, cfg["leagues"])
-        top_matches, top_events = split_widgets(ranked)
-
-        # --- сохраняем структурированные данные для coupon-filler ---
-        # Здесь по-прежнему полный список: виджеты должны заполняться целиком
-        # для каждой локали, урезается только то, что уходит в телеграм.
-        data_path = os.path.join(DATA_DIR, f"{locale_key}_{tomorrow_str}.json")
-        with open(data_path, "w", encoding="utf-8") as f:
-            json.dump(
-                {
-                    "top_events": [match_to_dict(m) for m in top_events],
-                    "top_matches": [match_to_dict(m) for m in top_matches],
-                },
-                f,
-                ensure_ascii=False,
-                indent=2,
-            )
-        print(f"DEBUG: wrote {data_path} ({len(top_events)} top_events, {len(top_matches)} top_matches)",
-              flush=True)
-
+        ranked = write_locale_lists(DATA_DIR, locale_key, cfg, tomorrow_str,
+                                    all_matches, carry_over_pools)
         sections.append(build_locale_message(locale_key, cfg, ranked,
                                               tomorrow_date, display_date))
 
