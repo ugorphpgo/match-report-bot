@@ -95,6 +95,33 @@ class ListsOnly(unittest.TestCase):
         self.assertEqual(national("global")[0], [], "у Global своей сборной нет")
         self.assertEqual(national("mexico")[0], [])
 
+    def test_matches_marked_with_the_locales_national_team(self):
+        # Отметка own_national — для своей локали: coupon-filler поднимает
+        # младшие и женские сборные внутри их пресета и подсвечивает все.
+        day = "2026-09-25"
+        teams = [("Brazil", "Chile"), ("Brazil U20", "Peru U20"), ("Colombia (W)", "Brazil (W)"),
+                 ("Mexico City", "Toluca"), ("Flamengo", "Santos")]
+        self.days[day] = []
+        for n, (home, away) in enumerate(teams):
+            m = match(day, 15 + n, league_id=2000 + n, home=10 * n, away=10 * n + 1)
+            m["homeTeam"]["name"], m["awayTeam"]["name"] = home, away
+            self.days[day].append(m)
+
+        self.run_main("--start", day)
+
+        def marks(locale):
+            with open(os.path.join(self.out, f"{locale}_{day}.json"), encoding="utf-8") as f:
+                data = json.load(f)
+            return {f"{m['home_team_name']} - {m['away_team_name']}": m.get("own_national")
+                    for m in data["top_events"] + data["top_matches"]}
+
+        self.assertEqual(marks("brazil"), {
+            "Brazil - Chile": "senior", "Brazil U20 - Peru U20": "youth",
+            "Colombia (W) - Brazil (W)": "women", "Mexico City - Toluca": None,
+            "Flamengo - Santos": None})
+        self.assertEqual(set(marks("global").values()), {None})
+        self.assertEqual(marks("mexico")["Mexico City - Toluca"], None, "клуб — не сборная")
+
     def test_file_carries_reserve_and_widget_targets(self):
         # Запас и цели — для замены в coupon-filler матчей, которых нет в
         # админке: там список с запасом делится на виджеты заново.

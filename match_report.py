@@ -1,6 +1,7 @@
 import argparse
 import os
 import json
+import re
 import sys
 import time
 import requests
@@ -114,14 +115,38 @@ LOCALE_NATIONS = {
 }
 
 
+# Молодёжная сборная — возраст после имени страны («Brazil U20», «Iran
+# (u23)»), женская — пометка «W» / «(W)» / «Women». Клуб с именем страны в
+# названии («Mexico City») не подходит ни под одно: после страны там слово.
+_YOUTH_TAIL = r"\s*\(?\s*u\s*-?\d{2}\s*\)?"
+_WOMEN_TAIL = r"\s*(?:\(\s*w\s*\)|w|women)"
+
+
+def national_side(m, locale_key):
+    """Какая сборная страны локали играет в матче: "senior" (своя сборная —
+    взрослая мужская), "youth", "women" или None. Взрослая важнее: матч
+    Brazil — Brazil U20 не бывает, а вот сборная против чужой молодёжной —
+    всё равно матч своей сборной."""
+    nations = [name.casefold() for name in LOCALE_NATIONS.get(locale_key, [])]
+    kinds = []
+    for team in (m["homeTeam"]["name"], m["awayTeam"]["name"]):
+        name = team.casefold().strip()
+        for nation in nations:
+            if name == nation:
+                return "senior"
+            if re.fullmatch(re.escape(nation) + _YOUTH_TAIL, name):
+                kinds.append("youth")
+            elif re.fullmatch(re.escape(nation) + _WOMEN_TAIL, name):
+                kinds.append("women")
+    return kinds[0] if kinds else None
+
+
 def national_matches(matches, locale_key):
     """Матчи своей сборной локали из пула дня, в порядке начала. Исключённые
     турниры не в счёт — как и везде в отборе."""
-    nations = {name.casefold() for name in LOCALE_NATIONS.get(locale_key, [])}
     found = [m for m in matches
              if m["league"]["id"] not in EXCLUDED
-             and (m["homeTeam"]["name"].casefold() in nations
-                  or m["awayTeam"]["name"].casefold() in nations)]
+             and national_side(m, locale_key) == "senior"]
     return sorted(found, key=lambda m: m["date"])
 
 
@@ -581,6 +606,17 @@ def write_locale_lists(out_dir, locale_key, cfg, day_str, matches, carry_over_po
     reserve = rank_reserve(pool, cfg["overrides"])
     national = national_matches(pool, locale_key)
 
+    def as_dict(m):
+        # own_national — какая сборная страны ЭТОЙ локали играет: coupon-filler
+        # подсвечивает такие матчи, а младшие и женские поднимает первыми
+        # внутри их пресета. Поэтому отметка — при записи файла локали, а не
+        # в match_to_dict: у одного матча она своя для каждой локали.
+        record = match_to_dict(m)
+        side = national_side(m, locale_key)
+        if side:
+            record["own_national"] = side
+        return record
+
     # Здесь полный список: виджеты должны заполняться целиком для каждой
     # локали, урезается только то, что уходит в телеграм.
     #
@@ -591,10 +627,10 @@ def write_locale_lists(out_dir, locale_key, cfg, day_str, matches, carry_over_po
     with open(data_path, "w", encoding="utf-8") as f:
         json.dump(
             {
-                "top_events": [match_to_dict(m) for m in top_events],
-                "top_matches": [match_to_dict(m) for m in top_matches],
-                "reserve": [match_to_dict(m) for m in reserve],
-                "national": [match_to_dict(m) for m in national],
+                "top_events": [as_dict(m) for m in top_events],
+                "top_matches": [as_dict(m) for m in top_matches],
+                "reserve": [as_dict(m) for m in reserve],
+                "national": [as_dict(m) for m in national],
                 "widget_targets": {"top_events": TOP_EVENTS_SIZE,
                                    "top_matches": TOP_MATCHES_SIZE},
             },
