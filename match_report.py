@@ -96,6 +96,34 @@ LOCALE_CONFIG = {
     for key, conf in _CFG["locales"].items()
 }
 
+# Своя сборная локали — взрослая мужская сборная страны, как Highlightly
+# пишет её имя. Сравнение точное (без регистра): «Brazil U20», женская
+# сборная и клубы вроде «Mexico City» своей сборной не считаются. Её матчи
+# уходят в файл списка отдельным полем national, где бы они ни оказались в
+# ранжировании, — coupon-filler ставит их первым пресетом Top Events. В
+# Telegram это не влияет. Не в config/league_weights.json: это не приоритет,
+# и правит тот файл вкладка приоритетов coupon-filler.
+LOCALE_NATIONS = {
+    "global": [],
+    "brazil": ["Brazil"],
+    "india": ["India"],
+    "iran": ["Iran", "IR Iran"],
+    "mexico": ["Mexico"],
+    "nigeria": ["Nigeria"],
+    "turkey": ["Turkey", "Türkiye", "Turkiye"],
+}
+
+
+def national_matches(matches, locale_key):
+    """Матчи своей сборной локали из пула дня, в порядке начала. Исключённые
+    турниры не в счёт — как и везде в отборе."""
+    nations = {name.casefold() for name in LOCALE_NATIONS.get(locale_key, [])}
+    found = [m for m in matches
+             if m["league"]["id"] not in EXCLUDED
+             and (m["homeTeam"]["name"].casefold() in nations
+                  or m["awayTeam"]["name"].casefold() in nations)]
+    return sorted(found, key=lambda m: m["date"])
+
 
 # ---------------------------------------------------------------------------
 # ДОНАБОР "ПЕРЕТЁКШИХ" МАТЧЕЙ
@@ -551,6 +579,7 @@ def write_locale_lists(out_dir, locale_key, cfg, day_str, matches, carry_over_po
     ranked = rank_matches(pool, cfg["overrides"])
     top_matches, top_events = split_widgets(ranked)
     reserve = rank_reserve(pool, cfg["overrides"])
+    national = national_matches(pool, locale_key)
 
     # Здесь полный список: виджеты должны заполняться целиком для каждой
     # локали, урезается только то, что уходит в телеграм.
@@ -565,6 +594,7 @@ def write_locale_lists(out_dir, locale_key, cfg, day_str, matches, carry_over_po
                 "top_events": [match_to_dict(m) for m in top_events],
                 "top_matches": [match_to_dict(m) for m in top_matches],
                 "reserve": [match_to_dict(m) for m in reserve],
+                "national": [match_to_dict(m) for m in national],
                 "widget_targets": {"top_events": TOP_EVENTS_SIZE,
                                    "top_matches": TOP_MATCHES_SIZE},
             },
