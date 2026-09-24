@@ -68,6 +68,24 @@ class ListsOnly(unittest.TestCase):
         self.assertEqual(self.telegram, [])
         self.assertEqual(self.cleaned, [])
 
+    def test_file_carries_reserve_and_widget_targets(self):
+        # Запас и цели — для замены в coupon-filler матчей, которых нет в
+        # админке: там список с запасом делится на виджеты заново.
+        self.days["2026-09-25"] = [match("2026-09-25", 15, league_id=n, home=2 * n,
+                                         away=2 * n + 1) for n in range(1000, 1040)]
+
+        self.run_main("--start", "2026-09-25")
+
+        with open(os.path.join(self.out, "global_2026-09-25.json"), encoding="utf-8") as f:
+            data = json.load(f)
+        self.assertEqual(data["widget_targets"],
+                         {"top_events": match_report.TOP_EVENTS_SIZE,
+                          "top_matches": match_report.TOP_MATCHES_SIZE})
+        listed = {m["league_id"] for m in data["top_events"] + data["top_matches"]}
+        self.assertTrue(data["reserve"], "сорок одиночных турниров — запасу есть откуда взяться")
+        self.assertFalse(listed & {m["league_id"] for m in data["reserve"]},
+                         "запас не повторяет список")
+
     def test_range_covers_every_day_inclusive(self):
         for day in ("2026-09-25", "2026-09-26", "2026-09-27"):
             self.days[day] = [match(day, 15)]

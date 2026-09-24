@@ -286,10 +286,31 @@ def rank_matches(matches, overrides):
     Исключённые турниры отсекаются здесь — одно место на ежедневный отчёт,
     --lists-only и донабор «перетёкших», и переопределение локали их не
     возвращает."""
+    ordered = _ordered(matches, overrides)
+    return ordered[:_list_end(ordered)]
+
+
+def rank_reserve(matches, overrides):
+    """Запас: турниры, следующие по приоритету сразу за обрезом списка
+    локали, — ещё один Top Matches по размеру, тем же правилом (_widget_end).
+
+    Ни в телеграм, ни в купон сам не идёт. Им coupon-filler заменяет матчи
+    списка, которых нет в админке: выбывшее убирается, и список с запасом
+    заново делится на виджеты строго по приоритету. Порядок — тот же, что у
+    rank_matches (_ordered), иначе «следующие» были бы чужими."""
+    ordered = _ordered(matches, overrides)
+    start = _list_end(ordered)
+    return ordered[start:_widget_end(ordered, start, TOP_MATCHES_SIZE)]
+
+
+def _ordered(matches, overrides):
     allowed = [m for m in matches if m["league"]["id"] not in EXCLUDED]
-    ordered = sorted(allowed, key=lambda m: (-score_match(m, overrides), m["league"]["id"]))
+    return sorted(allowed, key=lambda m: (-score_match(m, overrides), m["league"]["id"]))
+
+
+def _list_end(ordered):
     events_end = _widget_end(ordered, 0, TOP_EVENTS_SIZE)
-    return ordered[:_widget_end(ordered, events_end, TOP_MATCHES_SIZE)]
+    return _widget_end(ordered, events_end, TOP_MATCHES_SIZE)
 
 
 def split_widgets(ranked):
@@ -529,15 +550,23 @@ def write_locale_lists(out_dir, locale_key, cfg, day_str, matches, carry_over_po
     pool = matches + carry_over_pools.get(locale_key, [])
     ranked = rank_matches(pool, cfg["overrides"])
     top_matches, top_events = split_widgets(ranked)
+    reserve = rank_reserve(pool, cfg["overrides"])
 
     # Здесь полный список: виджеты должны заполняться целиком для каждой
     # локали, урезается только то, что уходит в телеграм.
+    #
+    # reserve и widget_targets — для замены в coupon-filler матчей, которых нет
+    # в админке: там список с запасом заново делится на виджеты тем же
+    # правилом, а цели берутся отсюда, чтобы не зашивать их вторым экземпляром.
     data_path = os.path.join(out_dir, f"{locale_key}_{day_str}.json")
     with open(data_path, "w", encoding="utf-8") as f:
         json.dump(
             {
                 "top_events": [match_to_dict(m) for m in top_events],
                 "top_matches": [match_to_dict(m) for m in top_matches],
+                "reserve": [match_to_dict(m) for m in reserve],
+                "widget_targets": {"top_events": TOP_EVENTS_SIZE,
+                                   "top_matches": TOP_MATCHES_SIZE},
             },
             f,
             ensure_ascii=False,

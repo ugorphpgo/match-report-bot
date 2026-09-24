@@ -109,5 +109,35 @@ class Widgets(unittest.TestCase):
         self.assertEqual(once[1] + once[0], ranked, "в виджеты уходит весь список")
 
 
+def reserve(matches, priorities, excluded=None):
+    with patch.object(match_report, "PRIORITIES", priorities), \
+         patch.object(match_report, "EXCLUDED", excluded or {}), \
+         patch.object(match_report, "DEFAULT_PRIORITY", 1):
+        return [m["league"]["id"] for m in match_report.rank_reserve(matches, {})]
+
+
+class Reserve(unittest.TestCase):
+    """Запас — следующие за обрезом списка турниры для замены в coupon-filler
+    матчей, которых нет в админке. Ещё один Top Matches по размеру, тем же
+    правилом: целыми турнирами, граница ближе к цели."""
+
+    def test_starts_right_after_the_list(self):
+        # 14 + 12 одиночных уходят в список, запас — следующие 12.
+        self.assertEqual(reserve(*day(*[1] * 40)), list(range(27, 39)))
+
+    def test_whole_tournaments_nearer_boundary(self):
+        # После списка: 10 одиночных, турнир на 5 (с ним 15 — на 3 от 12,
+        # без него 10 — на 2) — не берётся.
+        ids = reserve(*day(*[1] * 26, *[1] * 10, 5, *[1] * 5))
+        self.assertEqual(ids, list(range(27, 37)))
+
+    def test_short_day_has_no_reserve(self):
+        self.assertEqual(reserve(*day(2, 1, 2)), [])
+
+    def test_excluded_never_in_reserve(self):
+        matches, priorities = day(*[1] * 30)
+        self.assertNotIn(28, reserve(matches, priorities, excluded={28: "Kings League"}))
+
+
 if __name__ == "__main__":
     unittest.main()
