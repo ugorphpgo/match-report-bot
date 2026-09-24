@@ -1,0 +1,365 @@
+{
+  "top_events": [
+    {
+      "league_id": 5039,
+      "league_name": "UEFA Nations League",
+      "home_team_id": 9294,
+      "home_team_name": "England",
+      "away_team_id": 8443,
+      "away_team_name": "Spain",
+      "date": "2026-09-26T18:45:00.000Z"
+    },
+    {
+      "league_id": 5039,
+      "league_name": "UEFA Nations League",
+      "home_team_id": 658607,
+      "home_team_name": "Slovakia",
+      "away_team_id": 948798,
+      "away_team_name": "Moldova",
+      "date": "2026-09-26T18:45:00.000Z"
+    },
+    {
+      "league_id": 5039,
+      "league_name": "UEFA Nations League",
+      "home_team_id": 662862,
+      "home_team_name": "Albania",
+      "away_team_id": 936884,
+      "away_team_name": "Belarus",
+      "date": "2026-09-26T18:45:00.000Z"
+    },
+    {
+      "league_id": 5039,
+      "league_name": "UEFA Nations League",
+      "home_team_id": 941139,
+      "home_team_name": "North Macedonia",
+      "away_team_id": 13549,
+      "away_team_name": "Switzerland",
+      "date": "2026-09-26T18:45:00.000Z"
+    },
+    {
+      "league_id": 5039,
+      "league_name": "UEFA Nations League",
+      "home_team_id": 656054,
+      "home_team_name": "Czech Republic",
+      "away_team_id": 3337,
+      "away_team_name": "Croatia",
+      "date": "2026-09-26T18:45:00.000Z"
+    },
+    {
+      "league_id": 5039,
+      "league_name": "UEFA Nations League",
+      "home_team_id": 16102,
+      "home_team_name": "Iceland",
+      "away_team_id": 937735,
+      "away_team_name": "Estonia",
+      "date": "2026-09-26T16:00:00.000Z"
+    },
+    {
+      "league_id": 5039,
+      "league_name": "UEFA Nations League",
+      "home_team_id": 935182,
+      "home_team_name": "Faroe Islands",
+      "away_team_id": 932629,
+      "away_team_name": "Kazakhstan",
+      "date": "2026-09-26T16:00:00.000Z"
+    },
+    {
+      "league_id": 5039,
+      "league_name": "UEFA Nations League",
+      "home_team_id": 939437,
+      "home_team_name": "Bulgaria",
+      "away_team_id": 938586,
+      "away_team_name": "Luxembourg",
+      "date": "2026-09-26T16:00:00.000Z"
+    },
+    {
+      "league_id": 5039,
+      "league_name": "UEFA Nations League",
+      "home_team_id": 949649,
+      "home_team_name": "San Marino",
+      "away_team_id": 936033,
+      "away_team_name": "Finland",
+      "date": "2026-09-26T16:00:00.000Z"
+    },
+    {
+      "league_id": 5039,
+      "league_name": "UEFA Nations League",
+      "home_team_id": 929225,
+      "home_team_name": "Slovenia",
+      "away_team_id": 943692,
+      "away_team_name": "Scotland",
+      "date": "2026-09-26T13:00:00.000Z"
+    },
+    {
+      "league_id": 456920,
+      "league_name": "CONCACAF Nations League",
+      "home_team_id": 9348168,
+      "home_team_name": "Saint Martin",
+      "away_team_id": 6955156,
+      "away_team_name": "US Virgin Islands",
+      "date": "2026-09-26T20:00:00.000Z"
+    },
+    {
+      "league_id": 456920,
+      "league_name": "CONCACAF Nations League",
+      "home_team_id": 6953454,
+      "home_team_name": "Montserrat",
+      "away_team_id": 6951752,
+      "away_team_name": "British Virgin Islands",
+      "date": "2026-09-26T19:00:00.000Z"
+    },
+    {
+      "league_id": 9294,
+      "league_name": "Friendlies",
+      "home_team_id": 2029568,
+      "home_team_name": "USA",
+      "away_team_id": 26314,
+      "away_team_name": "Peru",
+      "date": "2026-09-26T20:30:00.000Z"
+    },
+    {
+      "league_id": 9294,
+      "league_name": "Friendlies",
+      "home_team_id": 14400,
+      "home_team_name": "Mexico",
+      "away_team_id": 7592,
+      "away_team_name": "Colombia",
+      "date": "2026-09-26T20:00:00.000Z"
+    },
+    {
+      "league_id": 9294,
+      "league_name": "Friendlies",
+      "home_team_id": 8821399,
+      "home_team_name": "Hungary U19",
+      "away_team_id": 8789912,
+      "away_team_name": "Bulgaria U19",
+      "date": "2026-09-26T14:00:00.000Z"
+    }
+  ],
+  "top_matches": [
+    {
+      "league_id": 31420,
+      "league_name": "Africa Cup of Nations - Qualification",
+      "home_team_id": 1303665,
+      "home_team_name": "South Africa",
+      "away_team_id": 1284943,
+      "away_team_name": "Guinea",
+      "date": "2026-09-26T13:00:00.000Z"
+    },
+    {
+      "league_id": 31420,
+      "league_name": "Africa Cup of Nations - Qualification",
+      "home_team_id": 1286645,
+      "home_team_name": "Kenya",
+      "away_team_id": 1275582,
+      "away_team_name": "Eritrea",
+      "date": "2026-09-26T13:00:00.000Z"
+    },
+    {
+      "league_id": 22059,
+      "league_name": "Gulf Cup of Nations",
+      "home_team_id": 1321536,
+      "home_team_name": "Oman",
+      "away_team_id": 20357,
+      "away_team_name": "Saudi Arabia",
+      "date": "2026-09-26T18:00:00.000Z"
+    },
+    {
+      "league_id": 22059,
+      "league_name": "Gulf Cup of Nations",
+      "home_team_id": 1336854,
+      "home_team_name": "Kuwait",
+      "away_team_id": 1334301,
+      "away_team_name": "Iraq",
+      "date": "2026-09-26T15:00:00.000Z"
+    },
+    {
+      "league_id": 228852,
+      "league_name": "Primera División - Apertura",
+      "home_team_id": 2016803,
+      "home_team_name": "Cerro Largo",
+      "away_team_id": 2005740,
+      "away_team_name": "Club Nacional",
+      "date": "2026-09-26T18:00:00.000Z"
+    },
+    {
+      "league_id": 228852,
+      "league_name": "Primera División - Apertura",
+      "home_team_id": 2011697,
+      "home_team_name": "Progreso",
+      "away_team_id": 2008293,
+      "away_team_name": "Racing Club de Montevideo",
+      "date": "2026-09-26T14:00:00.000Z"
+    },
+    {
+      "league_id": 120775,
+      "league_name": "Segunda División",
+      "home_team_id": 8145705,
+      "home_team_name": "Celta de Vigo II",
+      "away_team_id": 8164427,
+      "away_team_name": "Sabadell",
+      "date": "2026-09-26T16:30:00.000Z"
+    },
+    {
+      "league_id": 120775,
+      "league_name": "Segunda División",
+      "home_team_id": 612653,
+      "home_team_name": "Tenerife",
+      "away_team_id": 616908,
+      "away_team_name": "Cadiz",
+      "date": "2026-09-26T16:30:00.000Z"
+    },
+    {
+      "league_id": 120775,
+      "league_name": "Segunda División",
+      "home_team_id": 609249,
+      "home_team_name": "Granada CF",
+      "away_team_id": 6942391,
+      "away_team_name": "FC Andorra",
+      "date": "2026-09-26T14:15:00.000Z"
+    },
+    {
+      "league_id": 120775,
+      "league_name": "Segunda División",
+      "home_team_id": 8629073,
+      "home_team_name": "AD Ceuta FC",
+      "away_team_id": 8157619,
+      "away_team_name": "Real Sociedad B",
+      "date": "2026-09-26T12:00:00.000Z"
+    },
+    {
+      "league_id": 568401,
+      "league_name": "Friendlies Clubs",
+      "home_team_id": 296932,
+      "home_team_name": "Pogoń Szczecin",
+      "away_team_id": 421178,
+      "away_team_name": "Udinese",
+      "date": "2026-09-26T15:30:00.000Z"
+    },
+    {
+      "league_id": 568401,
+      "league_name": "Friendlies Clubs",
+      "home_team_id": 3268624,
+      "home_team_name": "Bohemians",
+      "away_team_id": 3161398,
+      "away_team_name": "Bohemians 1905",
+      "date": "2026-09-26T13:00:00.000Z"
+    }
+  ],
+  "reserve": [
+    {
+      "league_id": 724134,
+      "league_name": "UEFA U21 Championship - Qualification",
+      "home_team_id": 6985792,
+      "home_team_name": "Malta U21",
+      "away_team_id": 6990047,
+      "away_team_name": "Northern Ireland U21",
+      "date": "2026-09-26T17:00:00.000Z"
+    },
+    {
+      "league_id": 724134,
+      "league_name": "UEFA U21 Championship - Qualification",
+      "home_team_id": 6982388,
+      "home_team_name": "Latvia U21",
+      "away_team_id": 6975580,
+      "away_team_name": "Germany U21",
+      "date": "2026-09-26T16:00:00.000Z"
+    },
+    {
+      "league_id": 724134,
+      "league_name": "UEFA U21 Championship - Qualification",
+      "home_team_id": 7002812,
+      "home_team_name": "Ukraine U21",
+      "away_team_id": 7001961,
+      "away_team_name": "Turkey U21",
+      "date": "2026-09-26T16:00:00.000Z",
+      "own_national": "youth"
+    },
+    {
+      "league_id": 724134,
+      "league_name": "UEFA U21 Championship - Qualification",
+      "home_team_id": 6967070,
+      "home_team_name": "Croatia U21",
+      "away_team_id": 14042284,
+      "away_team_name": "Hungary U21",
+      "date": "2026-09-26T15:00:00.000Z"
+    },
+    {
+      "league_id": 724134,
+      "league_name": "UEFA U21 Championship - Qualification",
+      "home_team_id": 6974729,
+      "home_team_name": "Georgia U21",
+      "away_team_id": 6977282,
+      "away_team_name": "Greece U21",
+      "date": "2026-09-26T15:00:00.000Z"
+    },
+    {
+      "league_id": 754770,
+      "league_name": "UEFA U17 Championship - Qualification",
+      "home_team_id": 15282191,
+      "home_team_name": "Iceland U17",
+      "away_team_id": 15270277,
+      "away_team_name": "Bosnia-Herzegovina U17",
+      "date": "2026-09-26T12:00:00.000Z"
+    },
+    {
+      "league_id": 754770,
+      "league_name": "UEFA U17 Championship - Qualification",
+      "home_team_id": 15281340,
+      "home_team_name": "Greece U17",
+      "away_team_id": 15280489,
+      "away_team_name": "Gibraltar U17",
+      "date": "2026-09-26T12:00:00.000Z"
+    },
+    {
+      "league_id": 758174,
+      "league_name": "U20 Elite League",
+      "home_team_id": 8765233,
+      "home_team_name": "Portugal U20",
+      "away_team_id": 8764382,
+      "away_team_name": "Poland U20",
+      "date": "2026-09-26T16:00:00.000Z"
+    },
+    {
+      "league_id": 758174,
+      "league_name": "U20 Elite League",
+      "home_team_id": 15358781,
+      "home_team_name": "Czech Republic U20",
+      "away_team_id": 21514915,
+      "away_team_name": "Switzerland U20",
+      "date": "2026-09-26T10:00:00.000Z"
+    },
+    {
+      "league_id": 567550,
+      "league_name": "Friendlies Women",
+      "home_team_id": 14403959,
+      "home_team_name": "Botswana Women",
+      "away_team_id": 14415873,
+      "away_team_name": "Namibia Women",
+      "date": "2026-09-26T12:00:00.000Z"
+    },
+    {
+      "league_id": 567550,
+      "league_name": "Friendlies Women",
+      "home_team_id": 16962916,
+      "home_team_name": "Papua New Guinea Women",
+      "away_team_id": 16967171,
+      "away_team_name": "Vanuatu Women",
+      "date": "2026-09-26T07:00:00.000Z"
+    },
+    {
+      "league_id": 567550,
+      "league_name": "Friendlies Women",
+      "home_team_id": 19235937,
+      "home_team_name": "New Caledonia Women",
+      "away_team_id": 16964618,
+      "away_team_name": "Solomon Islands Women",
+      "date": "2026-09-26T04:00:00.000Z"
+    }
+  ],
+  "national": [],
+  "widget_targets": {
+    "top_events": 14,
+    "top_matches": 12
+  }
+}

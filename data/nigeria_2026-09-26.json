@@ -1,0 +1,337 @@
+{
+  "top_events": [
+    {
+      "league_id": 5039,
+      "league_name": "UEFA Nations League",
+      "home_team_id": 9294,
+      "home_team_name": "England",
+      "away_team_id": 8443,
+      "away_team_name": "Spain",
+      "date": "2026-09-26T18:45:00.000Z"
+    },
+    {
+      "league_id": 5039,
+      "league_name": "UEFA Nations League",
+      "home_team_id": 658607,
+      "home_team_name": "Slovakia",
+      "away_team_id": 948798,
+      "away_team_name": "Moldova",
+      "date": "2026-09-26T18:45:00.000Z"
+    },
+    {
+      "league_id": 5039,
+      "league_name": "UEFA Nations League",
+      "home_team_id": 662862,
+      "home_team_name": "Albania",
+      "away_team_id": 936884,
+      "away_team_name": "Belarus",
+      "date": "2026-09-26T18:45:00.000Z"
+    },
+    {
+      "league_id": 5039,
+      "league_name": "UEFA Nations League",
+      "home_team_id": 941139,
+      "home_team_name": "North Macedonia",
+      "away_team_id": 13549,
+      "away_team_name": "Switzerland",
+      "date": "2026-09-26T18:45:00.000Z"
+    },
+    {
+      "league_id": 5039,
+      "league_name": "UEFA Nations League",
+      "home_team_id": 656054,
+      "home_team_name": "Czech Republic",
+      "away_team_id": 3337,
+      "away_team_name": "Croatia",
+      "date": "2026-09-26T18:45:00.000Z"
+    },
+    {
+      "league_id": 5039,
+      "league_name": "UEFA Nations League",
+      "home_team_id": 16102,
+      "home_team_name": "Iceland",
+      "away_team_id": 937735,
+      "away_team_name": "Estonia",
+      "date": "2026-09-26T16:00:00.000Z"
+    },
+    {
+      "league_id": 5039,
+      "league_name": "UEFA Nations League",
+      "home_team_id": 935182,
+      "home_team_name": "Faroe Islands",
+      "away_team_id": 932629,
+      "away_team_name": "Kazakhstan",
+      "date": "2026-09-26T16:00:00.000Z"
+    },
+    {
+      "league_id": 5039,
+      "league_name": "UEFA Nations League",
+      "home_team_id": 939437,
+      "home_team_name": "Bulgaria",
+      "away_team_id": 938586,
+      "away_team_name": "Luxembourg",
+      "date": "2026-09-26T16:00:00.000Z"
+    },
+    {
+      "league_id": 5039,
+      "league_name": "UEFA Nations League",
+      "home_team_id": 949649,
+      "home_team_name": "San Marino",
+      "away_team_id": 936033,
+      "away_team_name": "Finland",
+      "date": "2026-09-26T16:00:00.000Z"
+    },
+    {
+      "league_id": 5039,
+      "league_name": "UEFA Nations League",
+      "home_team_id": 929225,
+      "home_team_name": "Slovenia",
+      "away_team_id": 943692,
+      "away_team_name": "Scotland",
+      "date": "2026-09-26T13:00:00.000Z"
+    },
+    {
+      "league_id": 340333,
+      "league_name": "NPFL",
+      "home_team_id": 19220619,
+      "home_team_name": "Sporting Lagos",
+      "away_team_id": 22467184,
+      "away_team_name": "Barau FC",
+      "date": "2026-09-26T15:00:00.000Z"
+    },
+    {
+      "league_id": 456920,
+      "league_name": "CONCACAF Nations League",
+      "home_team_id": 9348168,
+      "home_team_name": "Saint Martin",
+      "away_team_id": 6955156,
+      "away_team_name": "US Virgin Islands",
+      "date": "2026-09-26T20:00:00.000Z"
+    },
+    {
+      "league_id": 456920,
+      "league_name": "CONCACAF Nations League",
+      "home_team_id": 6953454,
+      "home_team_name": "Montserrat",
+      "away_team_id": 6951752,
+      "away_team_name": "British Virgin Islands",
+      "date": "2026-09-26T19:00:00.000Z"
+    }
+  ],
+  "top_matches": [
+    {
+      "league_id": 9294,
+      "league_name": "Friendlies",
+      "home_team_id": 2029568,
+      "home_team_name": "USA",
+      "away_team_id": 26314,
+      "away_team_name": "Peru",
+      "date": "2026-09-26T20:30:00.000Z"
+    },
+    {
+      "league_id": 9294,
+      "league_name": "Friendlies",
+      "home_team_id": 14400,
+      "home_team_name": "Mexico",
+      "away_team_id": 7592,
+      "away_team_name": "Colombia",
+      "date": "2026-09-26T20:00:00.000Z"
+    },
+    {
+      "league_id": 9294,
+      "league_name": "Friendlies",
+      "home_team_id": 8821399,
+      "home_team_name": "Hungary U19",
+      "away_team_id": 8789912,
+      "away_team_name": "Bulgaria U19",
+      "date": "2026-09-26T14:00:00.000Z"
+    },
+    {
+      "league_id": 31420,
+      "league_name": "Africa Cup of Nations - Qualification",
+      "home_team_id": 1303665,
+      "home_team_name": "South Africa",
+      "away_team_id": 1284943,
+      "away_team_name": "Guinea",
+      "date": "2026-09-26T13:00:00.000Z"
+    },
+    {
+      "league_id": 31420,
+      "league_name": "Africa Cup of Nations - Qualification",
+      "home_team_id": 1286645,
+      "home_team_name": "Kenya",
+      "away_team_id": 1275582,
+      "away_team_name": "Eritrea",
+      "date": "2026-09-26T13:00:00.000Z"
+    },
+    {
+      "league_id": 22059,
+      "league_name": "Gulf Cup of Nations",
+      "home_team_id": 1321536,
+      "home_team_name": "Oman",
+      "away_team_id": 20357,
+      "away_team_name": "Saudi Arabia",
+      "date": "2026-09-26T18:00:00.000Z"
+    },
+    {
+      "league_id": 22059,
+      "league_name": "Gulf Cup of Nations",
+      "home_team_id": 1336854,
+      "home_team_name": "Kuwait",
+      "away_team_id": 1334301,
+      "away_team_name": "Iraq",
+      "date": "2026-09-26T15:00:00.000Z"
+    },
+    {
+      "league_id": 170984,
+      "league_name": "Botola Pro",
+      "home_team_id": 824552,
+      "home_team_name": "Wydad AC",
+      "away_team_id": 2943542,
+      "away_team_name": "Widad Témara",
+      "date": "2026-09-26T20:00:00.000Z"
+    },
+    {
+      "league_id": 170984,
+      "league_name": "Botola Pro",
+      "home_team_id": 821148,
+      "home_team_name": "Difaa El Jadida",
+      "away_team_id": 18908302,
+      "away_team_name": "CODM Meknès",
+      "date": "2026-09-26T18:00:00.000Z"
+    },
+    {
+      "league_id": 170984,
+      "league_name": "Botola Pro",
+      "home_team_id": 12600690,
+      "home_team_name": "UTS Rabat",
+      "away_team_id": 832211,
+      "away_team_name": "FUS Rabat",
+      "date": "2026-09-26T16:00:00.000Z"
+    }
+  ],
+  "reserve": [
+    {
+      "league_id": 159070,
+      "league_name": "Ligue 1",
+      "home_team_id": 793065,
+      "home_team_name": "ASO Chlef",
+      "away_team_id": 771790,
+      "away_team_name": "MC Alger",
+      "date": "2026-09-26T15:00:00.000Z"
+    },
+    {
+      "league_id": 159070,
+      "league_name": "Ligue 1",
+      "home_team_id": 774343,
+      "home_team_name": "US Biskra",
+      "away_team_id": 772641,
+      "away_team_name": "MC Oran",
+      "date": "2026-09-26T15:00:00.000Z"
+    },
+    {
+      "league_id": 159070,
+      "league_name": "Ligue 1",
+      "home_team_id": 9150736,
+      "home_team_name": "Khenchela",
+      "away_team_id": 776045,
+      "away_team_name": "CS Constantine",
+      "date": "2026-09-26T15:00:00.000Z"
+    },
+    {
+      "league_id": 159070,
+      "league_name": "Ligue 1",
+      "home_team_id": 17615633,
+      "home_team_name": "JS El Biar",
+      "away_team_id": 770088,
+      "away_team_name": "CR Belouizdad",
+      "date": "2026-09-26T15:00:00.000Z"
+    },
+    {
+      "league_id": 159070,
+      "league_name": "Ligue 1",
+      "home_team_id": 770939,
+      "home_team_name": "ES Sétif",
+      "away_team_id": 782002,
+      "away_team_name": "JS Kabylie",
+      "date": "2026-09-26T15:00:00.000Z"
+    },
+    {
+      "league_id": 159070,
+      "league_name": "Ligue 1",
+      "home_team_id": 9119249,
+      "home_team_name": "Témouchent",
+      "away_team_id": 9172011,
+      "away_team_name": "MB Rouisset",
+      "date": "2026-09-26T15:00:00.000Z"
+    },
+    {
+      "league_id": 159070,
+      "league_name": "Ligue 1",
+      "home_team_id": 775194,
+      "home_team_name": "USM Alger",
+      "away_team_id": 778598,
+      "away_team_name": "JS Saoura",
+      "date": "2026-09-26T15:00:00.000Z"
+    },
+    {
+      "league_id": 159070,
+      "league_name": "Ligue 1",
+      "home_team_id": 9174564,
+      "home_team_name": "Oued Akbou",
+      "away_team_id": 9184776,
+      "away_team_name": "Ben Aknoun",
+      "date": "2026-09-26T15:00:00.000Z"
+    },
+    {
+      "league_id": 485854,
+      "league_name": "Premier League",
+      "home_team_id": 10426385,
+      "home_team_name": "Karela",
+      "away_team_id": 10424683,
+      "away_team_name": "Hearts of Oak",
+      "date": "2026-09-26T15:00:00.000Z"
+    },
+    {
+      "league_id": 329270,
+      "league_name": "Ligue 1",
+      "home_team_id": 3851559,
+      "home_team_name": "Stade d'Abidjan",
+      "away_team_id": 19218917,
+      "away_team_name": "Mouna",
+      "date": "2026-09-26T18:00:00.000Z"
+    },
+    {
+      "league_id": 329270,
+      "league_name": "Ligue 1",
+      "home_team_id": 24204926,
+      "home_team_name": "Yamoussoukro",
+      "away_team_id": 3840496,
+      "away_team_name": "ASEC Mimosas",
+      "date": "2026-09-26T15:30:00.000Z"
+    },
+    {
+      "league_id": 228852,
+      "league_name": "Primera División - Apertura",
+      "home_team_id": 2016803,
+      "home_team_name": "Cerro Largo",
+      "away_team_id": 2005740,
+      "away_team_name": "Club Nacional",
+      "date": "2026-09-26T18:00:00.000Z"
+    },
+    {
+      "league_id": 228852,
+      "league_name": "Primera División - Apertura",
+      "home_team_id": 2011697,
+      "home_team_name": "Progreso",
+      "away_team_id": 2008293,
+      "away_team_name": "Racing Club de Montevideo",
+      "date": "2026-09-26T14:00:00.000Z"
+    }
+  ],
+  "national": [],
+  "widget_targets": {
+    "top_events": 14,
+    "top_matches": 12
+  }
+}

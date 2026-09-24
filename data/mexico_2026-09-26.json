@@ -1,0 +1,412 @@
+{
+  "top_events": [
+    {
+      "league_id": 5039,
+      "league_name": "UEFA Nations League",
+      "home_team_id": 9294,
+      "home_team_name": "England",
+      "away_team_id": 8443,
+      "away_team_name": "Spain",
+      "date": "2026-09-26T18:45:00.000Z"
+    },
+    {
+      "league_id": 5039,
+      "league_name": "UEFA Nations League",
+      "home_team_id": 658607,
+      "home_team_name": "Slovakia",
+      "away_team_id": 948798,
+      "away_team_name": "Moldova",
+      "date": "2026-09-26T18:45:00.000Z"
+    },
+    {
+      "league_id": 5039,
+      "league_name": "UEFA Nations League",
+      "home_team_id": 662862,
+      "home_team_name": "Albania",
+      "away_team_id": 936884,
+      "away_team_name": "Belarus",
+      "date": "2026-09-26T18:45:00.000Z"
+    },
+    {
+      "league_id": 5039,
+      "league_name": "UEFA Nations League",
+      "home_team_id": 941139,
+      "home_team_name": "North Macedonia",
+      "away_team_id": 13549,
+      "away_team_name": "Switzerland",
+      "date": "2026-09-26T18:45:00.000Z"
+    },
+    {
+      "league_id": 5039,
+      "league_name": "UEFA Nations League",
+      "home_team_id": 656054,
+      "home_team_name": "Czech Republic",
+      "away_team_id": 3337,
+      "away_team_name": "Croatia",
+      "date": "2026-09-26T18:45:00.000Z"
+    },
+    {
+      "league_id": 5039,
+      "league_name": "UEFA Nations League",
+      "home_team_id": 16102,
+      "home_team_name": "Iceland",
+      "away_team_id": 937735,
+      "away_team_name": "Estonia",
+      "date": "2026-09-26T16:00:00.000Z"
+    },
+    {
+      "league_id": 5039,
+      "league_name": "UEFA Nations League",
+      "home_team_id": 935182,
+      "home_team_name": "Faroe Islands",
+      "away_team_id": 932629,
+      "away_team_name": "Kazakhstan",
+      "date": "2026-09-26T16:00:00.000Z"
+    },
+    {
+      "league_id": 5039,
+      "league_name": "UEFA Nations League",
+      "home_team_id": 939437,
+      "home_team_name": "Bulgaria",
+      "away_team_id": 938586,
+      "away_team_name": "Luxembourg",
+      "date": "2026-09-26T16:00:00.000Z"
+    },
+    {
+      "league_id": 5039,
+      "league_name": "UEFA Nations League",
+      "home_team_id": 949649,
+      "home_team_name": "San Marino",
+      "away_team_id": 936033,
+      "away_team_name": "Finland",
+      "date": "2026-09-26T16:00:00.000Z"
+    },
+    {
+      "league_id": 5039,
+      "league_name": "UEFA Nations League",
+      "home_team_id": 929225,
+      "home_team_name": "Slovenia",
+      "away_team_id": 943692,
+      "away_team_name": "Scotland",
+      "date": "2026-09-26T13:00:00.000Z"
+    },
+    {
+      "league_id": 223746,
+      "league_name": "Liga MX",
+      "home_team_id": 1940213,
+      "home_team_name": "Tigres UANL",
+      "away_team_id": 1950425,
+      "away_team_name": "Puebla",
+      "date": "2026-09-27T01:00:00.000Z"
+    },
+    {
+      "league_id": 223746,
+      "league_name": "Liga MX",
+      "home_team_id": 1945319,
+      "home_team_name": "Santos Laguna",
+      "away_team_id": 1951276,
+      "away_team_name": "Pachuca",
+      "date": "2026-09-27T01:00:00.000Z"
+    },
+    {
+      "league_id": 223746,
+      "league_name": "Liga MX",
+      "home_team_id": 1939362,
+      "home_team_name": "Guadalajara Chivas",
+      "away_team_id": 1949574,
+      "away_team_name": "Querétaro",
+      "date": "2026-09-26T23:07:00.000Z"
+    },
+    {
+      "league_id": 223746,
+      "league_name": "Liga MX",
+      "home_team_id": 1953829,
+      "home_team_name": "Cruz Azul",
+      "away_team_id": 1941915,
+      "away_team_name": "Toluca",
+      "date": "2026-09-26T22:50:00.000Z"
+    }
+  ],
+  "top_matches": [
+    {
+      "league_id": 456920,
+      "league_name": "CONCACAF Nations League",
+      "home_team_id": 9348168,
+      "home_team_name": "Saint Martin",
+      "away_team_id": 6955156,
+      "away_team_name": "US Virgin Islands",
+      "date": "2026-09-26T20:00:00.000Z"
+    },
+    {
+      "league_id": 456920,
+      "league_name": "CONCACAF Nations League",
+      "home_team_id": 6953454,
+      "home_team_name": "Montserrat",
+      "away_team_id": 6951752,
+      "away_team_name": "British Virgin Islands",
+      "date": "2026-09-26T19:00:00.000Z"
+    },
+    {
+      "league_id": 456920,
+      "league_name": "CONCACAF Nations League",
+      "home_team_id": 9349019,
+      "home_team_name": "Sint Maarten",
+      "away_team_id": 4705112,
+      "away_team_name": "Belize",
+      "date": "2026-09-27T02:00:00.000Z"
+    },
+    {
+      "league_id": 456920,
+      "league_name": "CONCACAF Nations League",
+      "home_team_id": 4703410,
+      "home_team_name": "Antigua and Barbuda",
+      "away_team_id": 6936434,
+      "away_team_name": "Anguilla",
+      "date": "2026-09-26T23:00:00.000Z"
+    },
+    {
+      "league_id": 456920,
+      "league_name": "CONCACAF Nations League",
+      "home_team_id": 4716175,
+      "home_team_name": "St. Vincent and the Grenadines",
+      "away_team_id": 6909202,
+      "away_team_name": "French Guyana",
+      "date": "2026-09-26T21:00:00.000Z"
+    },
+    {
+      "league_id": 9294,
+      "league_name": "Friendlies",
+      "home_team_id": 2029568,
+      "home_team_name": "USA",
+      "away_team_id": 26314,
+      "away_team_name": "Peru",
+      "date": "2026-09-26T20:30:00.000Z"
+    },
+    {
+      "league_id": 9294,
+      "league_name": "Friendlies",
+      "home_team_id": 14400,
+      "home_team_name": "Mexico",
+      "away_team_id": 7592,
+      "away_team_name": "Colombia",
+      "date": "2026-09-26T20:00:00.000Z",
+      "own_national": "senior"
+    },
+    {
+      "league_id": 9294,
+      "league_name": "Friendlies",
+      "home_team_id": 8821399,
+      "home_team_name": "Hungary U19",
+      "away_team_id": 8789912,
+      "away_team_name": "Bulgaria U19",
+      "date": "2026-09-26T14:00:00.000Z"
+    },
+    {
+      "league_id": 9294,
+      "league_name": "Friendlies",
+      "home_team_id": 6956858,
+      "home_team_name": "Cook Islands",
+      "away_team_id": 4397901,
+      "away_team_name": "Tahiti",
+      "date": "2026-09-27T04:00:00.000Z"
+    },
+    {
+      "league_id": 9294,
+      "league_name": "Friendlies",
+      "home_team_id": 4400454,
+      "home_team_name": "Vanuatu",
+      "away_team_id": 4394497,
+      "away_team_name": "New Caledonia",
+      "date": "2026-09-27T04:00:00.000Z"
+    },
+    {
+      "league_id": 9294,
+      "league_name": "Friendlies",
+      "home_team_id": 4705963,
+      "home_team_name": "Canada",
+      "away_team_id": 2028717,
+      "away_team_name": "Chile",
+      "date": "2026-09-26T23:00:00.000Z"
+    },
+    {
+      "league_id": 31420,
+      "league_name": "Africa Cup of Nations - Qualification",
+      "home_team_id": 1303665,
+      "home_team_name": "South Africa",
+      "away_team_id": 1284943,
+      "away_team_name": "Guinea",
+      "date": "2026-09-26T13:00:00.000Z"
+    },
+    {
+      "league_id": 31420,
+      "league_name": "Africa Cup of Nations - Qualification",
+      "home_team_id": 1286645,
+      "home_team_name": "Kenya",
+      "away_team_id": 1275582,
+      "away_team_name": "Eritrea",
+      "date": "2026-09-26T13:00:00.000Z"
+    }
+  ],
+  "reserve": [
+    {
+      "league_id": 22059,
+      "league_name": "Gulf Cup of Nations",
+      "home_team_id": 1321536,
+      "home_team_name": "Oman",
+      "away_team_id": 20357,
+      "away_team_name": "Saudi Arabia",
+      "date": "2026-09-26T18:00:00.000Z"
+    },
+    {
+      "league_id": 22059,
+      "league_name": "Gulf Cup of Nations",
+      "home_team_id": 1336854,
+      "home_team_name": "Kuwait",
+      "away_team_id": 1334301,
+      "away_team_name": "Iraq",
+      "date": "2026-09-26T15:00:00.000Z"
+    },
+    {
+      "league_id": 216087,
+      "league_name": "Major League Soccer",
+      "home_team_id": 1364937,
+      "home_team_name": "Vancouver Whitecaps",
+      "away_team_id": 1375149,
+      "away_team_name": "DC United",
+      "date": "2026-09-27T02:30:00.000Z"
+    },
+    {
+      "league_id": 216087,
+      "league_name": "Major League Soccer",
+      "home_team_id": 1358980,
+      "home_team_name": "San Jose Earthquakes",
+      "away_team_id": 1376851,
+      "away_team_name": "Portland Timbers",
+      "date": "2026-09-27T02:30:00.000Z"
+    },
+    {
+      "league_id": 216087,
+      "league_name": "Major League Soccer",
+      "home_team_id": 1366639,
+      "home_team_name": "Los Angeles Galaxy",
+      "away_team_id": 1370894,
+      "away_team_name": "Colorado Rapids",
+      "date": "2026-09-27T02:30:00.000Z"
+    },
+    {
+      "league_id": 216087,
+      "league_name": "Major League Soccer",
+      "home_team_id": 1367490,
+      "home_team_name": "Real Salt Lake",
+      "away_team_id": 1370043,
+      "away_team_name": "New England Revolution",
+      "date": "2026-09-27T01:30:00.000Z"
+    },
+    {
+      "league_id": 216087,
+      "league_name": "Major League Soccer",
+      "home_team_id": 8144003,
+      "home_team_name": "Nashville SC",
+      "away_team_id": 1363235,
+      "away_team_name": "Toronto FC",
+      "date": "2026-09-27T00:30:00.000Z"
+    },
+    {
+      "league_id": 216087,
+      "league_name": "Major League Soccer",
+      "home_team_id": 1362384,
+      "home_team_name": "Houston Dynamo",
+      "away_team_id": 1371745,
+      "away_team_name": "Sporting Kansas City",
+      "date": "2026-09-27T00:30:00.000Z"
+    },
+    {
+      "league_id": 216087,
+      "league_name": "Major League Soccer",
+      "home_team_id": 1358129,
+      "home_team_name": "Seattle Sounders",
+      "away_team_id": 1372596,
+      "away_team_name": "Minnesota United",
+      "date": "2026-09-27T00:30:00.000Z"
+    },
+    {
+      "league_id": 216087,
+      "league_name": "Major League Soccer",
+      "home_team_id": 1359831,
+      "home_team_name": "FC Dallas",
+      "away_team_id": 1376000,
+      "away_team_name": "Los Angeles FC",
+      "date": "2026-09-27T00:30:00.000Z"
+    },
+    {
+      "league_id": 216087,
+      "league_name": "Major League Soccer",
+      "home_team_id": 14032923,
+      "home_team_name": "Austin",
+      "away_team_id": 21687668,
+      "away_team_name": "San Diego",
+      "date": "2026-09-27T00:30:00.000Z"
+    },
+    {
+      "league_id": 216087,
+      "league_name": "Major League Soccer",
+      "home_team_id": 15582594,
+      "home_team_name": "Charlotte",
+      "away_team_id": 1368341,
+      "away_team_name": "Chicago Fire",
+      "date": "2026-09-26T23:30:00.000Z"
+    },
+    {
+      "league_id": 216087,
+      "league_name": "Major League Soccer",
+      "home_team_id": 1364086,
+      "home_team_name": "New York Red Bulls",
+      "away_team_id": 17690521,
+      "away_team_name": "St. Louis City SC",
+      "date": "2026-09-26T23:30:00.000Z"
+    },
+    {
+      "league_id": 216087,
+      "league_name": "Major League Soccer",
+      "home_team_id": 1374298,
+      "home_team_name": "Montréal Impact",
+      "away_team_id": 1908726,
+      "away_team_name": "FC Cincinnati",
+      "date": "2026-09-26T23:30:00.000Z"
+    },
+    {
+      "league_id": 216087,
+      "league_name": "Major League Soccer",
+      "home_team_id": 1369192,
+      "home_team_name": "Atlanta United FC",
+      "away_team_id": 1365788,
+      "away_team_name": "New York City FC",
+      "date": "2026-09-26T23:30:00.000Z"
+    },
+    {
+      "league_id": 216087,
+      "league_name": "Major League Soccer",
+      "home_team_id": 1361533,
+      "home_team_name": "Philadelphia Union",
+      "away_team_id": 1360682,
+      "away_team_name": "Orlando City",
+      "date": "2026-09-26T23:30:00.000Z"
+    }
+  ],
+  "national": [
+    {
+      "league_id": 9294,
+      "league_name": "Friendlies",
+      "home_team_id": 14400,
+      "home_team_name": "Mexico",
+      "away_team_id": 7592,
+      "away_team_name": "Colombia",
+      "date": "2026-09-26T20:00:00.000Z",
+      "own_national": "senior"
+    }
+  ],
+  "widget_targets": {
+    "top_events": 14,
+    "top_matches": 12
+  }
+}
