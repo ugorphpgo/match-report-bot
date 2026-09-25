@@ -552,87 +552,87 @@
     },
     "21208": {
       "name": "AFF Championship",
-      "priority": 430,
+      "priority": 250,
       "group": "regional_national_teams"
     },
     "16953": {
       "name": "African Nations Championship",
-      "priority": 430,
+      "priority": 250,
       "group": "regional_national_teams"
     },
     "990497": {
       "name": "African Nations Championship - Qualification",
-      "priority": 430,
+      "priority": 250,
       "group": "regional_national_teams"
     },
     "913056": {
       "name": "All Africa Games",
-      "priority": 430,
+      "priority": 250,
       "group": "regional_national_teams"
     },
     "732644": {
       "name": "Arab Cup",
-      "priority": 430,
+      "priority": 250,
       "group": "regional_national_teams"
     },
     "684137": {
       "name": "Asian Games",
-      "priority": 430,
+      "priority": 250,
       "group": "regional_national_teams"
     },
     "723283": {
       "name": "Baltic Cup",
-      "priority": 430,
+      "priority": 250,
       "group": "regional_national_teams"
     },
     "865400": {
       "name": "CAC Games",
-      "priority": 430,
+      "priority": 250,
       "group": "regional_national_teams"
     },
     "858592": {
       "name": "CAFA Nations Cup",
-      "priority": 430,
+      "priority": 250,
       "group": "regional_national_teams"
     },
     "456069": {
       "name": "CECAFA Senior Challenge Cup",
-      "priority": 430,
+      "priority": 250,
       "group": "regional_national_teams"
     },
     "1027941": {
       "name": "CONCACAF Series",
-      "priority": 430,
+      "priority": 250,
       "group": "regional_national_teams"
     },
     "1053471": {
       "name": "Central American and Caribbean Games",
-      "priority": 430,
+      "priority": 250,
       "group": "regional_national_teams"
     },
     "20357": {
       "name": "EAFF E-1 Football Championship",
-      "priority": 430,
+      "priority": 250,
       "group": "regional_national_teams"
     },
     "995603": {
       "name": "EAFF E-1 Football Championship - Qualification",
-      "priority": 430,
+      "priority": 250,
       "group": "regional_national_teams"
     },
     "22059": {
       "name": "Gulf Cup of Nations",
-      "priority": 430,
+      "priority": 250,
       "group": "regional_national_teams"
     },
     "801575": {
       "name": "Islamic Solidarity Games",
-      "priority": 430,
+      "priority": 250,
       "group": "regional_national_teams"
     },
     "884122": {
       "name": "King's Cup",
-      "priority": 430,
+      "priority": 250,
       "group": "regional_national_teams"
     },
     "1033047": {
@@ -642,37 +642,37 @@
     },
     "780300": {
       "name": "Kirin Cup",
-      "priority": 430,
+      "priority": 250,
       "group": "regional_national_teams"
     },
     "1040706": {
       "name": "FIFA Series",
-      "priority": 430,
+      "priority": 250,
       "group": "regional_national_teams"
     },
     "24612": {
       "name": "SAFF Championship",
-      "priority": 430,
+      "priority": 250,
       "group": "regional_national_teams"
     },
     "776045": {
       "name": "Southeast Asian Games",
-      "priority": 430,
+      "priority": 250,
       "group": "regional_national_teams"
     },
     "656054": {
       "name": "Pacific Games",
-      "priority": 430,
+      "priority": 250,
       "group": "regional_national_teams"
     },
     "890079": {
       "name": "Pan American Games",
-      "priority": 430,
+      "priority": 250,
       "group": "regional_national_teams"
     },
     "782853": {
       "name": "Mediterranean Games",
-      "priority": 430,
+      "priority": 250,
       "group": "regional_national_teams"
     },
     "34824": {
@@ -1202,7 +1202,8 @@
         "293528": 229,
         "255233": 227,
         "230554": 332,
-        "63758": 300
+        "63758": 300,
+        "890079": 430
       }
     },
     "india": {
@@ -1222,7 +1223,9 @@
         "252680": 233,
         "237362": 231,
         "233958": 230,
-        "339482": 229
+        "339482": 229,
+        "24612": 430,
+        "684137": 430
       }
     },
     "iran": {
@@ -1247,7 +1250,10 @@
         "330121": 231,
         "281614": 229,
         "26314": 1810,
-        "28016": 1809
+        "28016": 1809,
+        "858592": 430,
+        "684137": 430,
+        "801575": 430
       }
     },
     "mexico": {
@@ -1261,7 +1267,10 @@
         "337780": 231,
         "199918": 234,
         "289273": 233,
-        "315654": 232
+        "315654": 232,
+        "865400": 430,
+        "1053471": 430,
+        "890079": 430
       }
     },
     "nigeria": {
@@ -1279,7 +1288,10 @@
         "485854": 233,
         "329270": 232,
         "350545": 231,
-        "343737": 230
+        "343737": 230,
+        "16953": 430,
+        "990497": 430,
+        "913056": 430
       }
     },
     "turkey": {
@@ -1293,7 +1305,9 @@
         "147156": 235,
         "271402": 231,
         "279061": 229,
-        "357353": 233
+        "357353": 233,
+        "782853": 430,
+        "801575": 430
       }
     }
   }
