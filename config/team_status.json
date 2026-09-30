@@ -1,5 +1,305 @@
 {
-  "teams": {},
+  "teams": {
+    "1635": {
+      "name": "Belgium",
+      "status": "top",
+      "by": "rating",
+      "rank": 8
+    },
+    "2486": {
+      "name": "France",
+      "status": "top",
+      "by": "rating",
+      "rank": 3
+    },
+    "3337": {
+      "name": "Croatia",
+      "status": "top",
+      "by": "rating",
+      "rank": 13
+    },
+    "4188": {
+      "name": "Russia",
+      "status": "strong",
+      "by": "rating",
+      "rank": 35
+    },
+    "5039": {
+      "name": "Sweden",
+      "status": "strong",
+      "by": "rating",
+      "rank": 37
+    },
+    "5890": {
+      "name": "Brazil",
+      "status": "top",
+      "by": "rating",
+      "rank": 5
+    },
+    "6741": {
+      "name": "Uruguay",
+      "status": "top",
+      "by": "rating",
+      "rank": 20
+    },
+    "7592": {
+      "name": "Colombia",
+      "status": "top",
+      "by": "rating",
+      "rank": 11
+    },
+    "8443": {
+      "name": "Spain",
+      "status": "top",
+      "by": "rating",
+      "rank": 1
+    },
+    "9294": {
+      "name": "England",
+      "status": "top",
+      "by": "rating",
+      "rank": 4
+    },
+    "10145": {
+      "name": "Panama",
+      "status": "strong",
+      "by": "manual"
+    },
+    "10996": {
+      "name": "Japan",
+      "status": "top",
+      "by": "rating",
+      "rank": 17
+    },
+    "11847": {
+      "name": "Senegal",
+      "status": "top",
+      "by": "rating",
+      "rank": 18
+    },
+    "12698": {
+      "name": "Serbia",
+      "status": "strong",
+      "by": "rating",
+      "rank": 40
+    },
+    "13549": {
+      "name": "Switzerland",
+      "status": "top",
+      "by": "rating",
+      "rank": 14
+    },
+    "14400": {
+      "name": "Mexico",
+      "status": "top",
+      "by": "rating",
+      "rank": 10
+    },
+    "15251": {
+      "name": "South Korea",
+      "status": "strong",
+      "by": "rating",
+      "rank": 32
+    },
+    "16953": {
+      "name": "Nigeria",
+      "status": "strong",
+      "by": "rating",
+      "rank": 26
+    },
+    "17804": {
+      "name": "Australia",
+      "status": "strong",
+      "by": "manual"
+    },
+    "18655": {
+      "name": "Denmark",
+      "status": "strong",
+      "by": "rating",
+      "rank": 21
+    },
+    "19506": {
+      "name": "Iran",
+      "status": "strong",
+      "by": "manual"
+    },
+    "21208": {
+      "name": "Poland",
+      "status": "strong",
+      "by": "rating",
+      "rank": 36
+    },
+    "22059": {
+      "name": "Germany",
+      "status": "top",
+      "by": "rating",
+      "rank": 12
+    },
+    "22910": {
+      "name": "Argentina",
+      "status": "top",
+      "by": "rating",
+      "rank": 2
+    },
+    "23761": {
+      "name": "Portugal",
+      "status": "top",
+      "by": "rating",
+      "rank": 7
+    },
+    "26314": {
+      "name": "Peru",
+      "status": "strong",
+      "by": "rating",
+      "rank": 50
+    },
+    "27165": {
+      "name": "Morocco",
+      "status": "top",
+      "by": "rating",
+      "rank": 6
+    },
+    "28016": {
+      "name": "Egypt",
+      "status": "strong",
+      "by": "rating",
+      "rank": 24
+    },
+    "653501": {
+      "name": "Wales",
+      "status": "strong",
+      "by": "rating",
+      "rank": 38
+    },
+    "654352": {
+      "name": "Italy",
+      "status": "top",
+      "by": "rating",
+      "rank": 15
+    },
+    "655203": {
+      "name": "Hungary",
+      "status": "strong",
+      "by": "rating",
+      "rank": 39
+    },
+    "656054": {
+      "name": "Czech Republic",
+      "status": "strong",
+      "by": "rating",
+      "rank": 48
+    },
+    "657756": {
+      "name": "Ukraine",
+      "status": "strong",
+      "by": "rating",
+      "rank": 33
+    },
+    "658607": {
+      "name": "Slovakia",
+      "status": "strong",
+      "by": "rating",
+      "rank": 45
+    },
+    "660309": {
+      "name": "Austria",
+      "status": "strong",
+      "by": "rating",
+      "rank": 23
+    },
+    "662011": {
+      "name": "Turkey",
+      "status": "strong",
+      "by": "rating",
+      "rank": 27
+    },
+    "928374": {
+      "name": "Norway",
+      "status": "top",
+      "by": "rating",
+      "rank": 19
+    },
+    "943692": {
+      "name": "Scotland",
+      "status": "strong",
+      "by": "manual"
+    },
+    "951351": {
+      "name": "Greece",
+      "status": "strong",
+      "by": "rating",
+      "rank": 46
+    },
+    "952202": {
+      "name": "Netherlands",
+      "status": "top",
+      "by": "rating",
+      "rank": 9
+    },
+    "1278135": {
+      "name": "Ivory Coast",
+      "status": "strong",
+      "by": "rating",
+      "rank": 31
+    },
+    "1284092": {
+      "name": "Congo DR",
+      "status": "strong",
+      "by": "rating",
+      "rank": 41
+    },
+    "1302814": {
+      "name": "Cameroon",
+      "status": "strong",
+      "by": "rating",
+      "rank": 43
+    },
+    "1304516": {
+      "name": "Algeria",
+      "status": "strong",
+      "by": "rating",
+      "rank": 29
+    },
+    "2025313": {
+      "name": "Venezuela",
+      "status": "strong",
+      "by": "rating",
+      "rank": 47
+    },
+    "2026164": {
+      "name": "Paraguay",
+      "status": "strong",
+      "by": "rating",
+      "rank": 34
+    },
+    "2027866": {
+      "name": "Ecuador",
+      "status": "strong",
+      "by": "rating",
+      "rank": 25
+    },
+    "2028717": {
+      "name": "Chile",
+      "status": "strong",
+      "by": "rating",
+      "rank": 49
+    },
+    "2029568": {
+      "name": "USA",
+      "status": "top",
+      "by": "rating",
+      "rank": 16
+    },
+    "4705963": {
+      "name": "Canada",
+      "status": "strong",
+      "by": "rating",
+      "rank": 30
+    }
+  },
   "locales": {},
-  "rating": {"top": 20, "strong": 50}
+  "rating": {
+    "top": 20,
+    "strong": 50
+  }
 }
