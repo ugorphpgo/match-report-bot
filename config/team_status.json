@@ -165,6 +165,161 @@
       "by": "rating",
       "rank": 24
     },
+    "29718": {
+      "name": "Newcastle United",
+      "status": "strong",
+      "by": "manual"
+    },
+    "34824": {
+      "name": "Liverpool",
+      "status": "top",
+      "by": "manual"
+    },
+    "36526": {
+      "name": "Arsenal",
+      "status": "top",
+      "by": "manual"
+    },
+    "40781": {
+      "name": "Tottenham",
+      "status": "strong",
+      "by": "manual"
+    },
+    "42483": {
+      "name": "Chelsea",
+      "status": "top",
+      "by": "manual"
+    },
+    "43334": {
+      "name": "Manchester City",
+      "status": "top",
+      "by": "manual"
+    },
+    "56950": {
+      "name": "Aston Villa",
+      "status": "strong",
+      "by": "manual"
+    },
+    "68013": {
+      "name": "Lille",
+      "status": "strong",
+      "by": "manual"
+    },
+    "69715": {
+      "name": "Marseille",
+      "status": "strong",
+      "by": "manual"
+    },
+    "73119": {
+      "name": "Paris Saint Germain",
+      "status": "top",
+      "by": "manual"
+    },
+    "78225": {
+      "name": "Monaco",
+      "status": "strong",
+      "by": "manual"
+    },
+    "134391": {
+      "name": "Bayern Munich",
+      "status": "top",
+      "by": "manual"
+    },
+    "141199": {
+      "name": "Borussia Dortmund",
+      "status": "top",
+      "by": "manual"
+    },
+    "143752": {
+      "name": "Bayer Leverkusen",
+      "status": "strong",
+      "by": "manual"
+    },
+    "165878": {
+      "name": "Ajax",
+      "status": "strong",
+      "by": "manual"
+    },
+    "178643": {
+      "name": "Feyenoord",
+      "status": "strong",
+      "by": "manual"
+    },
+    "180345": {
+      "name": "Benfica",
+      "status": "strong",
+      "by": "manual"
+    },
+    "194812": {
+      "name": "Sporting CP",
+      "status": "strong",
+      "by": "manual"
+    },
+    "279061": {
+      "name": "Bodø/Glimt",
+      "status": "strong",
+      "by": "manual"
+    },
+    "416923": {
+      "name": "AC Milan",
+      "status": "strong",
+      "by": "manual"
+    },
+    "419476": {
+      "name": "Napoli",
+      "status": "strong",
+      "by": "manual"
+    },
+    "422880": {
+      "name": "Juventus",
+      "status": "strong",
+      "by": "manual"
+    },
+    "425433": {
+      "name": "Atalanta",
+      "status": "strong",
+      "by": "manual"
+    },
+    "430539": {
+      "name": "Inter",
+      "status": "top",
+      "by": "manual"
+    },
+    "450963": {
+      "name": "Barcelona",
+      "status": "top",
+      "by": "manual"
+    },
+    "451814": {
+      "name": "Atletico Madrid",
+      "status": "top",
+      "by": "manual"
+    },
+    "452665": {
+      "name": "Athletic Club",
+      "status": "strong",
+      "by": "manual"
+    },
+    "454367": {
+      "name": "Villarreal",
+      "status": "strong",
+      "by": "manual"
+    },
+    "461175": {
+      "name": "Real Madrid",
+      "status": "top",
+      "by": "manual"
+    },
+    "485003": {
+      "name": "Club Brugge KV",
+      "status": "strong",
+      "by": "manual"
+    },
+    "549679": {
+      "name": "Galatasaray",
+      "status": "top",
+      "by": "manual"
+    },
     "653501": {
       "name": "Wales",
       "status": "strong",
