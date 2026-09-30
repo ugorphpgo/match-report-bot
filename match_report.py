@@ -53,6 +53,17 @@ REPO_ROOT = os.path.dirname(os.path.abspath(__file__))
 LEAGUE_WEIGHTS_PATH = os.path.join(REPO_ROOT, "config", "league_weights.json")
 DATA_DIR = os.path.join(REPO_ROOT, "data")
 
+# --- Статусы команд ---
+# Отдельный файл config/team_status.json (не раздел league_weights.json:
+# правки приоритетов турниров и статусов команд не должны конфликтовать).
+# Формат: {"teams": {team_id: {"name", "status": "top" | "strong" | "regular",
+# "by": "rating" | "manual"}}, "locales": {локаль: {"league_id", "own_clubs":
+# [team_id]}}, "rating": {"top": 20, "strong": 50}}. Правит вкладка
+# «Приоритеты» заполнялки; рейтинг сборных бот сам не качает — сбой или смена
+# формата источника не должны тихо ломать ночной список. Команды без записи —
+# «обычные»; нет файла или он пуст — как раньше, кроме порядка по времени.
+TEAM_STATUS_PATH = os.path.join(REPO_ROOT, "config", "team_status.json")
+
 # Сколько дней держим data/*.json, прежде чем удалить. Файлы коммитятся в
 # репозиторий (см. workflow), а нужны только coupon-filler'у на день-два
 # вперёд — без чистки папка растёт без предела на каждый прогон.
@@ -60,6 +71,17 @@ DATA_RETENTION_DAYS = 2
 
 with open(LEAGUE_WEIGHTS_PATH, encoding="utf-8") as _f:
     _CFG = json.load(_f)
+
+def load_team_status(path=TEAM_STATUS_PATH):
+    """Файл статусов команд; нет файла — пустые статусы."""
+    try:
+        with open(path, encoding="utf-8") as f:
+            raw = json.load(f)
+    except FileNotFoundError:
+        raw = {}
+    return {"teams": raw.get("teams") or {}, "locales": raw.get("locales") or {},
+            "rating": raw.get("rating") or {}}
+
 
 def priority_tables(entries):
     """(приоритеты, группы) из таблицы priorities конфига.
@@ -88,6 +110,8 @@ EXCLUDED = excluded_leagues(_CFG["priorities"])
 
 # Всё, чего нет в таблице, — Oberliga, Regionalliga, резервы и т.д.
 DEFAULT_PRIORITY = _CFG["default_priority"]
+
+TEAM_STATUS = load_team_status()
 
 LOCALE_CONFIG = {
     key: {
@@ -286,6 +310,52 @@ def score_match(m, overrides):
     return PRIORITIES.get(league_id, DEFAULT_PRIORITY)
 
 
+# Чем меньше, тем сильнее.
+TIER_RANK = {"top": 0, "strong": 1, "regular": 2}
+
+
+def team_tier(team_id):
+    """Статус команды: "top", "strong" или "regular" (нет записи, непонятное
+    значение). Статус один на команду — во всех турнирах и локалях."""
+    entry = TEAM_STATUS["teams"].get(str(team_id)) or {}
+    status = entry.get("status")
+    return status if status in TIER_RANK else "regular"
+
+
+def pair_tiers(m):
+    return team_tier(m["homeTeam"]["id"]), team_tier(m["awayTeam"]["id"])
+
+
+def is_own_club_match(m, locale_key):
+    """Матч клуба высшей лиги страны локали в международном клубном турнире
+    (группа international_clubs) — для этой локали. В своей лиге и во
+    внутренних кубках не действует: там свои все. У global своих нет."""
+    if GROUPS.get(m["league"]["id"]) != "international_clubs":
+        return False
+    own = (TEAM_STATUS["locales"].get(locale_key) or {}).get("own_clubs") or []
+    own = {str(t) for t in own}
+    return str(m["homeTeam"]["id"]) in own or str(m["awayTeam"]["id"]) in own
+
+
+def top_mark(m, locale_key=None):
+    """Почему матч топ-матч турнира: "own_club" (свой клуб локали), "pair"
+    (обе команды не ниже «сильной») или None."""
+    if is_own_club_match(m, locale_key):
+        return "own_club"
+    if all(TIER_RANK[t] <= TIER_RANK["strong"] for t in pair_tiers(m)):
+        return "pair"
+    return None
+
+
+def _in_tournament_key(m, locale_key):
+    """Порядок матчей внутри турнира: сначала топ-матчи (свой клуб — первым
+    среди них), затем остальные; в каждой части — старший статус пары, затем
+    младший, затем ранний матч выше."""
+    mark = top_mark(m, locale_key)
+    ranks = sorted(TIER_RANK[t] for t in pair_tiers(m))
+    return (mark is None, mark != "own_club", ranks[0], ranks[1], parse_local_dt(m["date"]))
+
+
 def local_leagues(cfg):
     """Местные турниры локали — те, что она подняла выше общего приоритета.
 
@@ -328,22 +398,23 @@ def _widget_end(ranked, start, target):
     return end
 
 
-def rank_matches(matches, overrides):
+def rank_matches(matches, overrides, locale_key=None):
     """Список локали: матчи в порядке убывания приоритета, обрезанный по
     виджетам целыми турнирами.
 
     Матчи одного турнира идут подряд: при равном приоритете турниры не
-    перемешиваются (второй ключ — id лиги), а внутри турнира порядок
-    исходный. На этом держится правило «турнир не делится между виджетами».
+    перемешиваются (второй ключ — id лиги), а внутри турнира порядок задают
+    статусы команд (_in_tournament_key), locale_key нужен для «своего клуба
+    локали». На этом держится правило «турнир не делится между виджетами».
 
     Исключённые турниры отсекаются здесь — одно место на ежедневный отчёт,
     --lists-only и донабор «перетёкших», и переопределение локали их не
     возвращает."""
-    ordered = _ordered(matches, overrides)
+    ordered = _ordered(matches, overrides, locale_key)
     return ordered[:_list_end(ordered)]
 
 
-def rank_reserve(matches, overrides):
+def rank_reserve(matches, overrides, locale_key=None):
     """Запас: турниры, следующие по приоритету сразу за обрезом списка
     локали, — ещё один Top Matches по размеру, тем же правилом (_widget_end).
 
@@ -351,14 +422,15 @@ def rank_reserve(matches, overrides):
     списка, которых нет в админке: выбывшее убирается, и список с запасом
     заново делится на виджеты строго по приоритету. Порядок — тот же, что у
     rank_matches (_ordered), иначе «следующие» были бы чужими."""
-    ordered = _ordered(matches, overrides)
+    ordered = _ordered(matches, overrides, locale_key)
     start = _list_end(ordered)
     return ordered[start:_widget_end(ordered, start, TOP_MATCHES_SIZE)]
 
 
-def _ordered(matches, overrides):
+def _ordered(matches, overrides, locale_key=None):
     allowed = [m for m in matches if m["league"]["id"] not in EXCLUDED]
-    return sorted(allowed, key=lambda m: (-score_match(m, overrides), m["league"]["id"]))
+    return sorted(allowed, key=lambda m: (-score_match(m, overrides), m["league"]["id"],
+                                          _in_tournament_key(m, locale_key)))
 
 
 def _list_end(ordered):
@@ -521,6 +593,26 @@ def match_to_dict(m):
     }
 
 
+def locale_record(m, locale_key):
+    """Запись матча в файл списка локали: match_to_dict плюс то, что своё для
+    локали. own_national — какая сборная страны этой локали играет. Пометка
+    топа (top, top_reason) и статусы команд (home_tier, away_tier) —
+    формат описан в README; заполнялка строит по ним топ-пресет турнира. Пока
+    в файле статусов нет ни одной команды, ничего этого нет — файл как раньше.
+    """
+    record = match_to_dict(m)
+    side = national_side(m, locale_key)
+    if side:
+        record["own_national"] = side
+    if TEAM_STATUS["teams"]:
+        record["home_tier"], record["away_tier"] = pair_tiers(m)
+        reason = top_mark(m, locale_key)
+        if reason:
+            record["top"] = True
+            record["top_reason"] = reason
+    return record
+
+
 def cleanup_old_data(today):
     """Удаляет data/{locale}_{YYYY-MM-DD}.json, если с даты в имени файла
     прошло DATA_RETENTION_DAYS дней или больше (today — дата по Минску).
@@ -601,21 +693,13 @@ def write_locale_lists(out_dir, locale_key, cfg, day_str, matches, carry_over_po
     os.makedirs(out_dir, exist_ok=True)
 
     pool = matches + carry_over_pools.get(locale_key, [])
-    ranked = rank_matches(pool, cfg["overrides"])
+    ranked = rank_matches(pool, cfg["overrides"], locale_key)
     top_matches, top_events = split_widgets(ranked)
-    reserve = rank_reserve(pool, cfg["overrides"])
+    reserve = rank_reserve(pool, cfg["overrides"], locale_key)
     national = national_matches(pool, locale_key)
 
     def as_dict(m):
-        # own_national — какая сборная страны ЭТОЙ локали играет: coupon-filler
-        # подсвечивает такие матчи, а младшие и женские поднимает первыми
-        # внутри их пресета. Поэтому отметка — при записи файла локали, а не
-        # в match_to_dict: у одного матча она своя для каждой локали.
-        record = match_to_dict(m)
-        side = national_side(m, locale_key)
-        if side:
-            record["own_national"] = side
-        return record
+        return locale_record(m, locale_key)
 
     # Здесь полный список: виджеты должны заполняться целиком для каждой
     # локали, урезается только то, что уходит в телеграм.
