@@ -190,6 +190,51 @@
       "status": "top",
       "by": "manual"
     },
+    "450963": {
+      "name": "Barcelona",
+      "status": "top",
+      "by": "manual"
+    },
+    "451814": {
+      "name": "Atlético Madrid",
+      "status": "top",
+      "by": "manual"
+    },
+    "452665": {
+      "name": "Athletic Club",
+      "status": "strong",
+      "by": "manual"
+    },
+    "453516": {
+      "name": "Valencia",
+      "status": "strong",
+      "by": "manual"
+    },
+    "454367": {
+      "name": "Villarreal",
+      "status": "strong",
+      "by": "manual"
+    },
+    "456920": {
+      "name": "Sevilla FC",
+      "status": "strong",
+      "by": "manual"
+    },
+    "461175": {
+      "name": "Real Madrid",
+      "status": "top",
+      "by": "manual"
+    },
+    "462877": {
+      "name": "Real Betis",
+      "status": "strong",
+      "by": "manual"
+    },
+    "467132": {
+      "name": "Real Sociedad",
+      "status": "strong",
+      "by": "manual"
+    },
     "473089": {
       "name": "CSKA Moscow",
       "status": "top",
@@ -213,6 +258,11 @@
     "529255": {
       "name": "Krasnodar",
       "status": "top",
+      "by": "manual"
+    },
+    "620312": {
+      "name": "Rayo Vallecano",
+      "status": "strong",
       "by": "manual"
     },
     "635630": {
