@@ -200,6 +200,26 @@
       "status": "strong",
       "by": "manual"
     },
+    "143752": {
+      "name": "Bayer Leverkusen",
+      "status": "top",
+      "by": "manual"
+    },
+    "416923": {
+      "name": "AC Milan",
+      "status": "top",
+      "by": "manual"
+    },
+    "419476": {
+      "name": "Napoli",
+      "status": "top",
+      "by": "manual"
+    },
+    "423731": {
+      "name": "AS Roma",
+      "status": "top",
+      "by": "manual"
+    },
     "450963": {
       "name": "Barcelona",
       "status": "top",
@@ -327,6 +347,11 @@
       "status": "strong",
       "by": "rating",
       "rank": 27
+    },
+    "762429": {
+      "name": "Como",
+      "status": "strong",
+      "by": "manual"
     },
     "922417": {
       "name": "Rubin",
