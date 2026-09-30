@@ -42,12 +42,12 @@
   "priorities": {
     "1635": {
       "name": "World Cup",
-      "priority": 2000,
+      "priority": 1000,
       "group": "national_teams"
     },
     "4188": {
       "name": "Euro Championship",
-      "priority": 1950,
+      "priority": 600,
       "group": "national_teams"
     },
     "8443": {
@@ -57,7 +57,7 @@
     },
     "5039": {
       "name": "UEFA Nations League",
-      "priority": 1900,
+      "priority": 479,
       "group": "national_teams"
     },
     "19506": {
@@ -67,37 +67,37 @@
     },
     "28016": {
       "name": "World Cup - Qualification Europe",
-      "priority": 1800,
+      "priority": 480,
       "group": "national_teams"
     },
     "29718": {
       "name": "World Cup - Qualification South America",
-      "priority": 1800,
+      "priority": 470,
       "group": "national_teams"
     },
     "27165": {
       "name": "World Cup - Qualification CONCACAF",
-      "priority": 1800,
+      "priority": 479,
       "group": "national_teams"
     },
     "26314": {
       "name": "World Cup - Qualification Asia",
-      "priority": 1800,
+      "priority": 469,
       "group": "national_teams"
     },
     "25463": {
       "name": "World Cup - Qualification Africa",
-      "priority": 1800,
+      "priority": 469,
       "group": "national_teams"
     },
     "28867": {
       "name": "World Cup - Qualification Oceania",
-      "priority": 1800,
+      "priority": 350,
       "group": "national_teams"
     },
     "32271": {
       "name": "World Cup - Qualification Intercontinental Play-offs",
-      "priority": 1800,
+      "priority": 470,
       "group": "national_teams"
     },
     "456920": {
@@ -127,7 +127,7 @@
     },
     "817744": {
       "name": "Euro Championship - Qualification",
-      "priority": 1800,
+      "priority": 468,
       "group": "national_teams"
     },
     "31420": {
@@ -1309,7 +1309,8 @@
         "785406": 320,
         "5890": 463,
         "25463": 1999,
-        "31420": 462
+        "31420": 462,
+        "29718": 450
       }
     },
     "turkey": {
