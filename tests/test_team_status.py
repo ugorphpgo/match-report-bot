@@ -137,6 +137,110 @@ class TournamentStaysWholeForWidgets(StatusCase):
         self.assertEqual([h for _, h in where][0], SPAIN)
 
 
+EPL, LALIGA, BUNDES, SERIEA, LIGUE1 = 41, 42, 43, 44, 45
+BIG5 = {EPL: 480, LALIGA: 475, BUNDES: 470, SERIEA: 465, LIGUE1: 460}
+ARS, LIV, CHE, VIL, EVE, BRE = 71, 72, 73, 74, 75, 76
+RMA, BAR, SEV, BET = 81, 82, 83, 84
+BAY, BVB, WOB, AUG = 91, 92, 93, 94
+INT, ATA, LEC, CAG = 101, 102, 103, 104
+PSG, LIL, NAN, AUX = 111, 112, 113, 114
+
+
+def tiers(**by_status):
+    return {str(t): {"name": f"T{t}", "status": status, "by": "manual"}
+            for status, ids in by_status.items() for t in ids}
+
+
+class TopBonus(StatusCase):
+    """Надбавка к приоритету топ-части турнира: первые пресеты дня — топ-матчи
+    разных чемпионатов, а не один чемпионат подряд."""
+    status = {
+        "teams": tiers(top=[ARS, LIV, CHE, RMA, BAR, BAY, BVB, INT, PSG],
+                       strong=[VIL, SEV, ATA, LIL]),
+        "eurocups": {}, "locales": {"turkey": {"league_id": 600, "own_clubs": [GALA]}},
+        "rating": {}, "top_bonus": {"top_pair": 60, "top": 30},
+    }
+
+    def setUp(self):
+        super().setUp()
+        p = patch.object(match_report, "PRIORITIES", {**PRIORITIES, **BIG5})
+        p.start()
+        self.addCleanup(p.stop)
+
+    def day(self):
+        return [
+            match(EPL, ARS, VIL), match(EPL, EVE, BRE), match(EPL, CHE, 77),
+            match(LALIGA, RMA, BAR), match(LALIGA, BET, 85),
+            match(BUNDES, BAY, BVB), match(BUNDES, WOB, AUG),
+            match(SERIEA, INT, ATA), match(SERIEA, LEC, CAG),
+            match(LIGUE1, PSG, LIL), match(LIGUE1, NAN, AUX),
+        ]
+
+    def test_top_matches_of_five_leagues_go_first(self):
+        ranked = self.rank(self.day())
+        self.assertEqual(pairs(ranked[:5]), [
+            (RMA, BAR),    # 475 + 60
+            (BAY, BVB),    # 470 + 60
+            (ARS, VIL),    # 480 + 30
+            (INT, ATA),    # 465 + 30
+            (PSG, LIL),    # 460 + 30
+        ])
+        # Остатки турниров — по приоритету, каждый целиком.
+        self.assertEqual([m["league"]["id"] for m in ranked[5:]],
+                         [EPL, EPL, LALIGA, BUNDES, SERIEA, LIGUE1])
+
+    def test_strongest_match_sets_the_bonus_of_the_whole_top_part(self):
+        day = self.day() + [match(EPL, LIV, CHE)]   # топ + топ в АПЛ
+        ranked = self.rank(day)
+        self.assertEqual(pairs(ranked[:3]), [(LIV, CHE), (ARS, VIL), (RMA, BAR)])  # 540, 540, 535
+
+    def test_without_bonus_order_is_as_before(self):
+        without = {**self.status, "top_bonus": {}}
+        with patch.object(match_report, "TEAM_STATUS", without):
+            ranked = self.rank(self.day())
+        self.assertEqual([m["league"]["id"] for m in ranked],
+                         [EPL] * 3 + [LALIGA] * 2 + [BUNDES] * 2 + [SERIEA] * 2 + [LIGUE1] * 2)
+        self.assertEqual(pairs(ranked[:1]), [(ARS, VIL)])
+
+    def test_bad_numbers_count_as_zero(self):
+        broken = {**self.status, "top_bonus": {"top_pair": -100, "top": True}}
+        with patch.object(match_report, "TEAM_STATUS", broken):
+            ranked = self.rank(self.day())
+        self.assertEqual([m["league"]["id"] for m in ranked[:3]], [EPL] * 3)
+
+    def test_equal_sum_top_part_above_ordinary_tournament(self):
+        # Топ-часть Ла Лиги 475 + 30 = 505 — выше кубка с тем же приоритетом.
+        with patch.object(match_report, "PRIORITIES", {**PRIORITIES, **BIG5, CUP: 505}):
+            ranked = self.rank([match(CUP, 60, 61), match(LALIGA, RMA, SEV), match(LALIGA, BET, 85)])
+        self.assertEqual(pairs(ranked), [(RMA, SEV), (60, 61), (BET, 85)])
+
+    def test_lifted_top_part_is_its_own_widget_block(self):
+        filler = [match(200 + n, 300 + 2 * n, 301 + 2 * n) for n in range(13)]
+        prios = {**PRIORITIES, **BIG5, **{200 + n: 520 for n in range(13)}}
+        day = [match(LALIGA, RMA, BAR)] + [match(LALIGA, 400 + n, 450 + n) for n in range(10)] + filler
+        with patch.object(match_report, "PRIORITIES", prios):
+            ranked = match_report.rank_matches(day, {}, "global")
+            rest, events = match_report.split_widgets(ranked)
+        self.assertEqual(pairs(events[:1]), [(RMA, BAR)])            # 535 — выше всех
+        self.assertTrue(all(m["league"]["id"] != LALIGA for m in events[1:]))
+        self.assertEqual({m["league"]["id"] for m in rest}, {LALIGA})  # остаток — целиком ниже
+
+    def test_top_part_next_to_its_rest_stays_one_block(self):
+        # Топ-часть поднялась, но соседей между ней и остатком нет — турнир целый.
+        ranked = self.rank([match(LALIGA, RMA, BAR), match(LALIGA, BET, 85), match(CUP, 60, 61)])
+        self.assertEqual([m["league"]["id"] for m in ranked], [LALIGA, LALIGA, CUP])
+
+    def test_own_club_gets_the_big_bonus(self):
+        with patch.object(match_report, "PRIORITIES", {**PRIORITIES, **BIG5, EUROCUP: 470}):
+            ranked = self.rank([match(EUROCUP, GALA, LYON), match(EUROCUP, 60, 61),
+                                match(EPL, ARS, VIL), match(EPL, EVE, BRE)], "turkey")
+        self.assertEqual(pairs(ranked[:2]), [(GALA, LYON), (ARS, VIL)])  # 530 > 510
+
+    def test_file_marks_are_unchanged(self):
+        record = match_report.locale_record(match(LALIGA, RMA, BAR), "global")
+        self.assertEqual((record["top"], record["top_reason"]), (True, "pair"))
+
+
 class TopMark(StatusCase):
     def mark(self, m, locale="global"):
         return match_report.top_mark(m, locale)

@@ -63,7 +63,10 @@ DATA_DIR = os.path.join(REPO_ROOT, "data")
 # (турниры его страны), eurocups — свой список у каждого международного
 # клубного турнира (группа international_clubs): «Шахтёр» — топ дома, обычный
 # в Лиге чемпионов, «Рома» — топ в Лиге Европы. Клуба нет в списке турнира —
-# «обычная», из домашнего не выводится.
+# «обычная», из домашнего не выводится. "top_bonus": {"top_pair": 60,
+# "top": 30} — надбавка к приоритету турнира у его топ-части (_ordered): за
+# «топ + топ» и свой клуб локали — top_pair, за прочие топ-матчи — top; нет
+# чисел — 0, и порядок прежний.
 # Правит вкладка
 # «Приоритеты» заполнялки; рейтинг сборных бот сам не качает — сбой или смена
 # формата источника не должны тихо ломать ночной список. Команды без записи —
@@ -86,7 +89,8 @@ def load_team_status(path=TEAM_STATUS_PATH):
     except FileNotFoundError:
         raw = {}
     return {"teams": raw.get("teams") or {}, "eurocups": raw.get("eurocups") or {},
-            "locales": raw.get("locales") or {}, "rating": raw.get("rating") or {}}
+            "locales": raw.get("locales") or {}, "rating": raw.get("rating") or {},
+            "top_bonus": raw.get("top_bonus") or {}}
 
 
 def priority_tables(entries):
@@ -396,7 +400,9 @@ def _widget_end(ranked, start, target):
     («0 ближе к 14, чем 30») оставил бы виджет пустым, а пустой купон хуже
     отсутствующего.
 
-    Турниры в ranked идут подряд — это обеспечивает rank_matches.
+    Блок — непрерывный отрезок одного турнира: турнир целиком или его
+    топ-часть, поднятая надбавкой отдельно от остатка (_ordered). Отрезки
+    идут подряд — это обеспечивает rank_matches.
     """
     end = start
     while end < len(ranked):
@@ -440,10 +446,49 @@ def rank_reserve(matches, overrides, locale_key=None):
     return ordered[start:_widget_end(ordered, start, TOP_MATCHES_SIZE)]
 
 
+def _bonus(value):
+    # bool — подкласс int; отрицательная надбавка опускала бы топ ниже своего турнира.
+    return value if isinstance(value, int) and not isinstance(value, bool) and value > 0 else 0
+
+
+def _top_bonuses(matches, locale_key):
+    """Надбавка к приоритету турнира у его топ-части: {league_id: число}.
+    По сильнейшему матчу части: «топ + топ» или свой клуб локали — top_pair,
+    иначе — top (TEAM_STATUS["top_bonus"]). Нет топ-матчей — турнира в
+    словаре нет."""
+    numbers = TEAM_STATUS.get("top_bonus") or {}
+    big, small = _bonus(numbers.get("top_pair")), _bonus(numbers.get("top"))
+    bonuses = {}
+    for m in matches:
+        mark = top_mark(m, locale_key)
+        if mark is None:
+            continue
+        strongest = mark == "own_club" or pair_tiers(m) == ("top", "top")
+        league_id = m["league"]["id"]
+        bonuses[league_id] = max(bonuses.get(league_id, 0), big if strongest else small)
+    return bonuses
+
+
 def _ordered(matches, overrides, locale_key=None):
+    """Порядок списка локали. Топ-часть турнира (его топ-матчи) с надбавкой
+    больше нуля — отдельный блок: встаёт в общий порядок дня по «приоритет
+    турнира + надбавка», и первыми идут топ-матчи разных чемпионатов, а не
+    один чемпионат подряд. При равной сумме топ-часть выше обычного турнира.
+    Без надбавки топ-часть остаётся во главе своего турнира — как было.
+
+    Блоки (топ-часть, остаток турнира) идут подряд — на этом держится деление
+    на виджеты (_widget_end): его единица — непрерывный отрезок одного
+    турнира, так что оторванная наверх топ-часть делится отдельно, а
+    оставшаяся рядом — вместе со своим турниром."""
     allowed = [m for m in matches if m["league"]["id"] not in EXCLUDED]
-    return sorted(allowed, key=lambda m: (-score_match(m, overrides), m["league"]["id"],
-                                          _in_tournament_key(m, locale_key)))
+    bonuses = _top_bonuses(allowed, locale_key)
+
+    def key(m):
+        league_id = m["league"]["id"]
+        lifted = bonuses.get(league_id, 0) > 0 and top_mark(m, locale_key) is not None
+        total = score_match(m, overrides) + (bonuses[league_id] if lifted else 0)
+        return (-total, not lifted, league_id, _in_tournament_key(m, locale_key))
+    return sorted(allowed, key=key)
 
 
 def _list_end(ordered):
