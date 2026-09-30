@@ -299,6 +299,11 @@
   },
   "eurocups": {
     "2486": {
+      "28867": {
+        "name": "Manchester United",
+        "status": "top",
+        "by": "manual"
+      },
       "29718": {
         "name": "Newcastle United",
         "status": "strong",
@@ -369,6 +374,11 @@
         "status": "strong",
         "by": "manual"
       },
+      "148007": {
+        "name": "RB Leipzig",
+        "status": "strong",
+        "by": "manual"
+      },
       "165878": {
         "name": "Ajax",
         "status": "strong",
@@ -381,6 +391,11 @@
       },
       "180345": {
         "name": "Benfica",
+        "status": "strong",
+        "by": "manual"
+      },
+      "181196": {
+        "name": "FC Porto",
         "status": "strong",
         "by": "manual"
       },
@@ -406,6 +421,11 @@
       },
       "422880": {
         "name": "Juventus",
+        "status": "strong",
+        "by": "manual"
+      },
+      "423731": {
+        "name": "AS Roma",
         "status": "strong",
         "by": "manual"
       },
@@ -444,14 +464,29 @@
         "status": "top",
         "by": "manual"
       },
+      "462877": {
+        "name": "Real Betis",
+        "status": "strong",
+        "by": "manual"
+      },
       "485003": {
         "name": "Club Brugge KV",
+        "status": "strong",
+        "by": "manual"
+      },
+      "520745": {
+        "name": "Fenerbahce",
         "status": "strong",
         "by": "manual"
       },
       "549679": {
         "name": "Galatasaray",
         "status": "top",
+        "by": "manual"
+      },
+      "762429": {
+        "name": "Como",
+        "status": "strong",
         "by": "manual"
       }
     }
