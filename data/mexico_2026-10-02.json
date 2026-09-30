@@ -1,0 +1,406 @@
+{
+  "top_events": [
+    {
+      "league_id": 5039,
+      "league_name": "UEFA Nations League",
+      "home_team_id": 2486,
+      "home_team_name": "France",
+      "away_team_id": 654352,
+      "away_team_name": "Italy",
+      "date": "2026-10-02T18:45:00.000Z",
+      "home_tier": "top",
+      "away_tier": "top",
+      "top": true,
+      "top_reason": "pair"
+    },
+    {
+      "league_id": 5039,
+      "league_name": "UEFA Nations League",
+      "home_team_id": 1635,
+      "home_team_name": "Belgium",
+      "away_team_id": 662011,
+      "away_team_name": "Turkey",
+      "date": "2026-10-02T18:45:00.000Z",
+      "home_tier": "top",
+      "away_tier": "strong",
+      "top": true,
+      "top_reason": "pair"
+    },
+    {
+      "league_id": 5039,
+      "league_name": "UEFA Nations League",
+      "home_team_id": 655203,
+      "home_team_name": "Hungary",
+      "away_team_id": 940288,
+      "away_team_name": "Georgia",
+      "date": "2026-10-02T18:45:00.000Z",
+      "home_tier": "strong",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 5039,
+      "league_name": "UEFA Nations League",
+      "home_team_id": 657756,
+      "home_team_name": "Ukraine",
+      "away_team_id": 656905,
+      "away_team_name": "Northern Ireland",
+      "date": "2026-10-02T18:45:00.000Z",
+      "home_tier": "strong",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 5039,
+      "league_name": "UEFA Nations League",
+      "home_team_id": 21208,
+      "home_team_name": "Poland",
+      "away_team_id": 659458,
+      "away_team_name": "Romania",
+      "date": "2026-10-02T18:45:00.000Z",
+      "home_tier": "strong",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 5039,
+      "league_name": "UEFA Nations League",
+      "home_team_id": 947947,
+      "home_team_name": "Bosnia & Herzegovina",
+      "away_team_id": 5039,
+      "away_team_name": "Sweden",
+      "date": "2026-10-02T18:45:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "strong"
+    },
+    {
+      "league_id": 5039,
+      "league_name": "UEFA Nations League",
+      "home_team_id": 935182,
+      "home_team_name": "Faroe Islands",
+      "away_team_id": 658607,
+      "away_team_name": "Slovakia",
+      "date": "2026-10-02T18:45:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "strong"
+    },
+    {
+      "league_id": 5039,
+      "league_name": "UEFA Nations League",
+      "home_team_id": 932629,
+      "home_team_name": "Kazakhstan",
+      "away_team_id": 948798,
+      "away_team_name": "Moldova",
+      "date": "2026-10-02T14:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 5039,
+      "league_name": "UEFA Nations League",
+      "home_team_id": 930076,
+      "home_team_name": "Latvia",
+      "away_team_id": 944543,
+      "away_team_name": "Montenegro",
+      "date": "2026-10-02T16:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 5039,
+      "league_name": "UEFA Nations League",
+      "home_team_id": 941990,
+      "home_team_name": "Cyprus",
+      "away_team_id": 931778,
+      "away_team_name": "Armenia",
+      "date": "2026-10-02T16:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 9294,
+      "league_name": "Friendlies",
+      "home_team_id": 7592,
+      "home_team_name": "Colombia",
+      "away_team_id": 2026164,
+      "away_team_name": "Paraguay",
+      "date": "2026-10-03T00:00:00.000Z",
+      "home_tier": "top",
+      "away_tier": "strong",
+      "top": true,
+      "top_reason": "pair"
+    },
+    {
+      "league_id": 9294,
+      "league_name": "Friendlies",
+      "home_team_id": 15251,
+      "home_team_name": "South Korea",
+      "away_team_id": 2025313,
+      "away_team_name": "Venezuela",
+      "date": "2026-10-02T11:00:00.000Z",
+      "home_tier": "strong",
+      "away_tier": "strong",
+      "top": true,
+      "top_reason": "pair"
+    }
+  ],
+  "top_matches": [
+    {
+      "league_id": 456920,
+      "league_name": "CONCACAF Nations League",
+      "home_team_id": 4715324,
+      "home_team_name": "St. Lucia",
+      "away_team_id": 9347317,
+      "away_team_name": "Guadeloupe",
+      "date": "2026-10-02T19:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 456920,
+      "league_name": "CONCACAF Nations League",
+      "home_team_id": 4711920,
+      "home_team_name": "St. Kitts and Nevis",
+      "away_team_id": 2032972,
+      "away_team_name": "Cuba",
+      "date": "2026-10-02T21:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 456920,
+      "league_name": "CONCACAF Nations League",
+      "home_team_id": 6954305,
+      "home_team_name": "Suriname",
+      "away_team_id": 4392795,
+      "away_team_name": "Guatemala",
+      "date": "2026-10-02T22:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 456920,
+      "league_name": "CONCACAF Nations League",
+      "home_team_id": 6908351,
+      "home_team_name": "Martinique",
+      "away_team_id": 3976656,
+      "away_team_name": "Honduras",
+      "date": "2026-10-03T00:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 456920,
+      "league_name": "CONCACAF Nations League",
+      "home_team_id": 4704261,
+      "home_team_name": "Barbados",
+      "away_team_id": 4390242,
+      "away_team_name": "Bermuda",
+      "date": "2026-10-03T00:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 456920,
+      "league_name": "CONCACAF Nations League",
+      "home_team_id": 9346466,
+      "home_team_name": "Bonaire",
+      "away_team_id": 4709367,
+      "away_team_name": "Grenada",
+      "date": "2026-10-03T00:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 456920,
+      "league_name": "CONCACAF Nations League",
+      "home_team_id": 4391093,
+      "home_team_name": "El Salvador",
+      "away_team_id": 2030419,
+      "away_team_name": "Jamaica",
+      "date": "2026-10-03T02:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    }
+  ],
+  "reserve": [
+    {
+      "league_id": 9294,
+      "league_name": "Friendlies",
+      "home_team_id": 1284092,
+      "home_team_name": "Congo DR",
+      "away_team_id": 1293453,
+      "away_team_name": "Uganda",
+      "date": "2026-10-02T11:00:00.000Z",
+      "home_tier": "strong",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 9294,
+      "league_name": "Friendlies",
+      "home_team_id": 16233609,
+      "home_team_name": "Turkey U18",
+      "away_team_id": 23034801,
+      "away_team_name": "Uzbekistan U18",
+      "date": "2026-10-02T10:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 9294,
+      "league_name": "Friendlies",
+      "home_team_id": 8811187,
+      "home_team_name": "Wales U19",
+      "away_team_id": 8801826,
+      "away_team_name": "Norway U19",
+      "date": "2026-10-02T10:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 9294,
+      "league_name": "Friendlies",
+      "home_team_id": 23037354,
+      "home_team_name": "Saudi Arabia U18",
+      "away_team_id": 16230205,
+      "away_team_name": "Italy U18",
+      "date": "2026-10-02T10:30:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 9294,
+      "league_name": "Friendlies",
+      "home_team_id": 19012124,
+      "home_team_name": "Croatia U18",
+      "away_team_id": 19087012,
+      "away_team_name": "Denmark U18",
+      "date": "2026-10-02T10:30:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 9294,
+      "league_name": "Friendlies",
+      "home_team_id": 19146582,
+      "home_team_name": "Hungary U18",
+      "away_team_id": 16227652,
+      "away_team_name": "Algeria U18",
+      "date": "2026-10-02T10:30:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 9294,
+      "league_name": "Friendlies",
+      "home_team_id": 1333450,
+      "home_team_name": "China",
+      "away_team_id": 1330046,
+      "away_team_name": "Palestine",
+      "date": "2026-10-02T11:35:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 9294,
+      "league_name": "Friendlies",
+      "home_team_id": 1333450,
+      "home_team_name": "China",
+      "away_team_id": 1310473,
+      "away_team_name": "Turkmenistan",
+      "date": "2026-10-02T11:35:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 9294,
+      "league_name": "Friendlies",
+      "home_team_id": 15303466,
+      "home_team_name": "Turkey U17",
+      "away_team_id": 10648496,
+      "away_team_name": "Korea Republic U17",
+      "date": "2026-10-02T13:30:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 9294,
+      "league_name": "Friendlies",
+      "home_team_id": 8812038,
+      "home_team_name": "Albania U19",
+      "away_team_id": 8825654,
+      "away_team_name": "Lithuania U19",
+      "date": "2026-10-02T13:30:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 9294,
+      "league_name": "Friendlies",
+      "home_team_id": 8793316,
+      "home_team_name": "England U19",
+      "away_team_id": 21515766,
+      "away_team_name": "Usa U19",
+      "date": "2026-10-02T14:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 9294,
+      "league_name": "Friendlies",
+      "home_team_id": 8829058,
+      "home_team_name": "Montenegro U19",
+      "away_team_id": 8822250,
+      "away_team_name": "Israel U19",
+      "date": "2026-10-02T14:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 9294,
+      "league_name": "Friendlies",
+      "home_team_id": 1274731,
+      "home_team_name": "Mauritius",
+      "away_team_id": 4397050,
+      "away_team_name": "Sri Lanka",
+      "date": "2026-10-02T15:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 9294,
+      "league_name": "Friendlies",
+      "home_team_id": 6997706,
+      "home_team_name": "Serbia U21",
+      "away_team_id": 6995153,
+      "away_team_name": "Russia U21",
+      "date": "2026-10-02T16:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 9294,
+      "league_name": "Friendlies",
+      "home_team_id": 16231907,
+      "home_team_name": "Portugal U18",
+      "away_team_id": 18277711,
+      "away_team_name": "Romania U18",
+      "date": "2026-10-02T16:15:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 9294,
+      "league_name": "Friendlies",
+      "home_team_id": 8826505,
+      "home_team_name": "Luxembourg U19",
+      "away_team_id": 8800975,
+      "away_team_name": "North Macedonia U19",
+      "date": "2026-10-02T17:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    }
+  ],
+  "national": [],
+  "widget_targets": {
+    "top_events": 14,
+    "top_matches": 12
+  }
+}
