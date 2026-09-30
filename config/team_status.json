@@ -165,6 +165,31 @@
       "by": "rating",
       "rank": 24
     },
+    "473089": {
+      "name": "CSKA Moscow",
+      "status": "top",
+      "by": "manual"
+    },
+    "475642": {
+      "name": "Spartak Moscow",
+      "status": "top",
+      "by": "manual"
+    },
+    "507980": {
+      "name": "Zenit Saint Petersburg",
+      "status": "top",
+      "by": "manual"
+    },
+    "508831": {
+      "name": "Lokomotiv Moscow",
+      "status": "strong",
+      "by": "manual"
+    },
+    "529255": {
+      "name": "Krasnodar",
+      "status": "top",
+      "by": "manual"
+    },
     "653501": {
       "name": "Wales",
       "status": "strong",
@@ -213,6 +238,16 @@
       "by": "rating",
       "rank": 27
     },
+    "922417": {
+      "name": "Rubin",
+      "status": "strong",
+      "by": "manual"
+    },
+    "926672": {
+      "name": "Dinamo Moscow",
+      "status": "strong",
+      "by": "manual"
+    },
     "928374": {
       "name": "Norway",
       "status": "top",
@@ -259,6 +294,11 @@
       "status": "strong",
       "by": "rating",
       "rank": 29
+    },
+    "1707890": {
+      "name": "Baltika",
+      "status": "strong",
+      "by": "manual"
     },
     "2025313": {
       "name": "Venezuela",
