@@ -165,6 +165,26 @@
       "by": "rating",
       "rank": 24
     },
+    "30569": {
+      "name": "Bournemouth",
+      "status": "strong",
+      "by": "manual"
+    },
+    "39079": {
+      "name": "Everton",
+      "status": "strong",
+      "by": "manual"
+    },
+    "44185": {
+      "name": "Brighton",
+      "status": "strong",
+      "by": "manual"
+    },
+    "47589": {
+      "name": "Brentford",
+      "status": "strong",
+      "by": "manual"
+    },
     "473089": {
       "name": "CSKA Moscow",
       "status": "top",
@@ -188,6 +208,11 @@
     "529255": {
       "name": "Krasnodar",
       "status": "top",
+      "by": "manual"
+    },
+    "635630": {
+      "name": "Sunderland",
+      "status": "strong",
       "by": "manual"
     },
     "653501": {
