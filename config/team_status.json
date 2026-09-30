@@ -460,5 +460,9 @@
   "rating": {
     "top": 20,
     "strong": 50
+  },
+  "top_bonus": {
+    "top_pair": 40,
+    "top": 20
   }
 }
