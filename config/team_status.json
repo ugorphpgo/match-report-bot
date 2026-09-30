@@ -185,6 +185,11 @@
       "status": "strong",
       "by": "manual"
     },
+    "78225": {
+      "name": "Monaco",
+      "status": "top",
+      "by": "manual"
+    },
     "473089": {
       "name": "CSKA Moscow",
       "status": "top",
@@ -562,7 +567,7 @@
     "strong": 50
   },
   "top_bonus": {
-    "top_pair": 65,
+    "top_pair": 40,
     "top": 20
   }
 }
