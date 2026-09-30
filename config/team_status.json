@@ -270,6 +270,11 @@
       "status": "strong",
       "by": "manual"
     },
+    "467983": {
+      "name": "Besiktas",
+      "status": "top",
+      "by": "manual"
+    },
     "473089": {
       "name": "CSKA Moscow",
       "status": "top",
@@ -290,8 +295,18 @@
       "status": "strong",
       "by": "manual"
     },
+    "520745": {
+      "name": "Fenerbahce",
+      "status": "top",
+      "by": "manual"
+    },
     "529255": {
       "name": "Krasnodar",
+      "status": "top",
+      "by": "manual"
+    },
+    "549679": {
+      "name": "Galatasaray",
       "status": "top",
       "by": "manual"
     },
@@ -355,6 +370,11 @@
     },
     "762429": {
       "name": "Como",
+      "status": "strong",
+      "by": "manual"
+    },
+    "850082": {
+      "name": "Trabzonspor",
       "status": "strong",
       "by": "manual"
     },
