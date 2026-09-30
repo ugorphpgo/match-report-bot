@@ -58,7 +58,13 @@ DATA_DIR = os.path.join(REPO_ROOT, "data")
 # правки приоритетов турниров и статусов команд не должны конфликтовать).
 # Формат: {"teams": {team_id: {"name", "status": "top" | "strong" | "regular",
 # "by": "rating" | "manual"}}, "locales": {локаль: {"league_id", "own_clubs":
-# [team_id]}}, "rating": {"top": 20, "strong": 50}}. Правит вкладка
+# [team_id]}}, "eurocups": {league_id: {team_id: {"name", "status", "by"}}},
+# "rating": {"top": 20, "strong": 50}}. teams — сборные и статус клуба дома
+# (турниры его страны), eurocups — свой список у каждого международного
+# клубного турнира (группа international_clubs): «Шахтёр» — топ дома, обычный
+# в Лиге чемпионов, «Рома» — топ в Лиге Европы. Клуба нет в списке турнира —
+# «обычная», из домашнего не выводится.
+# Правит вкладка
 # «Приоритеты» заполнялки; рейтинг сборных бот сам не качает — сбой или смена
 # формата источника не должны тихо ломать ночной список. Команды без записи —
 # «обычные»; нет файла или он пуст — как раньше, кроме порядка по времени.
@@ -79,8 +85,8 @@ def load_team_status(path=TEAM_STATUS_PATH):
             raw = json.load(f)
     except FileNotFoundError:
         raw = {}
-    return {"teams": raw.get("teams") or {}, "locales": raw.get("locales") or {},
-            "rating": raw.get("rating") or {}}
+    return {"teams": raw.get("teams") or {}, "eurocups": raw.get("eurocups") or {},
+            "locales": raw.get("locales") or {}, "rating": raw.get("rating") or {}}
 
 
 def priority_tables(entries):
@@ -314,16 +320,23 @@ def score_match(m, overrides):
 TIER_RANK = {"top": 0, "strong": 1, "regular": 2}
 
 
-def team_tier(team_id):
-    """Статус команды: "top", "strong" или "regular" (нет записи, непонятное
-    значение). Статус один на команду — во всех турнирах и локалях."""
-    entry = TEAM_STATUS["teams"].get(str(team_id)) or {}
+def team_tier(team_id, league_id=None):
+    """Статус команды в турнире league_id: "top", "strong" или "regular" (нет
+    записи, непонятное значение). В международном клубном турнире — из его
+    собственного списка, в остальных — домашний (у сборной он единственный).
+    Локалей статус не различает."""
+    if league_id is not None and GROUPS.get(league_id) == "international_clubs":
+        table = (TEAM_STATUS.get("eurocups") or {}).get(str(league_id)) or {}
+    else:
+        table = TEAM_STATUS["teams"]
+    entry = table.get(str(team_id)) or {}
     status = entry.get("status")
     return status if status in TIER_RANK else "regular"
 
 
 def pair_tiers(m):
-    return team_tier(m["homeTeam"]["id"]), team_tier(m["awayTeam"]["id"])
+    league_id = m["league"]["id"]
+    return team_tier(m["homeTeam"]["id"], league_id), team_tier(m["awayTeam"]["id"], league_id)
 
 
 def is_own_club_match(m, locale_key):
@@ -604,7 +617,7 @@ def locale_record(m, locale_key):
     side = national_side(m, locale_key)
     if side:
         record["own_national"] = side
-    if TEAM_STATUS["teams"]:
+    if TEAM_STATUS["teams"] or any((TEAM_STATUS.get("eurocups") or {}).values()):
         record["home_tier"], record["away_tier"] = pair_tiers(m)
         reason = top_mark(m, locale_key)
         if reason:

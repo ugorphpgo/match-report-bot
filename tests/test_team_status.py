@@ -21,9 +21,9 @@ sys.path.insert(0, REPO)
 
 import match_report  # noqa: E402
 
-LEAGUE, CUP, EUROCUP = 10, 20, 30
-PRIORITIES = {LEAGUE: 500, CUP: 400, EUROCUP: 900}
-GROUPS = {EUROCUP: "international_clubs"}
+LEAGUE, CUP, EUROCUP, EUROPA = 10, 20, 30, 31
+PRIORITIES = {LEAGUE: 500, CUP: 400, EUROCUP: 900, EUROPA: 800}
+GROUPS = {EUROCUP: "international_clubs", EUROPA: "international_clubs"}
 
 # team_id -> статус
 SPAIN, GERMANY, CROATIA, CZECHIA, ANDORRA, FAROE = 1, 2, 3, 4, 5, 6
@@ -36,6 +36,12 @@ STATUS = {
         str(CZECHIA): {"name": "Czechia", "status": "strong", "by": "rating"},
         str(AJAX): {"name": "Ajax", "status": "top", "by": "manual"},
     },
+    # У каждого международного клубного турнира — свой список.
+    "eurocups": {str(EUROCUP): {
+        str(SPAIN): {"name": "Spain", "status": "top", "by": "manual"},
+        str(GERMANY): {"name": "Germany", "status": "top", "by": "manual"},
+        str(AJAX): {"name": "Ajax", "status": "top", "by": "manual"},
+    }},
     "locales": {"turkey": {"league_id": 600, "own_clubs": [GALA]}},
     "rating": {"top": 20, "strong": 50},
 }
@@ -165,8 +171,8 @@ class TopMark(StatusCase):
         self.assertEqual(self.mark(strong, "turkey"), "pair")
 
     def test_several_own_club_matches_go_by_the_general_rule(self):
-        own_status = {**STATUS, "teams": {**STATUS["teams"],
-                      "15": {"name": "Own strong", "status": "strong", "by": "manual"}},
+        own_status = {**STATUS, "eurocups": {str(EUROCUP): {**STATUS["eurocups"][str(EUROCUP)],
+                      "15": {"name": "Own strong", "status": "strong", "by": "manual"}}},
                       "locales": {"turkey": {"league_id": 600, "own_clubs": [GALA, 15]}}}
         with patch.object(match_report, "TEAM_STATUS", own_status):
             ranked = self.rank([match(EUROCUP, GALA, LYON), match(EUROCUP, 15, SPAIN)], "turkey")
@@ -175,6 +181,74 @@ class TopMark(StatusCase):
     def test_unknown_team_is_regular(self):
         self.assertEqual(match_report.team_tier(9999), "regular")
         self.assertEqual(match_report.team_tier(SPAIN), "top")
+
+
+SHAKHTAR, DYNAMO, REAL, INTER, NAPOLI, ROMA = 21, 22, 23, 24, 25, 26
+
+
+class HomeAndEurocup(StatusCase):
+    """Статус клуба дома — в турнирах его страны, в еврокубке — список этого
+    турнира: «Шахтёр» — топ в чемпионате Украины и обычный в Лиге чемпионов,
+    «Рома» — топ в Лиге Европы."""
+    status = {
+        "teams": {str(t): {"name": n, "status": "top", "by": "manual"}
+                  for t, n in ((SHAKHTAR, "Shakhtar"), (DYNAMO, "Dynamo"), (REAL, "Real"),
+                               (INTER, "Inter"), (NAPOLI, "Napoli"))},
+        "eurocups": {
+            str(EUROCUP): {str(t): {"name": n, "status": "top", "by": "manual"}
+                           for t, n in ((REAL, "Real"), (INTER, "Inter"))},
+            str(EUROPA): {str(ROMA): {"name": "Roma", "status": "top", "by": "manual"},
+                          str(NAPOLI): {"name": "Napoli", "status": "strong", "by": "manual"}},
+        },
+        "locales": {}, "rating": {"top": 20, "strong": 50},
+    }
+
+    def test_home_status_in_own_league_and_cups(self):
+        self.assertEqual(match_report.top_mark(match(LEAGUE, SHAKHTAR, DYNAMO), "global"), "pair")
+        self.assertEqual(match_report.top_mark(match(CUP, SHAKHTAR, DYNAMO), "global"), "pair")
+
+    def test_eurocup_list_in_international_club_tournament(self):
+        self.assertIsNone(match_report.top_mark(match(EUROCUP, SHAKHTAR, REAL), "global"))
+        self.assertEqual(match_report.top_mark(match(EUROCUP, INTER, REAL), "global"), "pair")
+
+    def test_top_at_home_is_not_top_in_eurocups_by_default(self):
+        # Наполи дома топ, в еврокубковом списке его нет — «обычная».
+        self.assertEqual(match_report.team_tier(NAPOLI, LEAGUE), "top")
+        self.assertEqual(match_report.team_tier(NAPOLI, EUROCUP), "regular")
+        self.assertIsNone(match_report.top_mark(match(EUROCUP, NAPOLI, REAL), "global"))
+
+    def test_each_eurocup_has_its_own_list(self):
+        self.assertEqual(match_report.team_tier(ROMA, EUROPA), "top")
+        self.assertEqual(match_report.team_tier(ROMA, EUROCUP), "regular")
+        self.assertEqual(match_report.team_tier(INTER, EUROPA), "regular")
+        self.assertEqual(match_report.top_mark(match(EUROPA, ROMA, NAPOLI), "global"), "pair")
+
+    def test_order_inside_eurocup_follows_eurocup_list(self):
+        ranked = self.rank([match(EUROCUP, SHAKHTAR, DYNAMO, hour=13),
+                            match(EUROCUP, SHAKHTAR, REAL, hour=16),
+                            match(EUROCUP, INTER, REAL, hour=19)])
+        self.assertEqual(pairs(ranked), [(INTER, REAL), (SHAKHTAR, REAL), (SHAKHTAR, DYNAMO)])
+
+    def test_file_statuses_are_per_tournament(self):
+        record = match_report.locale_record(match(EUROCUP, SHAKHTAR, REAL), "global")
+        self.assertEqual((record["home_tier"], record["away_tier"]), ("regular", "top"))
+        record = match_report.locale_record(match(LEAGUE, SHAKHTAR, DYNAMO), "global")
+        self.assertEqual((record["home_tier"], record["away_tier"]), ("top", "top"))
+
+    def test_old_file_without_eurocups_reads(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path = os.path.join(tmp, "team_status.json")
+            with open(path, "w", encoding="utf-8") as f:
+                json.dump({"teams": {"1": {"name": "Spain", "status": "top", "by": "rating"}}}, f)
+            self.assertEqual(match_report.load_team_status(path)["eurocups"], {})
+
+    def test_only_eurocup_list_is_enough_to_mark(self):
+        only = {"teams": {}, "eurocups": {str(EUROCUP): {str(REAL): {"name": "Real", "status": "top",
+                                                                   "by": "manual"}}},
+                "locales": {}, "rating": {}}
+        with patch.object(match_report, "TEAM_STATUS", only):
+            record = match_report.locale_record(match(EUROCUP, REAL, INTER), "global")
+        self.assertEqual(record["home_tier"], "top")
 
 
 class EmptyStatusFile(StatusCase):
