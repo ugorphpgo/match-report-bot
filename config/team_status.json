@@ -165,9 +165,29 @@
       "by": "rating",
       "rank": 24
     },
+    "28867": {
+      "name": "Manchester United",
+      "status": "top",
+      "by": "manual"
+    },
+    "29718": {
+      "name": "Newcastle United",
+      "status": "strong",
+      "by": "manual"
+    },
     "30569": {
       "name": "Bournemouth",
       "status": "strong",
+      "by": "manual"
+    },
+    "34824": {
+      "name": "Liverpool",
+      "status": "top",
+      "by": "manual"
+    },
+    "36526": {
+      "name": "Arsenal",
+      "status": "top",
       "by": "manual"
     },
     "39079": {
@@ -180,6 +200,21 @@
       "status": "strong",
       "by": "manual"
     },
+    "41632": {
+      "name": "West Ham",
+      "status": "strong",
+      "by": "manual"
+    },
+    "42483": {
+      "name": "Chelsea",
+      "status": "top",
+      "by": "manual"
+    },
+    "43334": {
+      "name": "Manchester City",
+      "status": "top",
+      "by": "manual"
+    },
     "44185": {
       "name": "Brighton",
       "status": "strong",
@@ -188,6 +223,31 @@
     "47589": {
       "name": "Brentford",
       "status": "strong",
+      "by": "manual"
+    },
+    "56950": {
+      "name": "Aston Villa",
+      "status": "strong",
+      "by": "manual"
+    },
+    "68013": {
+      "name": "Lille",
+      "status": "strong",
+      "by": "manual"
+    },
+    "68864": {
+      "name": "Lyon",
+      "status": "strong",
+      "by": "manual"
+    },
+    "69715": {
+      "name": "Marseille",
+      "status": "top",
+      "by": "manual"
+    },
+    "73119": {
+      "name": "Paris Saint Germain",
+      "status": "top",
       "by": "manual"
     },
     "78225": {
@@ -205,9 +265,164 @@
       "status": "strong",
       "by": "manual"
     },
+    "102053": {
+      "name": "Internacional",
+      "status": "strong",
+      "by": "manual"
+    },
+    "102904": {
+      "name": "Botafogo",
+      "status": "strong",
+      "by": "manual"
+    },
+    "103755": {
+      "name": "Palmeiras",
+      "status": "top",
+      "by": "manual"
+    },
+    "106308": {
+      "name": "Fluminense",
+      "status": "strong",
+      "by": "manual"
+    },
+    "108010": {
+      "name": "São Paulo FC",
+      "status": "top",
+      "by": "manual"
+    },
+    "108861": {
+      "name": "Flamengo",
+      "status": "top",
+      "by": "manual"
+    },
+    "109712": {
+      "name": "Santos",
+      "status": "strong",
+      "by": "manual"
+    },
+    "111414": {
+      "name": "Gremio",
+      "status": "strong",
+      "by": "manual"
+    },
+    "112265": {
+      "name": "Corinthians",
+      "status": "top",
+      "by": "manual"
+    },
+    "113967": {
+      "name": "Vasco DA Gama",
+      "status": "strong",
+      "by": "manual"
+    },
+    "115669": {
+      "name": "Cruzeiro",
+      "status": "strong",
+      "by": "manual"
+    },
+    "134391": {
+      "name": "Bayern Munich",
+      "status": "top",
+      "by": "manual"
+    },
+    "141199": {
+      "name": "Borussia Dortmund",
+      "status": "top",
+      "by": "manual"
+    },
     "143752": {
       "name": "Bayer Leverkusen",
       "status": "top",
+      "by": "manual"
+    },
+    "144603": {
+      "name": "Eintracht Frankfurt",
+      "status": "strong",
+      "by": "manual"
+    },
+    "147156": {
+      "name": "VfB Stuttgart",
+      "status": "strong",
+      "by": "manual"
+    },
+    "148007": {
+      "name": "RB Leipzig",
+      "status": "strong",
+      "by": "manual"
+    },
+    "165878": {
+      "name": "Ajax",
+      "status": "top",
+      "by": "manual"
+    },
+    "168431": {
+      "name": "PSV Eindhoven",
+      "status": "top",
+      "by": "manual"
+    },
+    "171835": {
+      "name": "AZ Alkmaar",
+      "status": "strong",
+      "by": "manual"
+    },
+    "178643": {
+      "name": "Feyenoord",
+      "status": "top",
+      "by": "manual"
+    },
+    "180345": {
+      "name": "Benfica",
+      "status": "top",
+      "by": "manual"
+    },
+    "181196": {
+      "name": "FC Porto",
+      "status": "top",
+      "by": "manual"
+    },
+    "185451": {
+      "name": "SC Braga",
+      "status": "strong",
+      "by": "manual"
+    },
+    "194812": {
+      "name": "Sporting CP",
+      "status": "top",
+      "by": "manual"
+    },
+    "353949": {
+      "name": "FC Twente",
+      "status": "strong",
+      "by": "manual"
+    },
+    "370969": {
+      "name": "River Plate",
+      "status": "top",
+      "by": "manual"
+    },
+    "371820": {
+      "name": "Racing Club",
+      "status": "strong",
+      "by": "manual"
+    },
+    "384585": {
+      "name": "Boca Juniors",
+      "status": "top",
+      "by": "manual"
+    },
+    "386287": {
+      "name": "Independiente",
+      "status": "strong",
+      "by": "manual"
+    },
+    "392244": {
+      "name": "San Lorenzo de Almagro",
+      "status": "strong",
+      "by": "manual"
+    },
+    "415221": {
+      "name": "Lazio",
+      "status": "strong",
       "by": "manual"
     },
     "416923": {
@@ -220,8 +435,23 @@
       "status": "top",
       "by": "manual"
     },
+    "422880": {
+      "name": "Juventus",
+      "status": "top",
+      "by": "manual"
+    },
     "423731": {
       "name": "AS Roma",
+      "status": "top",
+      "by": "manual"
+    },
+    "425433": {
+      "name": "Atalanta",
+      "status": "strong",
+      "by": "manual"
+    },
+    "430539": {
+      "name": "Inter",
       "status": "top",
       "by": "manual"
     },
@@ -275,6 +505,11 @@
       "status": "top",
       "by": "manual"
     },
+    "471387": {
+      "name": "Olympiakos Piraeus",
+      "status": "top",
+      "by": "manual"
+    },
     "473089": {
       "name": "CSKA Moscow",
       "status": "top",
@@ -283,6 +518,11 @@
     "475642": {
       "name": "Spartak Moscow",
       "status": "top",
+      "by": "manual"
+    },
+    "490109": {
+      "name": "AEK Athens FC",
+      "status": "strong",
       "by": "manual"
     },
     "507980": {
@@ -298,6 +538,16 @@
     "520745": {
       "name": "Fenerbahce",
       "status": "top",
+      "by": "manual"
+    },
+    "525851": {
+      "name": "Panathinaikos",
+      "status": "top",
+      "by": "manual"
+    },
+    "527553": {
+      "name": "PAOK",
+      "status": "strong",
       "by": "manual"
     },
     "529255": {
@@ -378,6 +628,16 @@
       "status": "strong",
       "by": "manual"
     },
+    "885824": {
+      "name": "Zamalek SC",
+      "status": "top",
+      "by": "manual"
+    },
+    "904546": {
+      "name": "Atletico-MG",
+      "status": "strong",
+      "by": "manual"
+    },
     "922417": {
       "name": "Rubin",
       "status": "strong",
@@ -411,6 +671,41 @@
       "by": "rating",
       "rank": 9
     },
+    "958159": {
+      "name": "Millonarios",
+      "status": "top",
+      "by": "manual"
+    },
+    "959861": {
+      "name": "Deportivo Cali",
+      "status": "strong",
+      "by": "manual"
+    },
+    "960712": {
+      "name": "Independiente Medellin",
+      "status": "strong",
+      "by": "manual"
+    },
+    "966669": {
+      "name": "Junior",
+      "status": "strong",
+      "by": "manual"
+    },
+    "968371": {
+      "name": "Atlético Nacional",
+      "status": "top",
+      "by": "manual"
+    },
+    "969222": {
+      "name": "America de Cali",
+      "status": "strong",
+      "by": "manual"
+    },
+    "970073": {
+      "name": "Santa Fe",
+      "status": "strong",
+      "by": "manual"
+    },
     "1278135": {
       "name": "Ivory Coast",
       "status": "strong",
@@ -435,8 +730,63 @@
       "by": "rating",
       "rank": 29
     },
+    "1342811": {
+      "name": "Al Ahly",
+      "status": "top",
+      "by": "manual"
+    },
+    "1358129": {
+      "name": "Seattle Sounders",
+      "status": "strong",
+      "by": "manual"
+    },
+    "1366639": {
+      "name": "Los Angeles Galaxy",
+      "status": "strong",
+      "by": "manual"
+    },
+    "1369192": {
+      "name": "Atlanta United FC",
+      "status": "strong",
+      "by": "manual"
+    },
+    "1376000": {
+      "name": "Los Angeles FC",
+      "status": "strong",
+      "by": "manual"
+    },
     "1707890": {
       "name": "Baltika",
+      "status": "strong",
+      "by": "manual"
+    },
+    "1939362": {
+      "name": "Guadalajara Chivas",
+      "status": "top",
+      "by": "manual"
+    },
+    "1940213": {
+      "name": "Tigres UANL",
+      "status": "strong",
+      "by": "manual"
+    },
+    "1942766": {
+      "name": "Monterrey",
+      "status": "strong",
+      "by": "manual"
+    },
+    "1946170": {
+      "name": "U.N.A.M. - Pumas",
+      "status": "strong",
+      "by": "manual"
+    },
+    "1947021": {
+      "name": "Club América",
+      "status": "top",
+      "by": "manual"
+    },
+    "1953829": {
+      "name": "Cruz Azul",
       "status": "strong",
       "by": "manual"
     },
@@ -470,11 +820,86 @@
       "by": "rating",
       "rank": 16
     },
+    "2326567": {
+      "name": "Esteghlal FC",
+      "status": "top",
+      "by": "manual"
+    },
+    "2329971": {
+      "name": "Tractor",
+      "status": "strong",
+      "by": "manual"
+    },
+    "2334226": {
+      "name": "Persepolis",
+      "status": "top",
+      "by": "manual"
+    },
+    "2335928": {
+      "name": "Sepahan FC",
+      "status": "strong",
+      "by": "manual"
+    },
+    "2493363": {
+      "name": "Al-Ahli Saudi",
+      "status": "strong",
+      "by": "manual"
+    },
+    "2495916": {
+      "name": "Al-Hilal Saudi",
+      "status": "top",
+      "by": "manual"
+    },
+    "2501022": {
+      "name": "Al-Ittihad FC",
+      "status": "strong",
+      "by": "manual"
+    },
+    "2501873": {
+      "name": "Al-Nassr",
+      "status": "top",
+      "by": "manual"
+    },
+    "2955456": {
+      "name": "Bengaluru",
+      "status": "strong",
+      "by": "manual"
+    },
+    "2958009": {
+      "name": "Goa",
+      "status": "strong",
+      "by": "manual"
+    },
+    "2959711": {
+      "name": "Kerala Blasters",
+      "status": "top",
+      "by": "manual"
+    },
+    "2960562": {
+      "name": "Mumbai City",
+      "status": "strong",
+      "by": "manual"
+    },
     "4705963": {
       "name": "Canada",
       "status": "strong",
       "by": "rating",
       "rank": 30
+    },
+    "8143152": {
+      "name": "Inter Miami",
+      "status": "top",
+      "by": "manual"
+    },
+    "13204900": {
+      "name": "ATK Mohun Bagan",
+      "status": "top",
+      "by": "manual"
+    },
+    "17988371": {
+      "name": "East Bengal II",
+      "status": "top",
+      "by": "manual"
     }
   },
   "eurocups": {
