@@ -1,0 +1,428 @@
+{
+  "top_events": [
+    {
+      "league_id": 5039,
+      "league_name": "UEFA Nations League",
+      "home_team_id": 3337,
+      "home_team_name": "Croatia",
+      "away_team_id": 9294,
+      "away_team_name": "England",
+      "date": "2026-10-03T16:00:00.000Z",
+      "home_tier": "top",
+      "away_tier": "top",
+      "top": true,
+      "top_reason": "pair"
+    },
+    {
+      "league_id": 5039,
+      "league_name": "UEFA Nations League",
+      "home_team_id": 8443,
+      "home_team_name": "Spain",
+      "away_team_id": 656054,
+      "away_team_name": "Czech Republic",
+      "date": "2026-10-03T18:45:00.000Z",
+      "home_tier": "top",
+      "away_tier": "strong",
+      "top": true,
+      "top_reason": "pair"
+    },
+    {
+      "league_id": 5039,
+      "league_name": "UEFA Nations League",
+      "home_team_id": 13549,
+      "home_team_name": "Switzerland",
+      "away_team_id": 929225,
+      "away_team_name": "Slovenia",
+      "date": "2026-10-03T18:45:00.000Z",
+      "home_tier": "top",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 5039,
+      "league_name": "UEFA Nations League",
+      "home_team_id": 941139,
+      "home_team_name": "North Macedonia",
+      "away_team_id": 943692,
+      "away_team_name": "Scotland",
+      "date": "2026-10-03T18:45:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "strong"
+    },
+    {
+      "league_id": 5039,
+      "league_name": "UEFA Nations League",
+      "home_team_id": 936033,
+      "home_team_name": "Finland",
+      "away_team_id": 662862,
+      "away_team_name": "Albania",
+      "date": "2026-10-03T13:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 5039,
+      "league_name": "UEFA Nations League",
+      "home_team_id": 936884,
+      "home_team_name": "Belarus",
+      "away_team_id": 949649,
+      "away_team_name": "San Marino",
+      "date": "2026-10-03T16:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 5039,
+      "league_name": "UEFA Nations League",
+      "home_team_id": 16102,
+      "home_team_name": "Iceland",
+      "away_team_id": 939437,
+      "away_team_name": "Bulgaria",
+      "date": "2026-10-03T16:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 5039,
+      "league_name": "UEFA Nations League",
+      "home_team_id": 937735,
+      "home_team_name": "Estonia",
+      "away_team_id": 938586,
+      "away_team_name": "Luxembourg",
+      "date": "2026-10-03T16:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    }
+  ],
+  "top_matches": [
+    {
+      "league_id": 9294,
+      "league_name": "Friendlies",
+      "home_team_id": 4705963,
+      "home_team_name": "Canada",
+      "away_team_id": 26314,
+      "away_team_name": "Peru",
+      "date": "2026-10-03T18:00:00.000Z",
+      "home_tier": "strong",
+      "away_tier": "strong",
+      "top": true,
+      "top_reason": "pair"
+    },
+    {
+      "league_id": 9294,
+      "league_name": "Friendlies",
+      "home_team_id": 1278135,
+      "home_team_name": "Ivory Coast",
+      "away_team_id": 1302814,
+      "away_team_name": "Cameroon",
+      "date": "2026-10-03T19:00:00.000Z",
+      "home_tier": "strong",
+      "away_tier": "strong",
+      "top": true,
+      "top_reason": "pair"
+    },
+    {
+      "league_id": 9294,
+      "league_name": "Friendlies",
+      "home_team_id": 1308771,
+      "home_team_name": "India",
+      "away_team_id": 5890,
+      "away_team_name": "Brazil",
+      "date": "2026-10-03T14:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "top"
+    },
+    {
+      "league_id": 9294,
+      "league_name": "Friendlies",
+      "home_team_id": 4188,
+      "home_team_name": "Russia",
+      "away_team_id": 1271327,
+      "away_team_name": "Namibia",
+      "date": "2026-10-03T15:00:00.000Z",
+      "home_tier": "strong",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 9294,
+      "league_name": "Friendlies",
+      "home_team_id": 9299661,
+      "home_team_name": "Australia U23",
+      "away_team_id": 8661411,
+      "away_team_name": "Korea Republic U23",
+      "date": "2026-10-03T05:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 9294,
+      "league_name": "Friendlies",
+      "home_team_id": 8796720,
+      "home_team_name": "Germany U19",
+      "away_team_id": 8791614,
+      "away_team_name": "Czech Republic U19",
+      "date": "2026-10-03T09:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 9294,
+      "league_name": "Friendlies",
+      "home_team_id": 18269201,
+      "home_team_name": "Finland U18",
+      "away_team_id": 18281115,
+      "away_team_name": "Wales U18",
+      "date": "2026-10-03T10:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 9294,
+      "league_name": "Friendlies",
+      "home_team_id": 18275158,
+      "home_team_name": "Norway U18",
+      "away_team_id": 19013826,
+      "away_team_name": "Usa U18",
+      "date": "2026-10-03T10:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 9294,
+      "league_name": "Friendlies",
+      "home_team_id": 4397050,
+      "home_team_name": "Sri Lanka",
+      "away_team_id": 1307069,
+      "away_team_name": "Djibouti",
+      "date": "2026-10-03T12:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 9294,
+      "league_name": "Friendlies",
+      "home_team_id": 8800124,
+      "home_team_name": "Netherlands U19",
+      "away_team_id": 8788210,
+      "away_team_name": "Austria U19",
+      "date": "2026-10-03T12:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 9294,
+      "league_name": "Friendlies",
+      "home_team_id": 10650198,
+      "home_team_name": "Netherlands U17",
+      "away_team_id": 15269426,
+      "away_team_name": "Belgium U17",
+      "date": "2026-10-03T12:45:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 9294,
+      "league_name": "Friendlies",
+      "home_team_id": 8801826,
+      "home_team_name": "Norway U19",
+      "away_team_id": 18276860,
+      "away_team_name": "Poland U18",
+      "date": "2026-10-03T13:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 9294,
+      "league_name": "Friendlies",
+      "home_team_id": 8676729,
+      "home_team_name": "South Africa U23",
+      "away_team_id": 8669070,
+      "away_team_name": "Algeria U23",
+      "date": "2026-10-03T13:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 9294,
+      "league_name": "Friendlies",
+      "home_team_id": 23028844,
+      "home_team_name": "Ireland U18",
+      "away_team_id": 19092969,
+      "away_team_name": "Netherlands U18",
+      "date": "2026-10-03T14:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 9294,
+      "league_name": "Friendlies",
+      "home_team_id": 23035652,
+      "home_team_name": "Uruguay U18",
+      "away_team_id": 19084459,
+      "away_team_name": "Belgium U18",
+      "date": "2026-10-03T14:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 9294,
+      "league_name": "Friendlies",
+      "home_team_id": 8802677,
+      "home_team_name": "Portugal U19",
+      "away_team_id": 8792465,
+      "away_team_name": "Denmark U19",
+      "date": "2026-10-03T16:30:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 9294,
+      "league_name": "Friendlies",
+      "home_team_id": 24612,
+      "home_team_name": "Tunisia",
+      "away_team_id": 1277284,
+      "away_team_name": "Mali",
+      "date": "2026-10-03T19:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    }
+  ],
+  "reserve": [
+    {
+      "league_id": 109712,
+      "league_name": "Liga Profesional Argentina",
+      "home_team_id": 376926,
+      "home_team_name": "Defensa y Justicia",
+      "away_team_id": 392244,
+      "away_team_name": "San Lorenzo de Almagro",
+      "date": "2026-10-03T17:45:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "strong"
+    },
+    {
+      "league_id": 109712,
+      "league_name": "Liga Profesional Argentina",
+      "home_team_id": 389691,
+      "home_team_name": "Newell’s Old Boys",
+      "away_team_id": 380330,
+      "away_team_name": "Lanús",
+      "date": "2026-10-03T20:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 109712,
+      "league_name": "Liga Profesional Argentina",
+      "home_team_id": 387989,
+      "home_team_name": "Atlético Tucumán",
+      "away_team_id": 2070416,
+      "away_team_name": "Barracas Central",
+      "date": "2026-10-03T20:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 10996,
+      "league_name": "CAF Champions League",
+      "home_team_id": 5463353,
+      "home_team_name": "Fomboni Club",
+      "away_team_id": 16268500,
+      "away_team_name": "15 de Agosto",
+      "date": "2026-10-03T12:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 175239,
+      "league_name": "2. Lig",
+      "home_team_id": 5396124,
+      "home_team_name": "Hekimoğlu Trabzon",
+      "away_team_id": 6316055,
+      "away_team_name": "Serik Belediyespor",
+      "date": "2026-10-03T11:30:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 175239,
+      "league_name": "2. Lig",
+      "home_team_id": 6299035,
+      "home_team_name": "Erbaaspor",
+      "away_team_id": 18716827,
+      "away_team_name": "Aliağa FAŞ",
+      "date": "2026-10-03T12:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 175239,
+      "league_name": "2. Lig",
+      "home_team_id": 3060980,
+      "home_team_name": "Kırklarelispor",
+      "away_team_id": 3066086,
+      "away_team_name": "Sakaryaspor",
+      "date": "2026-10-03T12:30:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 175239,
+      "league_name": "2. Lig",
+      "home_team_id": 18719380,
+      "home_team_name": "İnegöl Kafkas Gençlik",
+      "away_team_id": 5562920,
+      "away_team_name": "Muş Menderesspor",
+      "date": "2026-10-03T12:30:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 175239,
+      "league_name": "2. Lig",
+      "home_team_id": 3063533,
+      "home_team_name": "Menemen FK",
+      "away_team_id": 3032897,
+      "away_team_name": "Adana Demirspor",
+      "date": "2026-10-03T16:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 175239,
+      "league_name": "2. Lig",
+      "home_team_id": 5551857,
+      "home_team_name": "Isparta 32 Spor",
+      "away_team_id": 3043109,
+      "away_team_name": "Hatayspor",
+      "date": "2026-10-03T16:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 175239,
+      "league_name": "2. Lig",
+      "home_team_id": 5564622,
+      "home_team_name": "Somaspor",
+      "away_team_id": 18731294,
+      "away_team_name": "Sebat Gençlikspor",
+      "date": "2026-10-03T16:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 175239,
+      "league_name": "2. Lig",
+      "home_team_id": 3055874,
+      "home_team_name": "Fethiyespor",
+      "away_team_id": 6304141,
+      "away_team_name": "Karacabey Belediyespor",
+      "date": "2026-10-03T16:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    }
+  ],
+  "national": [],
+  "widget_targets": {
+    "top_events": 14,
+    "top_matches": 12
+  }
+}
