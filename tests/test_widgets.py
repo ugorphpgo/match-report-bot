@@ -117,7 +117,7 @@ def reserve(matches, priorities, excluded=None):
 
 
 class Reserve(unittest.TestCase):
-    """Запас — следующие за обрезом списка турниры для замены в coupon-filler
+    """Запас — следующие за обрезом списка турниры для замены в sb-support-toolbox
     матчей, которых нет в админке. Ещё один Top Matches по размеру, тем же
     правилом: целыми турнирами, граница ближе к цели."""
 
