@@ -1,4 +1,4 @@
-"""Режим --lists-only: добыча списков для coupon-filler без ежедневного отчёта.
+"""Режим --lists-only: добыча списков для sb-support-toolbox без ежедневного отчёта.
 
 Проверяем поведение через main(argv): какие файлы появились в --out, ушло ли
 что-нибудь в Telegram и тронута ли data/ самого бота. Highlightly подменён —
@@ -69,7 +69,7 @@ class ListsOnly(unittest.TestCase):
         self.assertEqual(self.cleaned, [])
 
     def test_own_national_team_published_even_beyond_the_cut(self):
-        # Матч своей сборной локали coupon-filler ставит первым пресетом Top
+        # Матч своей сборной локали sb-support-toolbox ставит первым пресетом Top
         # Events, где бы он ни оказался в ранжировании: поэтому он в файле
         # всегда, отдельным полем. 40 одиночных турниров идут раньше него
         # (равный приоритет, id лиги меньше) — в список и запас он не влезает.
@@ -96,7 +96,7 @@ class ListsOnly(unittest.TestCase):
         self.assertEqual(national("mexico")[0], [])
 
     def test_matches_marked_with_the_locales_national_team(self):
-        # Отметка own_national — для своей локали: coupon-filler поднимает
+        # Отметка own_national — для своей локали: sb-support-toolbox поднимает
         # младшие и женские сборные внутри их пресета и подсвечивает все.
         day = "2026-09-25"
         teams = [("Brazil", "Chile"), ("Brazil U20", "Peru U20"), ("Colombia (W)", "Brazil (W)"),
@@ -123,7 +123,7 @@ class ListsOnly(unittest.TestCase):
         self.assertEqual(marks("mexico")["Mexico City - Toluca"], None, "клуб — не сборная")
 
     def test_file_carries_reserve_and_widget_targets(self):
-        # Запас и цели — для замены в coupon-filler матчей, которых нет в
+        # Запас и цели — для замены в sb-support-toolbox матчей, которых нет в
         # админке: там список с запасом делится на виджеты заново.
         self.days["2026-09-25"] = [match("2026-09-25", 15, league_id=n, home=2 * n,
                                          away=2 * n + 1) for n in range(1000, 1040)]
