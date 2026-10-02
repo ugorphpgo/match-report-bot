@@ -612,12 +612,12 @@
     },
     "20357": {
       "name": "EAFF E-1 Football Championship",
-      "priority": 250,
+      "priority": 240,
       "group": "regional_national_teams"
     },
     "995603": {
       "name": "EAFF E-1 Football Championship - Qualification",
-      "priority": 250,
+      "priority": 230,
       "group": "regional_national_teams"
     },
     "22059": {
@@ -1117,7 +1117,7 @@
     },
     "7592": {
       "name": "World Cup - Women",
-      "priority": 15,
+      "priority": 420,
       "group": "women_football"
     },
     "809234": {
