@@ -89,8 +89,9 @@ class OrderInsideTournament(StatusCase):
             match(LEAGUE, CROATIA, FAROE),        # сильная + обычная
         ])
         self.assertEqual(pairs(ranked), [
-            (SPAIN, GERMANY), (SPAIN, CROATIA), (CROATIA, CZECHIA),
-            (SPAIN, ANDORRA), (CROATIA, FAROE), (FAROE, ANDORRA)])
+            (SPAIN, GERMANY), (SPAIN, CROATIA),              # топ-матчи
+            (SPAIN, ANDORRA), (CROATIA, CZECHIA),            # остаток: «сильная + сильная» после «топ + обычная»
+            (CROATIA, FAROE), (FAROE, ANDORRA)])
 
     def test_home_and_away_do_not_matter(self):
         ranked = self.rank([match(LEAGUE, ANDORRA, SPAIN), match(LEAGUE, CROATIA, SPAIN)])
@@ -194,6 +195,14 @@ class TopBonus(StatusCase):
         ranked = self.rank(day)
         self.assertEqual(pairs(ranked[:3]), [(LIV, CHE), (ARS, VIL), (RMA, BAR)])  # 540, 540, 535
 
+    def test_strong_with_strong_gets_no_bonus_and_no_top_part(self):
+        day = [match(EPL, EVE, BRE), match(LALIGA, VIL, SEV), match(LALIGA, BET, 85)]
+        ranked = self.rank(day)
+        # Ла Лига 475 без надбавки — ниже АПЛ 480; «сильная + сильная» первым в её пресете.
+        self.assertEqual([m["league"]["id"] for m in ranked], [EPL, LALIGA, LALIGA])
+        self.assertEqual(pairs(ranked)[1], (VIL, SEV))
+        self.assertEqual(match_report._top_bonuses(day, "global"), {})
+
     def test_without_bonus_order_is_as_before(self):
         without = {**self.status, "top_bonus": {}}
         with patch.object(match_report, "TEAM_STATUS", without):
@@ -245,9 +254,13 @@ class TopMark(StatusCase):
     def mark(self, m, locale="global"):
         return match_report.top_mark(m, locale)
 
-    def test_both_at_least_strong_is_top(self):
-        for home, away in ((SPAIN, GERMANY), (SPAIN, CROATIA), (CROATIA, CZECHIA)):
+    def test_top_with_top_or_strong_is_top(self):
+        for home, away in ((SPAIN, GERMANY), (SPAIN, CROATIA), (CROATIA, SPAIN)):
             self.assertEqual(self.mark(match(LEAGUE, home, away)), "pair", (home, away))
+
+    def test_strong_with_strong_is_not_top(self):
+        # Решение 02.10.2026: «сильная + сильная» остаётся в обычном пресете.
+        self.assertIsNone(self.mark(match(LEAGUE, CROATIA, CZECHIA)))
 
     def test_top_with_regular_is_not(self):
         self.assertIsNone(self.mark(match(LEAGUE, SPAIN, ANDORRA)))

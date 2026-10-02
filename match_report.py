@@ -65,7 +65,7 @@ DATA_DIR = os.path.join(REPO_ROOT, "data")
 # в Лиге чемпионов, «Рома» — топ в Лиге Европы. Клуба нет в списке турнира —
 # «обычная», из домашнего не выводится. "top_bonus": {"top_pair": 60,
 # "top": 30} — надбавка к приоритету турнира у его топ-части (_ordered): за
-# «топ + топ» и свой клуб локали — top_pair, за прочие топ-матчи — top; нет
+# «топ + топ» и свой клуб локали — top_pair, за «топ + сильная» — top; нет
 # чисел — 0, и порядок прежний.
 # Правит вкладка
 # «Приоритеты» заполнялки; рейтинг сборных бот сам не качает — сбой или смена
@@ -356,10 +356,12 @@ def is_own_club_match(m, locale_key):
 
 def top_mark(m, locale_key=None):
     """Почему матч топ-матч турнира: "own_club" (свой клуб локали), "pair"
-    (обе команды не ниже «сильной») или None."""
+    («топ + топ» или «топ + сильная») или None. «Сильная + сильная» — не
+    топ-матч (решение 02.10.2026): остаётся в обычном пресете турнира."""
     if is_own_club_match(m, locale_key):
         return "own_club"
-    if all(TIER_RANK[t] <= TIER_RANK["strong"] for t in pair_tiers(m)):
+    tiers = pair_tiers(m)
+    if "top" in tiers and all(TIER_RANK[t] <= TIER_RANK["strong"] for t in tiers):
         return "pair"
     return None
 
