@@ -612,6 +612,11 @@
       "by": "rating",
       "rank": 23
     },
+    "661160": {
+      "name": "Republic of Ireland",
+      "status": "strong",
+      "by": "manual"
+    },
     "662011": {
       "name": "Turkey",
       "status": "strong",
@@ -656,6 +661,11 @@
     },
     "943692": {
       "name": "Scotland",
+      "status": "strong",
+      "by": "manual"
+    },
+    "947947": {
+      "name": "Bosnia & Herzegovina",
       "status": "strong",
       "by": "manual"
     },
