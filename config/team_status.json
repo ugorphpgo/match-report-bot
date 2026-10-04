@@ -14,8 +14,8 @@
     },
     "3337": {
       "name": "Croatia",
-      "status": "top",
-      "by": "rating",
+      "status": "strong",
+      "by": "manual",
       "rank": 13
     },
     "4188": {
@@ -44,8 +44,8 @@
     },
     "7592": {
       "name": "Colombia",
-      "status": "top",
-      "by": "rating",
+      "status": "strong",
+      "by": "manual",
       "rank": 11
     },
     "8443": {
@@ -67,8 +67,8 @@
     },
     "10996": {
       "name": "Japan",
-      "status": "top",
-      "by": "rating",
+      "status": "strong",
+      "by": "manual",
       "rank": 17
     },
     "11847": {
@@ -85,14 +85,14 @@
     },
     "13549": {
       "name": "Switzerland",
-      "status": "top",
-      "by": "rating",
+      "status": "strong",
+      "by": "manual",
       "rank": 14
     },
     "14400": {
       "name": "Mexico",
-      "status": "top",
-      "by": "rating",
+      "status": "strong",
+      "by": "manual",
       "rank": 10
     },
     "15251": {
@@ -718,8 +718,8 @@
     },
     "1278135": {
       "name": "Ivory Coast",
-      "status": "strong",
-      "by": "rating",
+      "status": "top",
+      "by": "manual",
       "rank": 31
     },
     "1284092": {
@@ -826,8 +826,8 @@
     },
     "2029568": {
       "name": "USA",
-      "status": "top",
-      "by": "rating",
+      "status": "strong",
+      "by": "manual",
       "rank": 16
     },
     "2326567": {
