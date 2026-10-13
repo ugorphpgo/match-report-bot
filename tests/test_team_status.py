@@ -224,8 +224,8 @@ class TopBonus(StatusCase):
         self.assertEqual(pairs(ranked), [(RMA, SEV), (60, 61), (BET, 85)])
 
     def test_lifted_top_part_is_its_own_widget_block(self):
-        filler = [match(200 + n, 300 + 2 * n, 301 + 2 * n) for n in range(13)]
-        prios = {**PRIORITIES, **BIG5, **{200 + n: 520 for n in range(13)}}
+        filler = [match(200 + n, 300 + 2 * n, 301 + 2 * n) for n in range(23)]
+        prios = {**PRIORITIES, **BIG5, **{200 + n: 520 for n in range(23)}}
         day = [match(LALIGA, RMA, BAR)] + [match(LALIGA, 400 + n, 450 + n) for n in range(10)] + filler
         with patch.object(match_report, "PRIORITIES", prios):
             ranked = match_report.rank_matches(day, {}, "global")
@@ -410,7 +410,7 @@ class ListsFile(StatusCase):
              patch.object(match_report, "LOCALE_NATIONS", {"turkey": ["Turkey"]}):
             cfg = {"label": "Turkey", "overrides": {}}
             match_report.write_locale_lists(out, "turkey", cfg, "2026-09-26",
-                                            pool + [national], {})
+                                            pool + [national])
             with open(os.path.join(out, "turkey_2026-09-26.json"), encoding="utf-8") as f:
                 data = json.load(f)
         rows = data["top_events"] + data["top_matches"]

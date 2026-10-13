@@ -1,10 +1,12 @@
-"""Раскладка списка локали по виджетам: топ ивенты ≈14, топ матчи ≈12.
+"""Раскладка списка локали по виджетам: топ ивенты ≈24, топ матчи ≈12.
 
 Размер виджета — цель, а не потолок: турнир между виджетами не делится и на
 хвосте не обрезается, граница проходит между турнирами там, где итог ближе к
 цели (при равенстве — с турниром), первый турнир виджета берётся всегда.
 Проверяем через настоящие rank_matches и split_widgets на своей таблице
-приоритетов — числа из config/ тест не красят.
+приоритетов — числа из config/ тест не красят. Правило проверяется на
+прежних целях 14 и 12 (`RULE_SIZES`): на них подобраны примеры; сами цели
+проверяет `Targets`.
 
     python tests/test_widgets.py
 """
@@ -17,6 +19,9 @@ REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, REPO)
 
 import match_report  # noqa: E402
+
+# Цели, на которых подобраны примеры правила, — не рабочие размеры виджетов.
+RULE_SIZES = {"TOP_EVENTS_SIZE": 14, "TOP_MATCHES_SIZE": 12}
 
 
 def tournament(league_id, size):
@@ -39,11 +44,19 @@ def day(*sizes):
 def widgets(matches, priorities, overrides=None):
     with patch.object(match_report, "PRIORITIES", priorities), \
          patch.object(match_report, "EXCLUDED", {}), \
-         patch.object(match_report, "DEFAULT_PRIORITY", 1):
+         patch.object(match_report, "DEFAULT_PRIORITY", 1),          patch.multiple(match_report, **RULE_SIZES):
         ranked = match_report.rank_matches(matches, overrides or {})
         top_matches, top_events = match_report.split_widgets(ranked)
     return ([m["league"]["id"] for m in top_events],
             [m["league"]["id"] for m in top_matches])
+
+
+class Targets(unittest.TestCase):
+    def test_top_events_24_top_matches_12(self):
+        # Купон идёт по времени, сайт убирает начавшиеся матчи: 14 к вечеру
+        # пустели (sb-support-toolbox, .scratch/coupon-timeline).
+        self.assertEqual((match_report.TOP_EVENTS_SIZE, match_report.TOP_MATCHES_SIZE),
+                         (24, 12))
 
 
 class Widgets(unittest.TestCase):
@@ -112,7 +125,7 @@ class Widgets(unittest.TestCase):
 def reserve(matches, priorities, excluded=None):
     with patch.object(match_report, "PRIORITIES", priorities), \
          patch.object(match_report, "EXCLUDED", excluded or {}), \
-         patch.object(match_report, "DEFAULT_PRIORITY", 1):
+         patch.object(match_report, "DEFAULT_PRIORITY", 1),          patch.multiple(match_report, **RULE_SIZES):
         return [m["league"]["id"] for m in match_report.rank_reserve(matches, {})]
 
 
