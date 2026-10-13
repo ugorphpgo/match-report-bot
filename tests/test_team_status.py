@@ -410,7 +410,7 @@ class ListsFile(StatusCase):
              patch.object(match_report, "LOCALE_NATIONS", {"turkey": ["Turkey"]}):
             cfg = {"label": "Turkey", "overrides": {}}
             match_report.write_locale_lists(out, "turkey", cfg, "2026-09-26",
-                                            pool + [national], {})
+                                            pool + [national])
             with open(os.path.join(out, "turkey_2026-09-26.json"), encoding="utf-8") as f:
                 data = json.load(f)
         rows = data["top_events"] + data["top_matches"]

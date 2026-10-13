@@ -161,14 +161,34 @@ class ListsOnly(unittest.TestCase):
         self.assertTrue(all("2026-09-25" in name for name in self.written()))
         self.assertEqual(len(self.written()), len(LOCALES))
 
-    def test_only_early_matches_count_as_empty(self):
-        # 02:00 UTC = 05:00 по Минску, раньше MIN_START_HOUR.
-        self.days["2026-09-25"] = [match("2026-09-25", 2)]
+    def listed(self, locale_key, day):
+        with open(os.path.join(self.out, f"{locale_key}_{day}.json"),
+                  encoding="utf-8") as f:
+            data = json.load(f)
+        return [(m["home_team_id"], m["away_team_id"])
+                for m in data["top_events"] + data["top_matches"]]
+
+    def test_night_match_is_in_its_own_day(self):
+        # Список на дату — весь календарный день по Минску, 00:00–24:00:
+        # 00:00 UTC = 03:00 по Минску, и матч лежит в списке своего дня.
+        self.days["2026-09-25"] = [match("2026-09-25", 0, home=1, away=2)]
 
         code = self.run_main("--start", "2026-09-25")
 
-        self.assertEqual(code, match_report.EXIT_NO_MATCHES)
-        self.assertEqual(self.written(), [])
+        self.assertEqual(code, 0)
+        for locale_key in LOCALES:
+            self.assertIn((1, 2), self.listed(locale_key, "2026-09-25"), locale_key)
+
+    def test_next_day_night_match_stays_in_next_day(self):
+        # Ночной по Минску матч Бразилии или Мексики следующего дня в список
+        # предыдущего не перетекает ни у одной локали — он в списке своего дня.
+        self.days["2026-09-25"] = [match("2026-09-25", 15, home=1, away=2)]
+        self.days["2026-09-26"] = [match("2026-09-26", 1, home=3, away=4)]
+
+        self.run_main("--start", "2026-09-25")
+
+        for locale_key in LOCALES:
+            self.assertNotIn((3, 4), self.listed(locale_key, "2026-09-25"), locale_key)
 
     def test_selection_matches_daily_report(self):
         # Одна и та же дата через --lists-only и через ежедневный прогон
