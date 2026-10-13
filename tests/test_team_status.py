@@ -224,8 +224,8 @@ class TopBonus(StatusCase):
         self.assertEqual(pairs(ranked), [(RMA, SEV), (60, 61), (BET, 85)])
 
     def test_lifted_top_part_is_its_own_widget_block(self):
-        filler = [match(200 + n, 300 + 2 * n, 301 + 2 * n) for n in range(13)]
-        prios = {**PRIORITIES, **BIG5, **{200 + n: 520 for n in range(13)}}
+        filler = [match(200 + n, 300 + 2 * n, 301 + 2 * n) for n in range(23)]
+        prios = {**PRIORITIES, **BIG5, **{200 + n: 520 for n in range(23)}}
         day = [match(LALIGA, RMA, BAR)] + [match(LALIGA, 400 + n, 450 + n) for n in range(10)] + filler
         with patch.object(match_report, "PRIORITIES", prios):
             ranked = match_report.rank_matches(day, {}, "global")

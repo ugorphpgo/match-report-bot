@@ -71,14 +71,14 @@ class ListsOnly(unittest.TestCase):
     def test_own_national_team_published_even_beyond_the_cut(self):
         # Матч своей сборной локали sb-support-toolbox ставит первым пресетом Top
         # Events, где бы он ни оказался в ранжировании: поэтому он в файле
-        # всегда, отдельным полем. 40 одиночных турниров идут раньше него
+        # всегда, отдельным полем. 60 одиночных турниров идут раньше него
         # (равный приоритет, id лиги меньше) — в список и запас он не влезает.
         brazil = match("2026-09-25", 19, league_id=9999, home=500, away=501)
         brazil["homeTeam"]["name"] = "Brazil"
         youth = match("2026-09-25", 16, league_id=9998, home=502, away=503)
         youth["awayTeam"]["name"] = "Brazil U20"
         self.days["2026-09-25"] = [match("2026-09-25", 15, league_id=n, home=2 * n,
-                                         away=2 * n + 1) for n in range(1000, 1040)]
+                                         away=2 * n + 1) for n in range(1000, 1060)]
         self.days["2026-09-25"] += [brazil, youth]
 
         self.run_main("--start", "2026-09-25")
@@ -126,7 +126,7 @@ class ListsOnly(unittest.TestCase):
         # Запас и цели — для замены в sb-support-toolbox матчей, которых нет в
         # админке: там список с запасом делится на виджеты заново.
         self.days["2026-09-25"] = [match("2026-09-25", 15, league_id=n, home=2 * n,
-                                         away=2 * n + 1) for n in range(1000, 1040)]
+                                         away=2 * n + 1) for n in range(1000, 1060)]
 
         self.run_main("--start", "2026-09-25")
 

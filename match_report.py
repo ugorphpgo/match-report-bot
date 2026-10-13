@@ -388,7 +388,7 @@ def local_leagues(cfg):
 
 # Сколько матчей хочется в каждом виджете. Это цель, а не потолок: турнир
 # между виджетами не делится и на хвосте не обрезается (см. _widget_end).
-TOP_EVENTS_SIZE = 14
+TOP_EVENTS_SIZE = 24
 TOP_MATCHES_SIZE = 12
 
 
