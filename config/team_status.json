@@ -1,5 +1,10 @@
 {
   "teams": {
+    "7": {
+      "name": "Chad",
+      "status": "strong",
+      "by": "manual"
+    },
     "1635": {
       "name": "Belgium",
       "status": "top",
