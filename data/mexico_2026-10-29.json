@@ -1,0 +1,532 @@
+{
+  "top_events": [
+    {
+      "league_id": 875612,
+      "league_name": "Concacaf Central American Cup",
+      "home_team_id": 695200,
+      "home_team_name": "Deportivo Saprissa",
+      "away_team_id": 3662637,
+      "away_team_name": "Firpo",
+      "date": "2026-10-29T00:30:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 875612,
+      "league_name": "Concacaf Central American Cup",
+      "home_team_id": 895185,
+      "home_team_name": "CD Olimpia",
+      "away_team_id": 698604,
+      "away_team_name": "CS Cartaginés",
+      "date": "2026-10-29T03:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 223746,
+      "league_name": "Liga MX",
+      "home_team_id": 1947021,
+      "home_team_name": "Club América",
+      "away_team_id": 1941064,
+      "away_team_name": "Club Tijuana",
+      "date": "2026-10-29T03:00:00.000Z",
+      "home_tier": "top",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 115669,
+      "league_name": "Serie A",
+      "home_team_id": 427986,
+      "home_team_name": "Fiorentina",
+      "away_team_id": 425433,
+      "away_team_name": "Atalanta",
+      "date": "2026-10-29T19:45:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "strong"
+    },
+    {
+      "league_id": 115669,
+      "league_name": "Serie A",
+      "home_team_id": 436496,
+      "home_team_name": "Frosinone",
+      "away_team_id": 738601,
+      "away_team_name": "Lecce",
+      "date": "2026-10-29T17:30:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 61205,
+      "league_name": "Serie A",
+      "home_team_id": 109712,
+      "home_team_name": "Santos",
+      "away_team_id": 103755,
+      "away_team_name": "Palmeiras",
+      "date": "2026-10-28T22:30:00.000Z",
+      "home_tier": "strong",
+      "away_tier": "top",
+      "top": true,
+      "top_reason": "pair"
+    },
+    {
+      "league_id": 61205,
+      "league_name": "Serie A",
+      "home_team_id": 101202,
+      "home_team_name": "Bahia",
+      "away_team_id": 108010,
+      "away_team_name": "São Paulo FC",
+      "date": "2026-10-29T00:30:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "top"
+    },
+    {
+      "league_id": 61205,
+      "league_name": "Serie A",
+      "home_team_id": 106308,
+      "home_team_name": "Fluminense",
+      "away_team_id": 102053,
+      "away_team_name": "Internacional",
+      "date": "2026-10-28T22:30:00.000Z",
+      "home_tier": "strong",
+      "away_tier": "strong"
+    },
+    {
+      "league_id": 61205,
+      "league_name": "Serie A",
+      "home_team_id": 1020282,
+      "home_team_name": "Remo",
+      "away_team_id": 102904,
+      "away_team_name": "Botafogo",
+      "date": "2026-10-29T00:30:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "strong"
+    },
+    {
+      "league_id": 61205,
+      "league_name": "Serie A",
+      "home_team_id": 676478,
+      "home_team_name": "RB Bragantino",
+      "away_team_id": 113116,
+      "away_team_name": "Chapecoense",
+      "date": "2026-10-28T22:30:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 216087,
+      "league_name": "Major League Soccer",
+      "home_team_id": 8143152,
+      "home_team_name": "Inter Miami",
+      "away_team_id": 1908726,
+      "away_team_name": "FC Cincinnati",
+      "date": "2026-10-28T23:30:00.000Z",
+      "home_tier": "top",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 216087,
+      "league_name": "Major League Soccer",
+      "home_team_id": 1365788,
+      "home_team_name": "New York City FC",
+      "away_team_id": 1369192,
+      "away_team_name": "Atlanta United FC",
+      "date": "2026-10-28T23:30:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "strong"
+    },
+    {
+      "league_id": 216087,
+      "league_name": "Major League Soccer",
+      "home_team_id": 1358129,
+      "home_team_name": "Seattle Sounders",
+      "away_team_id": 1362384,
+      "away_team_name": "Houston Dynamo",
+      "date": "2026-10-29T02:30:00.000Z",
+      "home_tier": "strong",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 216087,
+      "league_name": "Major League Soccer",
+      "home_team_id": 1363235,
+      "home_team_name": "Toronto FC",
+      "away_team_id": 1375149,
+      "away_team_name": "DC United",
+      "date": "2026-10-28T23:30:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 216087,
+      "league_name": "Major League Soccer",
+      "home_team_id": 15582594,
+      "home_team_name": "Charlotte",
+      "away_team_id": 1374298,
+      "away_team_name": "Montréal Impact",
+      "date": "2026-10-28T23:30:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 216087,
+      "league_name": "Major League Soccer",
+      "home_team_id": 1370043,
+      "home_team_name": "New England Revolution",
+      "away_team_id": 1364086,
+      "away_team_name": "New York Red Bulls",
+      "date": "2026-10-28T23:30:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 216087,
+      "league_name": "Major League Soccer",
+      "home_team_id": 17690521,
+      "home_team_name": "St. Louis City SC",
+      "away_team_id": 1376851,
+      "away_team_name": "Portland Timbers",
+      "date": "2026-10-29T00:30:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 216087,
+      "league_name": "Major League Soccer",
+      "home_team_id": 14032923,
+      "home_team_name": "Austin",
+      "away_team_id": 1367490,
+      "away_team_name": "Real Salt Lake",
+      "date": "2026-10-29T00:30:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 216087,
+      "league_name": "Major League Soccer",
+      "home_team_id": 1372596,
+      "home_team_name": "Minnesota United",
+      "away_team_id": 1371745,
+      "away_team_name": "Sporting Kansas City",
+      "date": "2026-10-29T00:30:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 216087,
+      "league_name": "Major League Soccer",
+      "home_team_id": 1368341,
+      "home_team_name": "Chicago Fire",
+      "away_team_id": 1360682,
+      "away_team_name": "Orlando City",
+      "date": "2026-10-29T00:30:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 216087,
+      "league_name": "Major League Soccer",
+      "home_team_id": 1359831,
+      "home_team_name": "FC Dallas",
+      "away_team_id": 1373447,
+      "away_team_name": "Columbus Crew",
+      "date": "2026-10-29T00:30:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 216087,
+      "league_name": "Major League Soccer",
+      "home_team_id": 8144003,
+      "home_team_name": "Nashville SC",
+      "away_team_id": 1361533,
+      "away_team_name": "Philadelphia Union",
+      "date": "2026-10-29T00:30:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 216087,
+      "league_name": "Major League Soccer",
+      "home_team_id": 1358980,
+      "home_team_name": "San Jose Earthquakes",
+      "away_team_id": 1370894,
+      "away_team_name": "Colorado Rapids",
+      "date": "2026-10-29T02:30:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 216087,
+      "league_name": "Major League Soccer",
+      "home_team_id": 1364937,
+      "home_team_name": "Vancouver Whitecaps",
+      "away_team_id": 21687668,
+      "away_team_name": "San Diego",
+      "date": "2026-10-29T02:30:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    }
+  ],
+  "top_matches": [
+    {
+      "league_id": 16102,
+      "league_name": "AFC Cup",
+      "home_team_id": 807532,
+      "home_team_name": "Adelaide United",
+      "away_team_id": 3578388,
+      "away_team_name": "Home United",
+      "date": "2026-10-29T07:45:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 16102,
+      "league_name": "AFC Cup",
+      "home_team_id": 3580090,
+      "home_team_name": "Tampines Rovers",
+      "away_team_id": 4592780,
+      "away_team_name": "Svay Rieng",
+      "date": "2026-10-29T10:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 16102,
+      "league_name": "AFC Cup",
+      "home_team_id": 2337630,
+      "home_team_name": "Gangwon FC",
+      "away_team_id": 8602692,
+      "away_team_name": "Kuching City",
+      "date": "2026-10-29T10:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 16102,
+      "league_name": "AFC Cup",
+      "home_team_id": 3793691,
+      "home_team_name": "Wofoo Tai Po",
+      "away_team_id": 2357203,
+      "away_team_name": "Bangkok Glass",
+      "date": "2026-10-29T12:15:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 16102,
+      "league_name": "AFC Cup",
+      "home_team_id": 709667,
+      "home_team_name": "Shanghai Shenhua",
+      "away_team_id": 258637,
+      "away_team_name": "Machida Zelvia",
+      "date": "2026-10-29T12:15:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 16102,
+      "league_name": "AFC Cup",
+      "home_team_id": 4591078,
+      "home_team_name": "Phnom Penh Crown",
+      "away_team_id": 3790287,
+      "away_team_name": "Kitchee",
+      "date": "2026-10-29T12:15:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 318207,
+      "league_name": "1. SNL",
+      "home_team_id": 10845928,
+      "home_team_name": "Brinje-Grosuplje",
+      "away_team_id": 3710293,
+      "away_team_name": "Bravo",
+      "date": "2026-10-29T16:30:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 289273,
+      "league_name": "Liga Nacional",
+      "home_team_id": 3112891,
+      "home_team_name": "Cobán Imperial",
+      "away_team_id": 3109487,
+      "away_team_name": "Suchitepéquez",
+      "date": "2026-10-28T21:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 289273,
+      "league_name": "Liga Nacional",
+      "home_team_id": 3118848,
+      "home_team_name": "Malacateco FC",
+      "away_team_id": 8641838,
+      "away_team_name": "Aurora",
+      "date": "2026-10-29T00:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 289273,
+      "league_name": "Liga Nacional",
+      "home_team_id": 3119699,
+      "home_team_name": "Municipal",
+      "away_team_id": 3113742,
+      "away_team_name": "Comunicaciones",
+      "date": "2026-10-29T02:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 289273,
+      "league_name": "Liga Nacional",
+      "home_team_id": 3102679,
+      "home_team_name": "Mixco",
+      "away_team_id": 3121401,
+      "away_team_name": "Xelajú",
+      "date": "2026-10-29T17:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    }
+  ],
+  "reserve": [
+    {
+      "league_id": 337780,
+      "league_name": "Primera Division",
+      "home_team_id": 14582669,
+      "home_team_name": "H&H Export",
+      "away_team_id": 3952828,
+      "away_team_name": "Managua FC",
+      "date": "2026-10-28T21:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 337780,
+      "league_name": "Primera Division",
+      "home_team_id": 16305093,
+      "home_team_name": "Matagalpa",
+      "away_team_id": 8646944,
+      "away_team_name": "Jalapa",
+      "date": "2026-10-28T23:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 337780,
+      "league_name": "Primera Division",
+      "home_team_id": 3950275,
+      "home_team_name": "Diriangén",
+      "away_team_id": 3953679,
+      "away_team_name": "Real Estelí",
+      "date": "2026-10-29T01:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 204173,
+      "league_name": "Primera A",
+      "home_team_id": 965818,
+      "home_team_name": "La Equidad FC",
+      "away_team_id": 960712,
+      "away_team_name": "Independiente Medellin",
+      "date": "2026-10-29T01:05:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "strong"
+    },
+    {
+      "league_id": 204173,
+      "league_name": "Primera A",
+      "home_team_id": 967520,
+      "home_team_name": "Once Caldas",
+      "away_team_id": 971775,
+      "away_team_name": "Alianza Petrolera",
+      "date": "2026-10-28T23:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 96947,
+      "league_name": "Allsvenskan",
+      "home_team_id": 309697,
+      "home_team_name": "Hammarby FF",
+      "away_team_id": 315654,
+      "away_team_name": "Sirius",
+      "date": "2026-10-29T17:30:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 96947,
+      "league_name": "Allsvenskan",
+      "home_team_id": 1844050,
+      "home_team_name": "Örgryte IS",
+      "away_team_id": 1907024,
+      "away_team_name": "Mjällby AIF",
+      "date": "2026-10-29T18:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 96947,
+      "league_name": "Allsvenskan",
+      "home_team_id": 319058,
+      "home_team_name": "Kalmar FF",
+      "away_team_id": 1847454,
+      "away_team_name": "GAIS",
+      "date": "2026-10-29T18:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 226299,
+      "league_name": "Primera División",
+      "home_team_id": 2548678,
+      "home_team_name": "Universidad Católica",
+      "away_team_id": 1982763,
+      "away_team_name": "A. Italiano",
+      "date": "2026-10-28T23:30:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 239915,
+      "league_name": "Primera División",
+      "home_team_id": 2181046,
+      "home_team_name": "Cienciano",
+      "away_team_id": 2182748,
+      "away_team_name": "Atletico Grau",
+      "date": "2026-10-29T00:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 239915,
+      "league_name": "Primera División",
+      "home_team_id": 2189556,
+      "home_team_name": "Cultural Santa Rosa",
+      "away_team_id": 8521847,
+      "away_team_name": "Cusco",
+      "date": "2026-10-29T18:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 239915,
+      "league_name": "Primera División",
+      "home_team_id": 2167430,
+      "home_team_name": "Sporting Cristal",
+      "away_team_id": 2173387,
+      "away_team_name": "Alianza Lima",
+      "date": "2026-10-29T20:30:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    }
+  ],
+  "national": [],
+  "widget_targets": {
+    "top_events": 24,
+    "top_matches": 12
+  }
+}
