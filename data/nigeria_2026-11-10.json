@@ -1,0 +1,563 @@
+{
+  "top_events": [
+    {
+      "league_id": 340333,
+      "league_name": "NPFL",
+      "home_team_id": 19220619,
+      "home_team_name": "Sporting Lagos",
+      "away_team_id": 4419176,
+      "away_team_name": "Rivers United FC",
+      "date": "2026-11-10T15:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 9294,
+      "league_name": "Friendlies",
+      "home_team_id": 9322638,
+      "home_team_name": "Qatar U23",
+      "away_team_id": 9324340,
+      "away_team_name": "Singapore U23",
+      "date": "2026-11-10T08:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 9294,
+      "league_name": "Friendlies",
+      "home_team_id": 9331148,
+      "home_team_name": "Vietnam U23",
+      "away_team_id": 9327744,
+      "away_team_name": "Thailand U23",
+      "date": "2026-11-10T12:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 204173,
+      "league_name": "Primera A",
+      "home_team_id": 966669,
+      "home_team_name": "Junior",
+      "away_team_id": 1251754,
+      "away_team_name": "Cúcuta Deportivo",
+      "date": "2026-11-10T00:00:00.000Z",
+      "home_tier": "strong",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 447559,
+      "league_name": "UEFA Champions League Women",
+      "home_team_id": 12956408,
+      "home_team_name": "Real Madrid Women",
+      "away_team_id": 1427060,
+      "away_team_name": "Paris FC Women",
+      "date": "2026-11-10T17:45:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 447559,
+      "league_name": "UEFA Champions League Women",
+      "home_team_id": 14027817,
+      "home_team_name": "Häcken",
+      "away_team_id": 1577687,
+      "away_team_name": "Chelsea Women",
+      "date": "2026-11-10T17:45:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 447559,
+      "league_name": "UEFA Champions League Women",
+      "home_team_id": 1419401,
+      "home_team_name": "Paris Saint-Germain Women",
+      "away_team_id": 1583644,
+      "away_team_name": "Bayern Munich Women",
+      "date": "2026-11-10T20:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 447559,
+      "league_name": "UEFA Champions League Women",
+      "home_team_id": 6411367,
+      "home_team_name": "Inter Milan Women",
+      "away_team_id": 1578538,
+      "away_team_name": "Manchester City Women",
+      "date": "2026-11-10T20:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 447559,
+      "league_name": "UEFA Champions League Women",
+      "home_team_id": 1610876,
+      "home_team_name": "Roma Women",
+      "away_team_id": 13232132,
+      "away_team_name": "Servette Chênois Women",
+      "date": "2026-11-10T20:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 567550,
+      "league_name": "Friendlies Women",
+      "home_team_id": 16522949,
+      "home_team_name": "Congo Women",
+      "away_team_id": 24278112,
+      "away_team_name": "Central Africa Women",
+      "date": "2026-11-10T12:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 1014325,
+      "league_name": "UEFA Women’s Champions League",
+      "home_team_id": 17456496,
+      "home_team_name": "Torreense Women",
+      "away_team_id": 9297959,
+      "away_team_name": "Sparta Praha Women",
+      "date": "2026-11-10T17:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 1014325,
+      "league_name": "UEFA Women’s Champions League",
+      "home_team_id": 18465782,
+      "home_team_name": "Malmö FF Women",
+      "away_team_id": 1615982,
+      "away_team_name": "Ajax Women",
+      "date": "2026-11-10T17:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 1014325,
+      "league_name": "UEFA Women’s Champions League",
+      "home_team_id": 13301914,
+      "home_team_name": "Hammarby",
+      "away_team_id": 13601466,
+      "away_team_name": "Spartak Myjava Women",
+      "date": "2026-11-10T17:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 1014325,
+      "league_name": "UEFA Women’s Champions League",
+      "home_team_id": 14342687,
+      "home_team_name": "Feyenoord Women",
+      "away_team_id": 1586197,
+      "away_team_name": "VfL Wolfsburg Women",
+      "date": "2026-11-10T17:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 1014325,
+      "league_name": "UEFA Women’s Champions League",
+      "home_team_id": 23716452,
+      "home_team_name": "Fenerbahce Women",
+      "away_team_id": 1627896,
+      "away_team_name": "Real Sociedad Women",
+      "date": "2026-11-10T17:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 1014325,
+      "league_name": "UEFA Women’s Champions League",
+      "home_team_id": 11926698,
+      "home_team_name": "Eintracht Frankfurt Women",
+      "away_team_id": 1613429,
+      "away_team_name": "PSV Eindhoven Women",
+      "date": "2026-11-10T17:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 1014325,
+      "league_name": "UEFA Women’s Champions League",
+      "home_team_id": 14329922,
+      "home_team_name": "Czarni Sosnowiec Women",
+      "away_team_id": 15642164,
+      "away_team_name": "Brann Women",
+      "date": "2026-11-10T17:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 1014325,
+      "league_name": "UEFA Women’s Champions League",
+      "home_team_id": 9262217,
+      "home_team_name": "Brøndby",
+      "away_team_id": 13579340,
+      "away_team_name": "Rosenborg Women",
+      "date": "2026-11-10T17:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    }
+  ],
+  "top_matches": [
+    {
+      "league_id": 39930,
+      "league_name": "EFL Trophy",
+      "home_team_id": 1138571,
+      "home_team_name": "Northampton Town FC",
+      "away_team_id": 1147081,
+      "away_team_name": "Gillingham",
+      "date": "2026-11-10T19:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 39930,
+      "league_name": "EFL Trophy",
+      "home_team_id": 1165803,
+      "home_team_name": "Barnet",
+      "away_team_id": 1169207,
+      "away_team_name": "Leyton Orient",
+      "date": "2026-11-10T19:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 39930,
+      "league_name": "EFL Trophy",
+      "home_team_id": 1155591,
+      "home_team_name": "Plymouth",
+      "away_team_id": 1152187,
+      "away_team_name": "Swindon Town",
+      "date": "2026-11-10T19:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 39930,
+      "league_name": "EFL Trophy",
+      "home_team_id": 1136018,
+      "home_team_name": "Bristol Rovers",
+      "away_team_id": 45887,
+      "away_team_name": "Reading FC",
+      "date": "2026-11-10T19:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 39930,
+      "league_name": "EFL Trophy",
+      "home_team_id": 1164952,
+      "home_team_name": "Stevenage",
+      "away_team_id": 6122878,
+      "away_team_name": "Fulham U21",
+      "date": "2026-11-10T19:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 39930,
+      "league_name": "EFL Trophy",
+      "home_team_id": 39930,
+      "home_team_name": "Leicester",
+      "away_team_id": 1142826,
+      "away_team_name": "Walsall",
+      "date": "2026-11-10T19:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 39930,
+      "league_name": "EFL Trophy",
+      "home_team_id": 1139422,
+      "home_team_name": "Oxford United",
+      "away_team_id": 1168356,
+      "away_team_name": "Cheltenham",
+      "date": "2026-11-10T19:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 39930,
+      "league_name": "EFL Trophy",
+      "home_team_id": 32271,
+      "home_team_name": "Huddersfield",
+      "away_team_id": 6124580,
+      "away_team_name": "Liverpool U21",
+      "date": "2026-11-10T19:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 39930,
+      "league_name": "EFL Trophy",
+      "home_team_id": 636481,
+      "home_team_name": "Barnsley",
+      "away_team_id": 1148783,
+      "away_team_name": "Oldham",
+      "date": "2026-11-10T19:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 39930,
+      "league_name": "EFL Trophy",
+      "home_team_id": 1162399,
+      "home_team_name": "Grimsby",
+      "away_team_id": 16804630,
+      "away_team_name": "Nottingham Forest U21",
+      "date": "2026-11-10T19:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 39930,
+      "league_name": "EFL Trophy",
+      "home_team_id": 637332,
+      "home_team_name": "Burton Albion",
+      "away_team_id": 1171760,
+      "away_team_name": "Notts County",
+      "date": "2026-11-10T19:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 39930,
+      "league_name": "EFL Trophy",
+      "home_team_id": 3988570,
+      "home_team_name": "Stockport County",
+      "away_team_id": 1176015,
+      "away_team_name": "Tranmere Rovers",
+      "date": "2026-11-10T19:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 39930,
+      "league_name": "EFL Trophy",
+      "home_team_id": 1170058,
+      "home_team_name": "Mansfield Town FC",
+      "away_team_id": 1145379,
+      "away_team_name": "Chesterfield",
+      "date": "2026-11-10T19:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 39930,
+      "league_name": "EFL Trophy",
+      "home_team_id": 1160697,
+      "home_team_name": "Crewe",
+      "away_team_id": 52695,
+      "away_team_name": "Wigan",
+      "date": "2026-11-10T19:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 39930,
+      "league_name": "EFL Trophy",
+      "home_team_id": 63758,
+      "home_team_name": "Sheffield Wednesday FC",
+      "away_team_id": 1158144,
+      "away_team_name": "Accrington ST",
+      "date": "2026-11-10T19:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 39930,
+      "league_name": "EFL Trophy",
+      "home_team_id": 1159846,
+      "home_team_name": "Crawley Town",
+      "away_team_id": 17088013,
+      "away_team_name": "Brentford U21",
+      "date": "2026-11-10T19:30:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 39930,
+      "league_name": "EFL Trophy",
+      "home_team_id": 1559816,
+      "home_team_name": "Bromley",
+      "away_team_id": 1147932,
+      "away_team_name": "Milton Keynes Dons",
+      "date": "2026-11-10T19:30:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 39930,
+      "league_name": "EFL Trophy",
+      "home_team_id": 1143677,
+      "home_team_name": "Bradford",
+      "away_team_id": 1556412,
+      "away_team_name": "York",
+      "date": "2026-11-10T19:30:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 39930,
+      "league_name": "EFL Trophy",
+      "home_team_id": 1158995,
+      "home_team_name": "Colchester",
+      "away_team_id": 17100778,
+      "away_team_name": "Ipswich Town U21",
+      "date": "2026-11-10T19:45:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    }
+  ],
+  "reserve": [
+    {
+      "league_id": 122477,
+      "league_name": "Copa del Rey",
+      "home_team_id": 24181949,
+      "home_team_name": "Tavernes",
+      "away_team_id": 453516,
+      "away_team_name": "Valencia",
+      "date": "2026-11-10T20:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "strong"
+    },
+    {
+      "league_id": 122477,
+      "league_name": "Copa del Rey",
+      "home_team_id": 8386538,
+      "home_team_name": "Pamplona",
+      "away_team_id": 464579,
+      "away_team_name": "Eibar",
+      "date": "2026-11-10T18:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 122477,
+      "league_name": "Copa del Rey",
+      "home_team_id": 13055124,
+      "home_team_name": "Anaitasuna",
+      "away_team_id": 462026,
+      "away_team_name": "Alavés",
+      "date": "2026-11-10T18:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 122477,
+      "league_name": "Copa del Rey",
+      "home_team_id": 8270802,
+      "home_team_name": "Trival Valderas",
+      "away_team_id": 457771,
+      "away_team_name": "Leganes",
+      "date": "2026-11-10T19:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 122477,
+      "league_name": "Copa del Rey",
+      "home_team_id": 19207003,
+      "home_team_name": "Mijas Las Lagunas",
+      "away_team_id": 4488958,
+      "away_team_name": "Real Jaén",
+      "date": "2026-11-10T19:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 122477,
+      "league_name": "Copa del Rey",
+      "home_team_id": 7983164,
+      "home_team_name": "Amorebieta",
+      "away_team_id": 4494064,
+      "away_team_name": "UD Logroñés",
+      "date": "2026-11-10T19:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 139497,
+      "league_name": "Liga de Ascenso",
+      "home_team_id": 1750440,
+      "home_team_name": "Aserri FC",
+      "away_team_id": 22418677,
+      "away_team_name": "Pitbulls Santa Barbara FC",
+      "date": "2026-11-10T01:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 205024,
+      "league_name": "Primera B",
+      "home_team_id": 961563,
+      "home_team_name": "Envigado",
+      "away_team_id": 1243244,
+      "away_team_name": "Popayan",
+      "date": "2026-11-10T20:30:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 215236,
+      "league_name": "Division Profesional - Clausura",
+      "home_team_id": 1007517,
+      "home_team_name": "Sportivo Luqueño",
+      "away_team_id": 1821924,
+      "away_team_name": "2 de Mayo",
+      "date": "2026-11-09T22:30:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 229703,
+      "league_name": "Segunda División",
+      "home_team_id": 2023611,
+      "home_team_name": "Sportivo Huracán",
+      "away_team_id": 2001485,
+      "away_team_name": "River Plate",
+      "date": "2026-11-10T19:30:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 242468,
+      "league_name": "Liga II",
+      "home_team_id": 5851409,
+      "home_team_name": "Metalul Buzău",
+      "away_team_id": 6354350,
+      "away_team_name": "CSA Steaua București",
+      "date": "2026-11-10T17:30:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 274806,
+      "league_name": "Premier League",
+      "home_team_id": 17528831,
+      "home_team_name": "Chapelton",
+      "away_team_id": 21292804,
+      "away_team_name": "Racing United",
+      "date": "2026-11-09T22:05:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 274806,
+      "league_name": "Premier League",
+      "home_team_id": 2924820,
+      "home_team_name": "Arnett Gardens",
+      "away_team_id": 2934181,
+      "away_team_name": "Waterhouse",
+      "date": "2026-11-10T01:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    }
+  ],
+  "national": [],
+  "widget_targets": {
+    "top_events": 24,
+    "top_matches": 12
+  }
+}
