@@ -18,9 +18,6 @@ python -u match_report.py
 ---
 
 ## Только списки: `--lists-only`
-
-sb-support-toolbox заполняет купоны и на даты, которые бот не публикует (послезавтра и дальше). Списки на них он добывает этим же скриптом:
-
 ```bash
 python -u match_report.py --lists-only --start 2026-09-25 --end 2026-09-27 --out ../sb-support-toolbox/data
 ```
