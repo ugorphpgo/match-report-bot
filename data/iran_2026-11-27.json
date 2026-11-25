@@ -1,0 +1,530 @@
+{
+  "top_events": [
+    {
+      "league_id": 247574,
+      "league_name": "Persian Gulf Pro League",
+      "home_team_id": 2301037,
+      "home_team_name": "Aluminium Arak",
+      "away_team_id": 2334226,
+      "away_team_name": "Persepolis",
+      "date": "2026-11-27T12:45:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "top"
+    },
+    {
+      "league_id": 247574,
+      "league_name": "Persian Gulf Pro League",
+      "home_team_id": 15454093,
+      "home_team_name": "Shams Azar Qazvin",
+      "away_team_id": 2312100,
+      "away_team_name": "Kheybar Khorramabad",
+      "date": "2026-11-27T11:30:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 247574,
+      "league_name": "Persian Gulf Pro League",
+      "home_team_id": 2333375,
+      "home_team_name": "Paykan",
+      "away_team_id": 2327418,
+      "away_team_name": "Foolad FC",
+      "date": "2026-11-27T11:30:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 247574,
+      "league_name": "Persian Gulf Pro League",
+      "home_team_id": 2331673,
+      "home_team_name": "Esteghlal Khuzestan",
+      "away_team_id": 2312951,
+      "away_team_name": "Malavan Bandar Anzali",
+      "date": "2026-11-27T13:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 33973,
+      "league_name": "Premier League",
+      "home_team_id": 56099,
+      "home_team_name": "Nottingham Forest",
+      "away_team_id": 42483,
+      "away_team_name": "Chelsea",
+      "date": "2026-11-27T20:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "top"
+    },
+    {
+      "league_id": 119924,
+      "league_name": "La Liga",
+      "home_team_id": 459473,
+      "home_team_name": "Levante",
+      "away_team_id": 3970699,
+      "away_team_name": "Racing Santander",
+      "date": "2026-11-27T20:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 67162,
+      "league_name": "Bundesliga",
+      "home_team_id": 138646,
+      "home_team_name": "Werder Bremen",
+      "away_team_id": 139497,
+      "away_team_name": "Borussia Mönchengladbach",
+      "date": "2026-11-27T19:30:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 115669,
+      "league_name": "Serie A",
+      "home_team_id": 440751,
+      "home_team_name": "Venezia",
+      "away_team_id": 426284,
+      "away_team_name": "Bologna",
+      "date": "2026-11-27T19:45:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 52695,
+      "league_name": "Ligue 1",
+      "home_team_id": 90990,
+      "home_team_name": "Stade Brestois 29",
+      "away_team_id": 97798,
+      "away_team_name": "Paris FC",
+      "date": "2026-11-27T19:45:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 75672,
+      "league_name": "Eredivisie",
+      "home_team_id": 172686,
+      "home_team_name": "Groningen",
+      "away_team_id": 166729,
+      "away_team_name": "Willem II",
+      "date": "2026-11-27T19:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 173537,
+      "league_name": "Süper Lig",
+      "home_team_id": 857741,
+      "home_team_name": "Rizespor",
+      "away_team_id": 855188,
+      "away_team_name": "Kasımpaşa",
+      "date": "2026-11-27T17:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 173537,
+      "league_name": "Süper Lig",
+      "home_team_id": 848380,
+      "home_team_name": "Alanyaspor",
+      "away_team_id": 517341,
+      "away_team_name": "Konyaspor",
+      "date": "2026-11-27T17:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 61205,
+      "league_name": "Serie A",
+      "home_team_id": 108010,
+      "home_team_name": "São Paulo FC",
+      "away_team_id": 1020282,
+      "away_team_name": "Remo",
+      "date": "2026-11-26T23:00:00.000Z",
+      "home_tier": "top",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 223746,
+      "league_name": "Liga MX",
+      "home_team_id": 1951276,
+      "home_team_name": "Pachuca",
+      "away_team_id": 1939362,
+      "away_team_name": "Guadalajara Chivas",
+      "date": "2026-11-27T01:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "top"
+    },
+    {
+      "league_id": 223746,
+      "league_name": "Liga MX",
+      "home_team_id": 1948723,
+      "home_team_name": "León FC",
+      "away_team_id": 1953829,
+      "away_team_name": "Cruz Azul",
+      "date": "2026-11-27T03:10:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "strong"
+    },
+    {
+      "league_id": 262041,
+      "league_name": "Pro League",
+      "home_team_id": 2501022,
+      "home_team_name": "Al-Ittihad FC",
+      "away_team_id": 8947347,
+      "away_team_name": "NEOM SC",
+      "date": "2026-11-27T17:30:00.000Z",
+      "home_tier": "strong",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 262041,
+      "league_name": "Pro League",
+      "home_team_id": 8943943,
+      "home_team_name": "Al Kholood",
+      "away_team_id": 2492512,
+      "away_team_name": "Al Khaleej Saihat",
+      "date": "2026-11-27T12:15:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 262041,
+      "league_name": "Pro League",
+      "home_team_id": 2496767,
+      "home_team_name": "Al-Qadisiyah",
+      "away_team_id": 2506128,
+      "away_team_name": "Al-Fayha FC",
+      "date": "2026-11-27T14:20:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 260339,
+      "league_name": "Stars League",
+      "home_team_id": 2466982,
+      "home_team_name": "Al Sailiya SC",
+      "away_team_id": 2471237,
+      "away_team_name": "Al-Gharafa",
+      "date": "2026-11-27T13:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 260339,
+      "league_name": "Stars League",
+      "home_team_id": 6406261,
+      "home_team_name": "Lusail City",
+      "away_team_id": 2472939,
+      "away_team_name": "Al-Arabi SC",
+      "date": "2026-11-27T15:30:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 123328,
+      "league_name": "Jupiler Pro League",
+      "home_team_id": 222044,
+      "home_team_name": "OH Leuven",
+      "away_team_id": 625418,
+      "away_team_name": "Kortrijk",
+      "date": "2026-11-27T19:45:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 80778,
+      "league_name": "Primeira Liga",
+      "home_team_id": 182898,
+      "home_team_name": "Marítimo",
+      "away_team_id": 192259,
+      "away_team_name": "Nacional",
+      "date": "2026-11-27T20:15:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 17804,
+      "league_name": "CAF Confederation Cup",
+      "home_team_id": 6857291,
+      "home_team_name": "Azam",
+      "away_team_id": 10573608,
+      "away_team_name": "Al Ahli Tripoli",
+      "date": "2026-11-27T13:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 17804,
+      "league_name": "CAF Confederation Cup",
+      "home_team_id": 770088,
+      "home_team_name": "CR Belouizdad",
+      "away_team_id": 15254108,
+      "away_team_name": "AC Douane",
+      "date": "2026-11-27T19:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    }
+  ],
+  "top_matches": [
+    {
+      "league_id": 160772,
+      "league_name": "A-League",
+      "home_team_id": 13233834,
+      "home_team_name": "Macarthur FC",
+      "away_team_id": 804979,
+      "away_team_name": "Melbourne City",
+      "date": "2026-11-27T08:40:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 284167,
+      "league_name": "Premier League",
+      "home_team_id": 14605646,
+      "home_team_name": "Livyi Bereh",
+      "away_team_id": 3087361,
+      "away_team_name": "Kolos Kovalivka",
+      "date": "2026-11-27T11:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 186302,
+      "league_name": "Bundesliga",
+      "home_team_id": 3622640,
+      "home_team_name": "Grazer AK",
+      "away_team_id": 526702,
+      "away_team_name": "SCR Altach",
+      "date": "2026-11-27T18:30:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 90990,
+      "league_name": "Ekstraklasa",
+      "home_team_id": 2971625,
+      "home_team_name": "Raków Częstochowa",
+      "away_team_id": 297783,
+      "away_team_name": "Piast Gliwice",
+      "date": "2026-11-27T17:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 90990,
+      "league_name": "Ekstraklasa",
+      "home_team_id": 290124,
+      "home_team_name": "Gornik Zabrze",
+      "away_team_id": 290975,
+      "away_team_name": "Wisla Plock",
+      "date": "2026-11-27T19:30:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 294379,
+      "league_name": "Czech Liga",
+      "home_team_id": 3623491,
+      "home_team_name": "Artis Brno",
+      "away_team_id": 3165653,
+      "away_team_name": "Slovácko",
+      "date": "2026-11-27T17:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 318207,
+      "league_name": "1. SNL",
+      "home_team_id": 3726462,
+      "home_team_name": "Radomlje",
+      "away_team_id": 3724760,
+      "away_team_name": "Nafta",
+      "date": "2026-11-27T17:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 179494,
+      "league_name": "HNL",
+      "home_team_id": 865400,
+      "home_team_name": "Istra 1961",
+      "away_team_id": 1262817,
+      "away_team_name": "NK Varaždin",
+      "date": "2026-11-27T17:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 244170,
+      "league_name": "Super Liga",
+      "home_team_id": 10481700,
+      "home_team_name": "IMT Novi Beograd",
+      "away_team_id": 2244871,
+      "away_team_name": "Macva",
+      "date": "2026-11-27T16:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 241617,
+      "league_name": "Liga I",
+      "home_team_id": 2212533,
+      "home_team_name": "Universitatea Cluj",
+      "away_team_id": 2200619,
+      "away_team_name": "Sepsi OSK Sfântu Gheorghe",
+      "date": "2026-11-27T15:30:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 241617,
+      "league_name": "Liga I",
+      "home_team_id": 2211682,
+      "home_team_name": "Petrolul Ploiești",
+      "away_team_id": 2206576,
+      "away_team_name": "Argeș Pitești",
+      "date": "2026-11-27T18:30:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 314803,
+      "league_name": "Super League",
+      "home_team_id": 3585196,
+      "home_team_name": "Kokand-1912",
+      "away_team_id": 13941015,
+      "away_team_name": "Xorazm",
+      "date": "2026-11-27T12:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 314803,
+      "league_name": "Super League",
+      "home_team_id": 3584345,
+      "home_team_name": "Buxoro",
+      "away_team_id": 3586047,
+      "away_team_name": "Mash'al",
+      "date": "2026-11-27T12:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    }
+  ],
+  "reserve": [
+    {
+      "league_id": 462026,
+      "league_name": "Iraqi League",
+      "home_team_id": 9418801,
+      "home_team_name": "Al-Talaba",
+      "away_team_id": 9417099,
+      "away_team_name": "Al Minaa Basra",
+      "date": "2026-11-27T13:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 462026,
+      "league_name": "Iraqi League",
+      "home_team_id": 13231281,
+      "home_team_name": "Zakho",
+      "away_team_id": 17415648,
+      "away_team_name": "Karbala",
+      "date": "2026-11-27T13:30:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 462026,
+      "league_name": "Iraqi League",
+      "home_team_id": 24018557,
+      "home_team_name": "Ghaz Al Shamal",
+      "away_team_id": 21329397,
+      "away_team_name": "Al-Karma",
+      "date": "2026-11-27T15:30:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 462026,
+      "league_name": "Iraqi League",
+      "home_team_id": 22637384,
+      "home_team_name": "Gharraf",
+      "away_team_id": 22635682,
+      "away_team_name": "Mosul",
+      "date": "2026-11-27T16:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 357353,
+      "league_name": "Azerbaijan Premier League",
+      "home_team_id": 4740854,
+      "home_team_name": "Mil-Muğan",
+      "away_team_id": 21546402,
+      "away_team_name": "Safa Baku",
+      "date": "2026-11-27T10:30:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 357353,
+      "league_name": "Azerbaijan Premier League",
+      "home_team_id": 1932554,
+      "home_team_name": "Neftchi Baku",
+      "away_team_id": 552232,
+      "away_team_name": "Zira",
+      "date": "2026-11-27T15:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 330121,
+      "league_name": "League",
+      "home_team_id": 3863473,
+      "home_team_name": "Shabab Al Ordon",
+      "away_team_id": 3860069,
+      "away_team_name": "Al Salt SC",
+      "date": "2026-11-27T14:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 330121,
+      "league_name": "League",
+      "home_team_id": 3861771,
+      "home_team_name": "Al Wihdat",
+      "away_team_id": 18882772,
+      "away_team_name": "Doqarah",
+      "date": "2026-11-27T16:30:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 147156,
+      "league_name": "First League",
+      "home_team_id": 1205800,
+      "home_team_name": "Lokomotiv Sofia",
+      "away_team_id": 727538,
+      "away_team_name": "Slavia Sofia",
+      "date": "2026-11-27T16:30:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 291826,
+      "league_name": "Premier League",
+      "home_team_id": 17094821,
+      "home_team_name": "Syunik",
+      "away_team_id": 5350170,
+      "away_team_name": "Van",
+      "date": "2026-11-27T11:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    }
+  ],
+  "national": [],
+  "widget_targets": {
+    "top_events": 24,
+    "top_matches": 12
+  }
+}
