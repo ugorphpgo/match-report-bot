@@ -1,0 +1,523 @@
+{
+  "top_events": [
+    {
+      "league_id": 10996,
+      "league_name": "CAF Champions League",
+      "home_team_id": 885824,
+      "home_team_name": "Zamalek SC",
+      "away_team_id": 841572,
+      "away_team_name": "Club Africain",
+      "date": "2026-11-28T16:00:00.000Z",
+      "home_tier": "top",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 10996,
+      "league_name": "CAF Champions League",
+      "home_team_id": 4570654,
+      "home_team_name": "Young Africans",
+      "away_team_id": 771790,
+      "away_team_name": "MC Alger",
+      "date": "2026-11-28T13:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 10996,
+      "league_name": "CAF Champions League",
+      "home_team_id": 882420,
+      "home_team_name": "Al Assiouty Sport",
+      "away_team_id": 2939287,
+      "away_team_name": "Maghreb de Fès",
+      "date": "2026-11-28T16:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 10996,
+      "league_name": "CAF Champions League",
+      "home_team_id": 834764,
+      "home_team_name": "ES Tunis",
+      "away_team_id": 5432717,
+      "away_team_name": "Wiliete",
+      "date": "2026-11-28T16:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 10996,
+      "league_name": "CAF Champions League",
+      "home_team_id": 819446,
+      "home_team_name": "Renaissance Berkane",
+      "away_team_id": 4596184,
+      "away_team_name": "Colombe",
+      "date": "2026-11-28T19:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 340333,
+      "league_name": "NPFL",
+      "home_team_id": 4417474,
+      "home_team_name": "Plateau United",
+      "away_team_id": 20860496,
+      "away_team_name": "Ikorodu City",
+      "date": "2026-11-28T15:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 340333,
+      "league_name": "NPFL",
+      "home_team_id": 17709243,
+      "home_team_name": "Doma United",
+      "away_team_id": 4405560,
+      "away_team_name": "Enugu Rangers",
+      "date": "2026-11-28T15:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 33973,
+      "league_name": "Premier League",
+      "home_team_id": 28867,
+      "home_team_name": "Manchester United",
+      "away_team_id": 47589,
+      "away_team_name": "Brentford",
+      "date": "2026-11-28T15:00:00.000Z",
+      "home_tier": "top",
+      "away_tier": "strong",
+      "top": true,
+      "top_reason": "pair"
+    },
+    {
+      "league_id": 33973,
+      "league_name": "Premier League",
+      "home_team_id": 49291,
+      "home_team_name": "Ipswich",
+      "away_team_id": 56950,
+      "away_team_name": "Aston Villa",
+      "date": "2026-11-28T17:30:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "strong"
+    },
+    {
+      "league_id": 33973,
+      "league_name": "Premier League",
+      "home_team_id": 54397,
+      "home_team_name": "Leeds",
+      "away_team_id": 1146230,
+      "away_team_name": "Coventry",
+      "date": "2026-11-28T15:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 119924,
+      "league_name": "La Liga",
+      "home_team_id": 679031,
+      "home_team_name": "Elche",
+      "away_team_id": 451814,
+      "away_team_name": "Atlético Madrid",
+      "date": "2026-11-28T17:30:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "top"
+    },
+    {
+      "league_id": 119924,
+      "league_name": "La Liga",
+      "home_team_id": 461175,
+      "home_team_name": "Real Madrid",
+      "away_team_id": 462026,
+      "away_team_name": "Alavés",
+      "date": "2026-11-28T20:00:00.000Z",
+      "home_tier": "top",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 119924,
+      "league_name": "La Liga",
+      "home_team_id": 462877,
+      "home_team_name": "Real Betis",
+      "away_team_id": 620312,
+      "away_team_name": "Rayo Vallecano",
+      "date": "2026-11-28T13:00:00.000Z",
+      "home_tier": "strong",
+      "away_tier": "strong"
+    },
+    {
+      "league_id": 119924,
+      "league_name": "La Liga",
+      "home_team_id": 456069,
+      "home_team_name": "Malaga",
+      "away_team_id": 452665,
+      "away_team_name": "Athletic Club",
+      "date": "2026-11-28T15:15:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "strong"
+    },
+    {
+      "league_id": 67162,
+      "league_name": "Bundesliga",
+      "home_team_id": 149709,
+      "home_team_name": "Hamburger SV",
+      "away_team_id": 134391,
+      "away_team_name": "Bayern Munich",
+      "date": "2026-11-28T14:30:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "top"
+    },
+    {
+      "league_id": 67162,
+      "league_name": "Bundesliga",
+      "home_team_id": 147156,
+      "home_team_name": "VfB Stuttgart",
+      "away_team_id": 144603,
+      "away_team_name": "Eintracht Frankfurt",
+      "date": "2026-11-28T17:30:00.000Z",
+      "home_tier": "strong",
+      "away_tier": "strong"
+    },
+    {
+      "league_id": 67162,
+      "league_name": "Bundesliga",
+      "home_team_id": 158219,
+      "home_team_name": "SC Paderborn 07",
+      "away_team_id": 148858,
+      "away_team_name": "FC Schalke 04",
+      "date": "2026-11-28T14:30:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 67162,
+      "league_name": "Bundesliga",
+      "home_team_id": 164176,
+      "home_team_name": "FC Koln",
+      "away_team_id": 1413444,
+      "away_team_name": "SV Elversberg",
+      "date": "2026-11-28T14:30:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 67162,
+      "league_name": "Bundesliga",
+      "home_team_id": 140348,
+      "home_team_name": "FSV Mainz 05",
+      "away_team_id": 155666,
+      "away_team_name": "Union Berlin",
+      "date": "2026-11-28T14:30:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 115669,
+      "league_name": "Serie A",
+      "home_team_id": 430539,
+      "home_team_name": "Inter",
+      "away_team_id": 422029,
+      "away_team_name": "Genoa",
+      "date": "2026-11-28T19:45:00.000Z",
+      "home_tier": "top",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 115669,
+      "league_name": "Serie A",
+      "home_team_id": 428837,
+      "home_team_name": "Torino",
+      "away_team_id": 415221,
+      "away_team_name": "Lazio",
+      "date": "2026-11-28T17:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "strong"
+    },
+    {
+      "league_id": 115669,
+      "league_name": "Serie A",
+      "home_team_id": 436496,
+      "home_team_name": "Frosinone",
+      "away_team_id": 445857,
+      "away_team_name": "Parma",
+      "date": "2026-11-28T14:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    }
+  ],
+  "top_matches": [
+    {
+      "league_id": 52695,
+      "league_name": "Ligue 1",
+      "home_team_id": 73119,
+      "home_team_name": "Paris Saint Germain",
+      "away_team_id": 83331,
+      "away_team_name": "Lorient",
+      "date": "2026-11-28T19:45:00.000Z",
+      "home_tier": "top",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 52695,
+      "league_name": "Ligue 1",
+      "home_team_id": 66311,
+      "home_team_name": "Angers",
+      "away_team_id": 99500,
+      "away_team_name": "Lens",
+      "date": "2026-11-28T16:15:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "strong"
+    },
+    {
+      "league_id": 52695,
+      "league_name": "Ligue 1",
+      "home_team_id": 1105382,
+      "home_team_name": "Le Mans",
+      "away_team_id": 68013,
+      "away_team_name": "Lille",
+      "date": "2026-11-28T19:45:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "strong"
+    },
+    {
+      "league_id": 52695,
+      "league_name": "Ligue 1",
+      "home_team_id": 95245,
+      "home_team_name": "LE Havre AC",
+      "away_team_id": 81629,
+      "away_team_name": "Strasbourg",
+      "date": "2026-11-28T19:45:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "strong"
+    },
+    {
+      "league_id": 52695,
+      "league_name": "Ligue 1",
+      "home_team_id": 72268,
+      "home_team_name": "Nice",
+      "away_team_id": 94394,
+      "away_team_name": "Estac Troyes",
+      "date": "2026-11-28T19:45:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 11847,
+      "league_name": "CONMEBOL Libertadores",
+      "home_team_id": 103755,
+      "home_team_name": "Palmeiras",
+      "away_team_id": 383734,
+      "away_team_name": "Estudiantes de La Plata",
+      "date": "2026-11-28T20:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 75672,
+      "league_name": "Eredivisie",
+      "home_team_id": 168431,
+      "home_team_name": "PSV Eindhoven",
+      "away_team_id": 349694,
+      "away_team_name": "GO Ahead Eagles",
+      "date": "2026-11-28T17:45:00.000Z",
+      "home_tier": "top",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 75672,
+      "league_name": "Eredivisie",
+      "home_team_id": 167580,
+      "home_team_name": "Excelsior",
+      "away_team_id": 364161,
+      "away_team_name": "Telstar",
+      "date": "2026-11-28T15:30:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 75672,
+      "league_name": "Eredivisie",
+      "home_team_id": 358204,
+      "home_team_name": "Cambuur",
+      "away_team_id": 363310,
+      "away_team_name": "Sparta Rotterdam",
+      "date": "2026-11-28T20:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 173537,
+      "league_name": "Süper Lig",
+      "home_team_id": 3066937,
+      "home_team_name": "Samsunspor",
+      "away_team_id": 849231,
+      "away_team_name": "Genclerbirligi",
+      "date": "2026-11-28T13:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 173537,
+      "league_name": "Süper Lig",
+      "home_team_id": 3041407,
+      "home_team_name": "Gazişehir Gaziantep",
+      "away_team_id": 3046513,
+      "away_team_name": "Amed",
+      "date": "2026-11-28T16:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 61205,
+      "league_name": "Serie A",
+      "home_team_id": 106308,
+      "home_team_name": "Fluminense",
+      "away_team_id": 115669,
+      "away_team_name": "Cruzeiro",
+      "date": "2026-11-27T23:00:00.000Z",
+      "home_tier": "strong",
+      "away_tier": "strong"
+    }
+  ],
+  "reserve": [
+    {
+      "league_id": 17804,
+      "league_name": "CAF Confederation Cup",
+      "home_team_id": 831360,
+      "home_team_name": "Raja Casablanca",
+      "away_team_id": 5467608,
+      "away_team_name": "Kara",
+      "date": "2026-11-28T19:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 17804,
+      "league_name": "CAF Confederation Cup",
+      "home_team_id": 825403,
+      "home_team_name": "FAR Rabat",
+      "away_team_id": 21068991,
+      "away_team_name": "Durban City",
+      "date": "2026-11-28T19:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 216087,
+      "league_name": "Major League Soccer",
+      "home_team_id": 1373447,
+      "home_team_name": "Columbus Crew",
+      "away_team_id": 8143152,
+      "away_team_name": "Inter Miami",
+      "date": "2026-11-28T01:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "top"
+    },
+    {
+      "league_id": 216087,
+      "league_name": "Major League Soccer",
+      "home_team_id": 1367490,
+      "home_team_name": "Real Salt Lake",
+      "away_team_id": 1364937,
+      "away_team_name": "Vancouver Whitecaps",
+      "date": "2026-11-28T03:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 216087,
+      "league_name": "Major League Soccer",
+      "home_team_id": 15582594,
+      "home_team_name": "Charlotte",
+      "away_team_id": 1368341,
+      "away_team_name": "Chicago Fire",
+      "date": "2026-11-28T17:30:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 216087,
+      "league_name": "Major League Soccer",
+      "home_team_id": 1362384,
+      "home_team_name": "Houston Dynamo",
+      "away_team_id": 1358980,
+      "away_team_name": "San Jose Earthquakes",
+      "date": "2026-11-28T19:30:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 200769,
+      "league_name": "Premier League",
+      "home_team_id": 473089,
+      "home_team_name": "CSKA Moscow",
+      "away_team_id": 507980,
+      "away_team_name": "Zenit Saint Petersburg",
+      "date": "2026-11-28T13:30:00.000Z",
+      "home_tier": "top",
+      "away_tier": "top",
+      "top": true,
+      "top_reason": "pair"
+    },
+    {
+      "league_id": 170984,
+      "league_name": "Botola Pro",
+      "home_team_id": 18908302,
+      "home_team_name": "CODM Meknès",
+      "away_team_id": 2935883,
+      "away_team_name": "CR Khemis Zemamra",
+      "date": "2026-11-28T16:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 123328,
+      "league_name": "Jupiler Pro League",
+      "home_team_id": 222895,
+      "home_team_name": "KVC Westerlo",
+      "away_team_id": 5023386,
+      "away_team_name": "RAAL La Louvière",
+      "date": "2026-11-28T15:00:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 123328,
+      "league_name": "Jupiler Pro League",
+      "home_team_id": 631375,
+      "home_team_name": "Cercle Brugge",
+      "away_team_id": 227150,
+      "away_team_name": "KV Mechelen",
+      "date": "2026-11-28T17:15:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 123328,
+      "league_name": "Jupiler Pro League",
+      "home_team_id": 221193,
+      "home_team_name": "Lommel United",
+      "away_team_id": 511384,
+      "away_team_name": "Zulte Waregem",
+      "date": "2026-11-28T19:45:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    },
+    {
+      "league_id": 123328,
+      "league_name": "Jupiler Pro League",
+      "home_team_id": 627120,
+      "home_team_name": "Charleroi",
+      "away_team_id": 628822,
+      "away_team_name": "Waasland-Beveren",
+      "date": "2026-11-28T19:45:00.000Z",
+      "home_tier": "regular",
+      "away_tier": "regular"
+    }
+  ],
+  "national": [],
+  "widget_targets": {
+    "top_events": 24,
+    "top_matches": 12
+  }
+}
